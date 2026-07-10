@@ -6,221 +6,268 @@
 <title>ConstructIQ&trade; &mdash; Construction Intelligence Platform</title>
 <style>
   :root {
-    --navy:      #0D1B2A;
-    --blue:      #2558A8;
-    --blue-mid:  #3468C0;
-    --orange:    #E05A1A;
-    --gold:      #F5B335;
-    --sky:       #EDF2FB;
-    --sky-mid:   #D8E5F7;
-    --white:     #FFFFFF;
-    --ink:       #0D1B2A;
-    --ink-mid:   #3A4A60;
-    --ink-light: #6A7A90;
-    --rule:      #C8D4E8;
-    --green:     #1A9E5C;
+    --navy:     #0D1B2A;
+    --blue:     #2558A8;
+    --blue-dk:  #1E3F7A;
+    --orange:   #C8471A;
+    --gold:     #C8471A;
+    --sky:      #EEF1F8;
+    --white:    #FFFFFF;
+    --ink:      #0D1B2A;
+    --ink-mid:  #3A4A60;
+    --ink-lt:   #6A7A90;
+    --rule:     #DDE3EE;
+    --green:    #1A7A4C;
+    --tag-blue: #2558A8;
+    --tag-ora:  #C8471A;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--ink); background: var(--white); }
+  body { font-family: Georgia, 'Times New Roman', serif; color: var(--ink); background: var(--white); }
+  .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(37,88,168,0.97); backdrop-filter: blur(8px);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 68px;
+    background: var(--blue); display: flex; align-items: center;
+    justify-content: space-between; padding: 0 48px; height: 60px;
   }
-  .nav-logo { display: flex; align-items: center; text-decoration: none; }
-  .nav-logo img { height: 42px; display: block; }
-  .nav-links { display: flex; align-items: center; gap: 36px; }
-  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+  .nav-logo img { height: 36px; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 36px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+  .nav-links a { color: rgba(255,255,255,0.88); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color .2s; }
   .nav-links a:hover { color: var(--white); }
-  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 9px 22px; border-radius: 6px; font-weight: 600 !important; }
-  .nav-cta:hover { background: #c44e15 !important; }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 8px 20px; border-radius: 5px; font-weight: 600 !important; }
 
   /* HERO */
-  #hero {
-    background: var(--blue);
-    padding: 148px 48px 96px;
-    min-height: 100vh;
-    display: flex; align-items: center;
-  }
+  #hero { background: var(--blue); padding: 144px 48px 88px; min-height: 100vh; display: flex; align-items: center; }
   .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 14px;
-    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 32px;
-  }
-  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 2px; background: var(--gold); flex-shrink: 0; }
-  #hero h1 {
-    font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 1.05;
-    color: var(--white); margin-bottom: 32px; max-width: 760px;
-  }
-  #hero h1 .accent { color: var(--orange); display: block; }
-  .hero-divider { width: 56px; height: 3px; background: var(--gold); margin-bottom: 28px; }
-  #hero p { font-size: 1.1rem; color: rgba(255,255,255,0.82); max-width: 580px; line-height: 1.7; margin-bottom: 40px; }
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
-  .btn-primary { background: var(--orange); color: var(--white); padding: 15px 34px; border-radius: 6px; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: background .2s; }
-  .btn-primary:hover { background: #c44e15; }
-  .btn-outline { border: 2px solid rgba(255,255,255,0.5); color: var(--white); padding: 15px 34px; border-radius: 6px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all .2s; }
-  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
-  .hero-stats { display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 40px; }
-  .hero-stat { padding-right: 48px; border-right: 1px solid rgba(255,255,255,0.15); margin-right: 48px; }
-  .hero-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-  .hero-stat-val { font-size: 2rem; font-weight: 900; color: var(--white); }
-  .hero-stat-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .hero-eyebrow { font-family: -apple-system, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+  .hero-eyebrow::before { content: ''; width: 36px; height: 2px; background: var(--orange); flex-shrink: 0; }
+  #hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; line-height: 1.06; color: var(--white); margin-bottom: 24px; max-width: 720px; }
+  #hero h1 .ora { color: var(--orange); }
+  .hero-rule { width: 48px; height: 3px; background: var(--orange); margin-bottom: 28px; }
+  #hero p { font-family: -apple-system, sans-serif; font-size: 1rem; color: rgba(255,255,255,0.78); max-width: 540px; line-height: 1.72; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
+  .btn-ora { background: var(--orange); color: var(--white); padding: 13px 28px; border-radius: 5px; font-family: -apple-system, sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: background .2s; display: inline-block; }
+  .btn-ora:hover { background: #a83614; }
+  .btn-ghost { border: 1.5px solid rgba(255,255,255,0.48); color: var(--white); padding: 13px 28px; border-radius: 5px; font-family: -apple-system, sans-serif; font-size: 0.92rem; font-weight: 500; text-decoration: none; transition: all .2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.07); }
+  .hero-stats { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 36px; display: flex; gap: 0; }
+  .hstat { padding-right: 44px; margin-right: 44px; border-right: 1px solid rgba(255,255,255,0.14); }
+  .hstat:last-child { border-right: none; }
+  .hstat-val { font-size: 1.9rem; font-weight: 700; color: var(--white); }
+  .hstat-label { font-family: -apple-system, sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.48); margin-top: 5px; }
 
-  /* SECTIONS */
+  /* SECTION SHELLS */
   section { padding: 96px 48px; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
-  .section-title { font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 800; color: var(--navy); margin-bottom: 18px; line-height: 1.15; }
-  .section-subtitle { font-size: 1.05rem; color: var(--ink-mid); max-width: 600px; line-height: 1.7; margin-bottom: 52px; }
+  .sec { max-width: 1100px; margin: 0 auto; }
+  .eyebrow { font-family: -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+  .sec-title { font-size: clamp(1.9rem, 3.2vw, 2.8rem); font-weight: 700; color: var(--ink); margin-bottom: 18px; line-height: 1.1; }
+  .sec-rule { width: 40px; height: 3px; background: var(--orange); margin-bottom: 28px; }
+  .sec-body { font-family: -apple-system, sans-serif; font-size: 0.97rem; color: var(--ink-mid); line-height: 1.72; }
 
-  /* WHAT WE DO */
-  #what { background: var(--sky); }
-  .what-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-  .what-card { background: var(--white); border-radius: 12px; padding: 32px; border: 1px solid var(--rule); transition: box-shadow .2s, transform .2s; }
-  .what-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.09); transform: translateY(-2px); }
-  .what-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--blue); margin-bottom: 16px; opacity: 0.6; }
-  .what-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-  .what-card p { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.65; }
+  /* PLATFORM */
+  #platform { background: var(--sky); }
+  .plat-intro { background: #E4E9F4; border-left: 4px solid var(--blue); border-radius: 4px; padding: 28px 32px; margin-bottom: 40px; font-family: -apple-system, sans-serif; font-size: 0.97rem; color: var(--ink-mid); line-height: 1.72; max-width: 780px; }
+  .plat-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 3px solid var(--orange); }
+  .plat-card { background: var(--white); padding: 36px 28px; border: 1px solid var(--rule); border-top: none; }
+  .plat-icon { width: 40px; height: 40px; margin-bottom: 20px; }
+  .plat-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+  .plat-card p { font-family: -apple-system, sans-serif; font-size: 0.9rem; color: var(--ink-mid); line-height: 1.65; }
 
-  /* REVENUE INTELLIGENCE BRIEF */
+  /* RIB */
   #rib { background: var(--white); }
-  .rib-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-  .rib-mockup { background: var(--navy); border-radius: 16px; padding: 36px; color: var(--white); box-shadow: 0 24px 64px rgba(13,27,42,0.28); }
-  .rib-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
-  .rib-badge { background: var(--blue); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
-  .rib-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; }
-  .rib-sub { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
-  .rib-big-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
-  .rib-big-val { font-size: 2.6rem; font-weight: 900; color: var(--orange); line-height: 1; }
-  .rib-big-sub { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 4px; margin-bottom: 18px; }
-  .rib-verified { display: inline-flex; align-items: center; gap: 6px; background: rgba(26,158,92,0.18); color: #4ade80; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 20px; margin-bottom: 24px; }
-  .rib-rows { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-direction: column; gap: 0; }
-  .rib-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; }
-  .rib-row span:first-child { color: rgba(255,255,255,0.68); }
-  .rib-row span:last-child { color: var(--white); font-weight: 600; font-size: 0.82rem; white-space: nowrap; margin-left: 12px; }
-  .rib-copy p { color: var(--ink-mid); line-height: 1.72; margin-bottom: 18px; font-size: 1rem; }
-  .rib-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
-  .rib-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; color: var(--ink-mid); }
-  .rib-list li::before { content: "\2713"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .rib-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .rib-copy h2 { font-size: 2.4rem; font-weight: 700; color: var(--ink); margin-bottom: 18px; line-height: 1.1; }
+  .rib-copy p { font-family: -apple-system, sans-serif; font-size: 0.97rem; color: var(--ink-mid); line-height: 1.72; margin-bottom: 24px; }
+  .rib-copy h4 { font-family: -apple-system, sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--ink); margin-bottom: 16px; }
+  .rib-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; list-style: none; margin-bottom: 32px; }
+  .rib-features li { font-family: -apple-system, sans-serif; font-size: 0.88rem; color: var(--ink-mid); display: flex; align-items: flex-start; gap: 8px; }
+  .rib-features li::before { content: "\2713"; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .rib-card { background: var(--navy); border-radius: 8px; padding: 28px; color: var(--white); }
+  .rib-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+  .rib-card-title { font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
+  .rib-card-sub { font-family: -apple-system, sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+  .rib-card-tag { font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); padding: 4px 9px; border-radius: 3px; white-space: nowrap; }
+  .rib-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.08); margin-bottom: 20px; }
+  .rib-stat { background: var(--navy); padding: 16px 14px; }
+  .rib-stat-val { font-size: 1.5rem; font-weight: 700; color: var(--orange); }
+  .rib-stat-val.wht { color: var(--white); }
+  .rib-stat-label { font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 4px; }
+  .rib-bar-row { margin-bottom: 12px; }
+  .rib-bar-header { display: flex; justify-content: space-between; margin-bottom: 5px; font-family: -apple-system, sans-serif; font-size: 0.8rem; }
+  .rib-bar-header span:first-child { color: rgba(255,255,255,0.72); }
+  .rib-bar-header span:last-child { color: rgba(255,255,255,0.55); font-size: 0.72rem; }
+  .rib-bar-bg { height: 5px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+  .rib-bar-fill { height: 100%; border-radius: 2px; }
+  .rib-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-family: -apple-system, sans-serif; font-size: 0.78rem; }
+  .rib-footer-label { color: rgba(255,255,255,0.5); }
+  .rib-verified { background: rgba(26,122,76,0.25); color: #5eead4; padding: 4px 10px; border-radius: 3px; font-weight: 700; font-size: 0.72rem; }
+  .rib-score { background: rgba(26,122,76,0.25); color: #5eead4; padding: 4px 10px; border-radius: 3px; font-weight: 700; font-size: 0.72rem; }
 
   /* BUY BOX */
   #buybox { background: var(--sky); }
-  .buybox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-  .buybox-card { background: var(--white); border-radius: 10px; padding: 28px 24px; border: 1px solid var(--rule); border-left: 4px solid var(--blue); }
-  .buybox-card h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--blue); margin-bottom: 10px; }
-  .buybox-card p { font-size: 0.93rem; color: var(--ink-mid); line-height: 1.6; }
+  .bb-layout { display: grid; grid-template-columns: 380px 1fr; gap: 72px; align-items: start; }
+  .bb-copy h2 { font-size: 2.4rem; font-weight: 700; color: var(--ink); margin-bottom: 18px; line-height: 1.1; }
+  .bb-copy p { font-family: -apple-system, sans-serif; font-size: 0.97rem; color: var(--ink-mid); line-height: 1.72; margin-bottom: 32px; }
+  .bb-tags-label { font-family: -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-lt); margin-bottom: 16px; }
+  .bb-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .tag { font-family: -apple-system, sans-serif; font-size: 0.82rem; font-weight: 600; padding: 6px 14px; border-radius: 4px; cursor: default; }
+  .tag-blue { background: var(--tag-blue); color: var(--white); }
+  .tag-ora { background: var(--tag-ora); color: var(--white); }
+  .tag-outline { background: transparent; color: var(--ink-mid); border: 1.5px solid var(--rule); }
+  .bb-legend { font-family: -apple-system, sans-serif; font-size: 0.8rem; color: var(--ink-lt); }
+  .bb-legend strong { color: var(--tag-blue); }
+  .bb-legend em { color: var(--tag-ora); font-style: normal; font-weight: 700; }
 
   /* AI SCORE */
-  #score { background: var(--navy); }
-  #score .section-eyebrow { color: var(--gold); }
-  #score .section-title { color: var(--white); }
-  #score .section-subtitle { color: rgba(255,255,255,0.65); }
+  #score { background: var(--blue); color: var(--white); }
   .score-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-  .score-canvas-wrap { display: flex; flex-direction: column; align-items: center; gap: 28px; }
-  .score-legend { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
-  .score-legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: rgba(255,255,255,0.7); }
-  .score-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-  .score-factors { display: flex; flex-direction: column; gap: 22px; }
-  .score-factor-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
-  .score-factor-label { font-size: 0.88rem; color: rgba(255,255,255,0.82); font-weight: 600; }
-  .score-factor-val { font-size: 0.88rem; color: var(--gold); font-weight: 700; }
-  .score-bar-bg { height: 5px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
-  .score-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue-mid), var(--gold)); transition: width 1.4s ease; }
+  .score-copy .eyebrow { color: var(--orange); }
+  .score-copy h2 { font-size: 2.2rem; font-weight: 700; color: var(--white); margin-bottom: 18px; line-height: 1.1; }
+  .score-rule { width: 40px; height: 3px; background: var(--orange); margin-bottom: 24px; }
+  .score-copy p { font-family: -apple-system, sans-serif; font-size: 0.97rem; color: rgba(255,255,255,0.75); line-height: 1.72; margin-bottom: 24px; }
+  .score-quote { border-left: 3px solid rgba(255,255,255,0.2); padding-left: 18px; margin-top: 28px; }
+  .score-quote p { font-size: 0.92rem; color: rgba(255,255,255,0.62); font-style: italic; }
+  .score-visual { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+  .score-ring-wrap { position: relative; width: 200px; height: 200px; }
+  canvas#scoreRing { display: block; }
+  .score-ring-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .score-ring-num { font-size: 3rem; font-weight: 700; color: var(--white); line-height: 1; }
+  .score-ring-sub { font-family: -apple-system, sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .score-bars { width: 100%; display: flex; flex-direction: column; gap: 16px; }
+  .sbar { }
+  .sbar-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-family: -apple-system, sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.75); }
+  .sbar-bg { height: 4px; background: rgba(255,255,255,0.12); border-radius: 2px; overflow: hidden; }
+  .sbar-fill { height: 100%; border-radius: 2px; background: var(--orange); transition: width 1.4s ease; }
 
   /* PACKAGES */
-  #packages { background: var(--white); }
-  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-  .pkg-card { border: 1px solid var(--rule); border-radius: 14px; padding: 36px 28px; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
-  .pkg-card:hover { box-shadow: 0 12px 40px rgba(13,27,42,0.11); transform: translateY(-2px); }
-  .pkg-card.featured { border-color: var(--blue); border-width: 2px; }
-  .pkg-badge { position: absolute; top: 18px; right: 18px; background: var(--orange); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; }
-  .pkg-name { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--blue); margin-bottom: 14px; }
-  .pkg-price { font-size: 2.8rem; font-weight: 900; color: var(--navy); margin-bottom: 6px; line-height: 1; }
-  .pkg-price sup { font-size: 1.2rem; vertical-align: super; font-weight: 700; }
-  .pkg-price-sub { font-size: 0.88rem; color: var(--ink-light); margin-bottom: 18px; }
-  .pkg-desc { font-size: 0.88rem; color: var(--ink-mid); margin-bottom: 24px; line-height: 1.6; }
-  .pkg-features { list-style: none; margin-bottom: 32px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
-  .pkg-features li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.88rem; color: var(--ink-mid); }
-  .pkg-features li::before { content: "\2713"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .pkg-btn { display: block; text-align: center; padding: 13px 20px; border-radius: 7px; font-weight: 700; font-size: 0.92rem; text-decoration: none; transition: all .2s; background: var(--blue); color: var(--white); }
-  .pkg-btn:hover { background: var(--navy); }
-  .pkg-btn.outline { background: transparent; border: 2px solid var(--blue); color: var(--blue); }
-  .pkg-btn.outline:hover { background: var(--blue); color: var(--white); }
+  #packages { background: var(--white); text-align: center; }
+  #packages .sec-title { margin-bottom: 0; }
+  #packages .sec-rule { margin: 18px auto 48px; }
+  .pkg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .pkg { padding: 32px 24px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; position: relative; text-align: left; }
+  .pkg:last-child { border-right: none; }
+  .pkg.featured { border: 2px solid var(--orange); border-radius: 6px; margin: -1px; position: relative; z-index: 1; }
+  .pkg-popular { position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--orange); color: var(--white); font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 14px; border-radius: 0 0 6px 6px; }
+  .pkg-name { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+  .pkg-price { font-size: 2.2rem; font-weight: 700; color: var(--ink); line-height: 1; }
+  .pkg-price sup { font-size: 1rem; vertical-align: super; }
+  .pkg-freq { font-family: -apple-system, sans-serif; font-size: 0.82rem; color: var(--ink-lt); margin-bottom: 4px; }
+  .pkg-type { font-family: -apple-system, sans-serif; font-size: 0.78rem; color: var(--ink-lt); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); }
+  .pkg-features { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+  .pkg-features li { font-family: -apple-system, sans-serif; font-size: 0.85rem; color: var(--ink-mid); display: flex; align-items: flex-start; gap: 8px; }
+  .pkg-features li::before { content: "\2713"; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pkg-btn { display: block; text-align: center; padding: 11px 16px; border-radius: 5px; font-family: -apple-system, sans-serif; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: all .2s; border: 1.5px solid var(--blue); color: var(--blue); }
+  .pkg-btn:hover { background: var(--blue); color: var(--white); }
+  .pkg-btn.solid { background: var(--orange); border-color: var(--orange); color: var(--white); }
+  .pkg-btn.solid:hover { background: #a83614; border-color: #a83614; }
+  .pkg-note { font-family: -apple-system, sans-serif; font-size: 0.8rem; color: var(--ink-lt); font-style: italic; margin-top: 32px; text-align: center; }
 
-  /* USE CASE */
-  #usecase { background: var(--sky); }
-  .usecase-card { background: var(--white); border-radius: 16px; padding: 52px; border: 1px solid var(--rule); box-shadow: 0 4px 24px rgba(13,27,42,0.05); }
-  .usecase-header { display: flex; align-items: center; gap: 20px; margin-bottom: 36px; flex-wrap: wrap; }
-  .usecase-client { font-size: 1.5rem; font-weight: 800; color: var(--navy); }
-  .usecase-tag { background: var(--sky-mid); color: var(--blue); font-size: 11px; font-weight: 700; padding: 5px 13px; border-radius: 20px; letter-spacing: 0.5px; }
-  .usecase-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin-bottom: 36px; }
-  .usecase-metric { text-align: center; padding: 22px 16px; background: var(--sky); border-radius: 10px; }
-  .usecase-metric-val { font-size: 1.9rem; font-weight: 900; color: var(--orange); }
-  .usecase-metric-label { font-size: 0.72rem; color: var(--ink-mid); margin-top: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
-  .usecase-quote { border-left: 4px solid var(--blue); padding-left: 22px; }
-  .usecase-quote p { font-size: 1.05rem; color: var(--ink-mid); line-height: 1.75; font-style: italic; }
+  /* INTELLIGENCE IN ACTION */
+  #inaction { background: var(--sky); }
+  .inaction-card { background: var(--white); border-radius: 10px; padding: 48px; border: 1px solid var(--rule); box-shadow: 0 4px 20px rgba(13,27,42,0.05); }
+  .inaction-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+  .inaction-client { font-size: 1.4rem; font-weight: 700; color: var(--ink); }
+  .inaction-tag { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 4px; background: #E4E9F4; color: var(--blue); }
+  .inaction-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 36px; }
+  .inaction-metric { text-align: center; padding: 20px 12px; background: var(--sky); border-radius: 8px; }
+  .inaction-metric-val { font-size: 1.8rem; font-weight: 700; color: var(--orange); }
+  .inaction-metric-label { font-family: -apple-system, sans-serif; font-size: 0.7rem; color: var(--ink-lt); margin-top: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+  .inaction-quote { border-left: 4px solid var(--blue); padding-left: 20px; margin-bottom: 28px; }
+  .inaction-quote p { font-size: 1rem; color: var(--ink-mid); line-height: 1.75; font-style: italic; }
+  .inaction-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-family: -apple-system, sans-serif; font-size: 0.8rem; color: var(--blue); border: 1.5px solid var(--rule); padding: 5px 12px; border-radius: 4px; }
 
-  /* LEGAL */
-  #legal { background: var(--white); padding: 56px 48px; }
-  #legal .section-inner { max-width: 800px; }
-  #legal h2 { font-size: 0.78rem; font-weight: 700; color: var(--ink-light); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1.5px; }
-  #legal p { font-size: 0.8rem; color: var(--ink-light); line-height: 1.75; margin-bottom: 12px; }
-  #legal a { color: var(--blue); text-decoration: none; }
+  /* USE CASE (3D-PB) */
+  #usecase { background: var(--white); }
+  .uc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .uc-tags-top { display: flex; gap: 10px; align-items: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .uc-eyebrow-tag { font-family: -apple-system, sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-lt); }
+  .uc-name-tag { font-family: -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: #E4E9F4; color: var(--blue); padding: 4px 10px; border-radius: 3px; }
+  .uc-title { font-size: 2.2rem; font-weight: 700; color: var(--ink); margin-bottom: 18px; line-height: 1.15; }
+  .uc-rule { width: 40px; height: 3px; background: var(--orange); margin-bottom: 24px; }
+  .uc-body { font-family: -apple-system, sans-serif; font-size: 0.95rem; color: var(--ink-mid); line-height: 1.75; margin-bottom: 18px; }
+  .uc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .uc-chip { font-family: -apple-system, sans-serif; font-size: 0.78rem; color: var(--blue); border: 1.5px solid var(--rule); padding: 5px 12px; border-radius: 4px; }
+  .uc-brief-card { background: var(--navy); border-radius: 8px; padding: 28px; color: var(--white); }
+  .uc-brief-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+  .uc-brief-title { font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
+  .uc-brief-sub { font-family: -apple-system, sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+  .uc-brief-tag { font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); padding: 4px 8px; border-radius: 3px; }
+  .uc-brief-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.08); margin-bottom: 20px; border-radius: 4px; overflow: hidden; }
+  .uc-brief-stat { background: var(--navy); padding: 14px 12px; }
+  .uc-brief-stat-val { font-size: 1.4rem; font-weight: 700; color: var(--orange); }
+  .uc-brief-stat-val.wh { color: var(--white); }
+  .uc-brief-stat-label { font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-top: 3px; }
+  .uc-brief-rows { }
+  .uc-brief-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-family: -apple-system, sans-serif; font-size: 0.82rem; }
+  .uc-brief-row span:first-child { color: rgba(255,255,255,0.65); }
+  .uc-brief-row span:last-child { font-weight: 600; color: var(--white); }
+  .uc-brief-badges { display: flex; gap: 8px; margin-top: 16px; }
+  .uc-brief-badge { font-family: -apple-system, sans-serif; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 3px; }
+  .badge-grn { background: rgba(26,122,76,0.25); color: #5eead4; }
+  .badge-blu { background: rgba(37,88,168,0.3); color: #93c5fd; }
+
+  /* DISCLAIMER */
+  #disclaimer { background: var(--sky); padding: 48px; text-align: center; }
+  #disclaimer .sec { max-width: 780px; }
+  #disclaimer h3 { font-family: -apple-system, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-lt); margin-bottom: 14px; }
+  #disclaimer p { font-family: -apple-system, sans-serif; font-size: 0.78rem; color: var(--ink-lt); line-height: 1.75; margin-bottom: 10px; }
+  #disclaimer a { color: var(--blue); text-decoration: none; }
 
   /* CONTACT */
-  #contact { background: var(--blue); }
-  #contact .section-eyebrow { color: var(--gold); }
-  .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
-  .contact-left h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; color: var(--white); margin-bottom: 18px; line-height: 1.2; }
-  .contact-left p { color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 32px; font-size: 1rem; }
-  .contact-detail { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-  .contact-icon { width: 42px; height: 42px; background: rgba(255,255,255,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-  .contact-text { font-size: 0.95rem; color: rgba(255,255,255,0.82); }
-  .contact-text a { color: var(--gold); text-decoration: none; }
-  .contact-form { display: flex; flex-direction: column; gap: 16px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group label { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.88); }
-  .form-group input, .form-group select, .form-group textarea { padding: 12px 14px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.10); color: var(--white); font-size: 0.93rem; outline: none; transition: border-color .2s; font-family: inherit; }
-  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.38); }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: rgba(255,255,255,0.14); }
-  .form-group select option { background: var(--navy); color: var(--white); }
-  .form-group textarea { resize: vertical; min-height: 96px; }
-  .form-submit { background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 7px; font-size: 0.95rem; font-weight: 700; border: none; cursor: pointer; transition: background .2s; font-family: inherit; align-self: flex-start; }
-  .form-submit:hover { background: #c44e15; }
+  #contact { background: var(--blue); padding: 88px 48px; }
+  .contact-layout { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; max-width: 1100px; margin: 0 auto; }
+  .contact-eyebrow { font-family: -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+  .contact-title { font-size: 2.4rem; font-weight: 700; color: var(--white); margin-bottom: 18px; line-height: 1.1; }
+  .contact-rule { width: 40px; height: 3px; background: var(--orange); margin-bottom: 24px; }
+  .contact-desc { font-family: -apple-system, sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.72); line-height: 1.72; margin-bottom: 32px; }
+  .contact-detail { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .cdet-icon { width: 38px; height: 38px; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cdet-icon svg { width: 16px; height: 16px; stroke: var(--orange); fill: none; stroke-width: 1.8; }
+  .cdet-text { font-family: -apple-system, sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.82); }
+  .cdet-text a { color: rgba(255,255,255,0.82); text-decoration: none; }
+  .cdet-text a:hover { color: var(--white); }
+  .contact-form { display: flex; flex-direction: column; gap: 14px; }
+  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .cf-group { display: flex; flex-direction: column; gap: 5px; }
+  .cf-group label { font-family: -apple-system, sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+  .cf-group input, .cf-group select, .cf-group textarea { padding: 11px 14px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); color: var(--white); font-size: 0.9rem; outline: none; transition: border-color .2s; font-family: -apple-system, sans-serif; }
+  .cf-group input::placeholder, .cf-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .cf-group input:focus, .cf-group select:focus, .cf-group textarea:focus { border-color: rgba(255,255,255,0.45); }
+  .cf-group select option { background: var(--navy); }
+  .cf-group textarea { resize: vertical; min-height: 100px; }
+  .cf-submit { background: var(--orange); color: var(--white); padding: 13px 28px; border-radius: 5px; font-family: -apple-system, sans-serif; font-size: 0.9rem; font-weight: 700; border: none; cursor: pointer; transition: background .2s; align-self: flex-start; }
+  .cf-submit:hover { background: #a83614; }
 
   /* FOOTER */
-  footer { background: #1A3F80; color: rgba(255,255,255,0.55); padding: 44px 48px; text-align: center; }
-  .footer-inner { max-width: 1100px; margin: 0 auto; }
-  .footer-logo { display: flex; justify-content: center; margin-bottom: 18px; }
-  .footer-logo img { height: 34px; }
-  footer p { font-size: 0.83rem; margin-bottom: 6px; }
-  footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
-  footer a:hover { color: var(--white); }
+  footer { background: #1A3070; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo img { height: 30px; display: block; }
+  .footer-copy { font-family: -apple-system, sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.45); }
 
   /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
   /* RESPONSIVE */
-  @media (max-width: 820px) {
+  @media (max-width: 900px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
     section { padding: 64px 20px; }
-    #hero { padding: 120px 20px 72px; }
-    .hero-stats { flex-direction: column; gap: 20px; }
-    .hero-stat { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 20px; }
-    .hero-stat:last-child { border-bottom: none; }
-    .rib-layout, .score-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-    .form-row { grid-template-columns: 1fr; }
-    .usecase-card { padding: 28px 20px; }
-    #legal { padding: 48px 20px; }
-    footer { padding: 36px 20px; }
+    #hero { padding: 120px 20px 64px; }
+    .rib-layout, .bb-layout, .score-layout, .uc-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .pkg-grid { grid-template-columns: 1fr 1fr; }
+    .cf-row { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 18px; }
+    .hstat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 18px; }
+    .hstat:last-child { border-bottom: none; }
+    .inaction-metrics { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+    #disclaimer { padding: 48px 20px; }
+  }
+  @media (max-width: 560px) {
+    .pkg-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -228,14 +275,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">
-    <img src="logo.png" alt="ConstructIQ">
-  </a>
+  <a href="#hero" class="nav-logo"><img src="logo.png" alt="ConstructIQ"></a>
   <div class="nav-links">
-    <a href="#what">What We Do</a>
-    <a href="#rib">Intelligence Brief</a>
-    <a href="#packages">Pricing</a>
-    <a href="#usecase">Case Study</a>
+    <a href="#platform">Platform</a>
+    <a href="#rib">Brief</a>
+    <a href="#buybox">Buy Box</a>
+    <a href="#packages">Packages</a>
     <a href="#contact" class="nav-cta">Get Started</a>
   </div>
 </nav>
@@ -244,70 +289,61 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow reveal">We identify revenue opportunities before your competitors do</div>
-    <h1 class="reveal">
-      Construction Intelligence.<br>
-      Revenue Growth.<br>
-      <span class="accent">Closed Deals.</span>
-    </h1>
-    <div class="hero-divider reveal"></div>
+    <h1 class="reveal">Construction Intelligence.<br>Revenue Growth.<br><span class="ora">Closed Deals.</span></h1>
+    <div class="hero-rule reveal"></div>
     <p class="reveal">ConstructIQ&trade; delivers curated revenue intelligence for construction, development, and real estate companies &mdash; identifying qualified opportunities, decision makers, and outreach strategies before competitors see them.</p>
     <div class="hero-btns reveal">
-      <a href="#rib" class="btn-primary">Request a Sample Brief</a>
-      <a href="#packages" class="btn-outline">View Packages</a>
+      <a href="#rib" class="btn-ora">Request a Sample Brief</a>
+      <a href="#packages" class="btn-ghost">View Packages</a>
     </div>
     <div class="hero-stats reveal">
-      <div class="hero-stat">
-        <div class="hero-stat-val">$318M+</div>
-        <div class="hero-stat-label">Tracked Pipeline Value</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val">22+</div>
-        <div class="hero-stat-label">Opportunities Per Brief</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val">100%</div>
-        <div class="hero-stat-label">Aligned to Your Buy Box</div>
-      </div>
+      <div class="hstat"><div class="hstat-val">$318M+</div><div class="hstat-label">Tracked Pipeline Value</div></div>
+      <div class="hstat"><div class="hstat-val">22+</div><div class="hstat-label">Opportunities Per Brief</div></div>
+      <div class="hstat"><div class="hstat-val">100%</div><div class="hstat-label">Aligned to Your Buy Box</div></div>
     </div>
   </div>
 </section>
 
-<!-- WHAT WE DO -->
-<section id="what">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">The Platform</p>
-    <h2 class="section-title reveal">Intelligence That Drives Revenue</h2>
-    <p class="section-subtitle reveal">We combine public data, permit records, relationship mapping, and AI scoring to surface the highest-value opportunities in your market &mdash; before they hit the bid boards.</p>
-    <div class="what-grid">
-      <div class="what-card reveal">
-        <div class="what-num">01</div>
-        <h3>Opportunity Discovery</h3>
-        <p>We scan permit filings, zoning applications, corporate registrations, and market signals to identify projects in pre-development &mdash; months before a bid is ever issued.</p>
+<!-- PLATFORM -->
+<section id="platform">
+  <div class="sec">
+    <div class="eyebrow reveal">The Platform</div>
+    <h2 class="sec-title reveal">Not lead generation.<br>Construction intelligence.</h2>
+    <div class="sec-rule reveal"></div>
+    <div class="plat-intro reveal">ConstructIQ is not a generic lead generation service. It is a construction intelligence platform that combines public-record research, permit tracking, market signals, decision-maker verification, and proprietary scoring logic to identify business development opportunities aligned with each client&rsquo;s buy box.</div>
+    <div class="plat-cards">
+      <div class="plat-card reveal">
+        <svg class="plat-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="8" width="20" height="3" rx="1.5" fill="#2558A8"/>
+          <rect x="4" y="15" width="16" height="3" rx="1.5" fill="#2558A8" opacity=".5"/>
+          <rect x="4" y="22" width="18" height="3" rx="1.5" fill="#2558A8" opacity=".3"/>
+          <circle cx="30" cy="27" r="7" stroke="#C8471A" stroke-width="2.5" fill="none"/>
+          <line x1="35" y1="32" x2="39" y2="36" stroke="#C8471A" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Opportunity Intelligence</h3>
+        <p>We track permits, public records, entitlement filings, RFPs, and market signals across your target geography to surface opportunities at the right stage &mdash; before they hit mainstream channels.</p>
       </div>
-      <div class="what-card reveal">
-        <div class="what-num">02</div>
-        <h3>Decision-Maker Mapping</h3>
-        <p>Know exactly who controls the budget, who influences the award, and what their relationship history looks like &mdash; so your outreach lands with the right person every time.</p>
+      <div class="plat-card reveal">
+        <svg class="plat-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="14" r="6" stroke="#2558A8" stroke-width="2.5" fill="none"/>
+          <circle cx="9" cy="16" r="4" stroke="#2558A8" stroke-width="2" fill="none" opacity=".5"/>
+          <circle cx="31" cy="16" r="4" stroke="#2558A8" stroke-width="2" fill="none" opacity=".5"/>
+          <path d="M4 32c0-4.4 3.6-8 8-8h16c4.4 0 8 3.6 8 8" stroke="#2558A8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <h3>Decision Maker Research</h3>
+        <p>Beyond the permit, we identify the right people &mdash; owners, developers, project leads, capital partners &mdash; with verified contact information and the context you need to reach them effectively.</p>
       </div>
-      <div class="what-card reveal">
-        <div class="what-num">03</div>
-        <h3>AI Opportunity Scoring</h3>
-        <p>Every opportunity is scored across 6 dimensions: project size, timeline fit, relationship proximity, competitive density, win probability, and revenue potential.</p>
-      </div>
-      <div class="what-card reveal">
-        <div class="what-num">04</div>
-        <h3>Outreach Playbooks</h3>
-        <p>Receive tailored messaging scripts, LinkedIn sequences, and meeting agendas built around each specific opportunity &mdash; so you walk in prepared, not guessing.</p>
-      </div>
-      <div class="what-card reveal">
-        <div class="what-num">05</div>
-        <h3>Market Intelligence</h3>
-        <p>Understand the competitive landscape in your geography &mdash; who&rsquo;s winning, what they&rsquo;re pricing, and where the underserved pockets of demand exist.</p>
-      </div>
-      <div class="what-card reveal">
-        <div class="what-num">06</div>
-        <h3>Revenue Pipeline Reports</h3>
-        <p>Monthly Revenue Intelligence Briefs that translate raw market data into a prioritized action plan your BD team can execute immediately.</p>
+      <div class="plat-card reveal">
+        <svg class="plat-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="10" width="28" height="20" rx="3" stroke="#2558A8" stroke-width="2.5" fill="none"/>
+          <line x1="6" y1="17" x2="34" y2="17" stroke="#2558A8" stroke-width="2" opacity=".4"/>
+          <rect x="10" y="22" width="8" height="4" rx="1" fill="#C8471A"/>
+          <rect x="22" y="22" width="8" height="4" rx="1" fill="#2558A8" opacity=".4"/>
+          <line x1="20" y1="30" x2="20" y2="36" stroke="#2558A8" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
+          <line x1="14" y1="36" x2="26" y2="36" stroke="#2558A8" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
+        </svg>
+        <h3>Outreach Strategy</h3>
+        <p>Each brief includes a recommended outreach strategy and AI-generated email copy tailored to the opportunity &mdash; so your team enters every conversation with the right message, at the right moment.</p>
       </div>
     </div>
   </div>
@@ -315,41 +351,66 @@
 
 <!-- REVENUE INTELLIGENCE BRIEF -->
 <section id="rib">
-  <div class="section-inner">
+  <div class="sec">
     <div class="rib-layout">
-      <div class="rib-mockup reveal">
-        <div class="rib-header">
-          <div>
-            <div class="rib-title">Revenue Intelligence Brief&trade;</div>
-            <div class="rib-sub">South Florida &middot; Q3 2026</div>
-          </div>
-          <div class="rib-badge">Confidential</div>
-        </div>
-        <div class="rib-big-label">Total Identified Opportunity Value</div>
-        <div class="rib-big-val">$41.2M</div>
-        <div class="rib-big-sub">Across 7 qualified opportunities</div>
-        <div class="rib-verified">&#10003; Verified &nbsp;&middot;&nbsp; AI Scored &nbsp;&middot;&nbsp; Decision-Makers Mapped</div>
-        <div class="rib-rows">
-          <div class="rib-row"><span>Mixed-Use Development &middot; Brickell</span><span>$18.4M &middot; 91</span></div>
-          <div class="rib-row"><span>Medical Campus &middot; Coral Gables</span><span>$9.7M &middot; 87</span></div>
-          <div class="rib-row"><span>Luxury Residential &middot; Coconut Grove</span><span>$7.2M &middot; 82</span></div>
-          <div class="rib-row"><span>Warehouse Logistics &middot; Hialeah</span><span>$3.9M &middot; 78</span></div>
-          <div class="rib-row"><span>Hotel Renovation &middot; South Beach</span><span>$2.0M &middot; 74</span></div>
-        </div>
-      </div>
       <div class="rib-copy reveal">
-        <p class="section-eyebrow">Revenue Intelligence Brief&trade;</p>
-        <h2 class="section-title" style="font-size:1.9rem;">Your Market, Decoded</h2>
-        <p>The Revenue Intelligence Brief is ConstructIQ&rsquo;s flagship deliverable &mdash; a comprehensive monthly report that maps your highest-value pipeline opportunities, scored by AI and verified by our research team.</p>
-        <p>Every brief is custom-built for your company, your geography, and your target project profile. No generic data dumps. No leads you&rsquo;ve already seen on bid boards.</p>
-        <ul class="rib-list">
-          <li>Qualified opportunities with verified owner/developer contacts</li>
-          <li>AI Opportunity Scores across 6 weighted dimensions</li>
-          <li>Project timeline estimates and permit status</li>
-          <li>Competitive landscape per opportunity</li>
-          <li>Custom outreach scripts and meeting frameworks</li>
-          <li>Executive summary with 30-day action plan</li>
+        <div class="eyebrow">Flagship Product</div>
+        <h2 class="sec-title">Revenue Intelligence Brief&trade;</h2>
+        <div class="sec-rule"></div>
+        <p>A curated intelligence package delivered for your specific market and buy box. Every Brief includes everything your team needs to pursue the right opportunities with confidence.</p>
+        <h4>Each Brief Includes:</h4>
+        <ul class="rib-features">
+          <li>Qualified opportunities</li>
+          <li>Estimated project value</li>
+          <li>Owner / developer contacts</li>
+          <li>Key decision makers</li>
+          <li>Project stage analysis</li>
+          <li>AI Opportunity Score</li>
+          <li>Why this project matters</li>
+          <li>Recommended outreach strategy</li>
+          <li>AI-generated email copy</li>
+          <li>Executive recommendations</li>
         </ul>
+        <a href="#contact" class="btn-ora">Request a Sample Brief</a>
+      </div>
+      <div class="rib-card reveal">
+        <div class="rib-card-header">
+          <div>
+            <div class="rib-card-title">Revenue Intelligence Brief&trade;</div>
+            <div class="rib-card-sub">South Florida &mdash; Q3 2026</div>
+          </div>
+          <div class="rib-card-tag">South Florida &mdash; Q3 2026</div>
+        </div>
+        <div class="rib-stats">
+          <div class="rib-stat"><div class="rib-stat-val">22</div><div class="rib-stat-label">Qualified Opportunities</div></div>
+          <div class="rib-stat"><div class="rib-stat-val wht">$318M</div><div class="rib-stat-label">Total Construction Value</div></div>
+          <div class="rib-stat"><div class="rib-stat-val">7</div><div class="rib-stat-label">Recommended Pursuits</div></div>
+          <div class="rib-stat"><div class="rib-stat-val wht">$41.2M</div><div class="rib-stat-label">Est. Pipeline Value</div></div>
+        </div>
+        <div class="rib-bar-row">
+          <div class="rib-bar-header"><span>Workforce Housing</span><span>9 projects</span></div>
+          <div class="rib-bar-bg"><div class="rib-bar-fill" style="width:82%;background:#2558A8"></div></div>
+        </div>
+        <div class="rib-bar-row">
+          <div class="rib-bar-header"><span>Affordable / LIHTC</span><span>6 projects</span></div>
+          <div class="rib-bar-bg"><div class="rib-bar-fill" style="width:60%;background:#2558A8"></div></div>
+        </div>
+        <div class="rib-bar-row">
+          <div class="rib-bar-header"><span>Multifamily / Mixed-Use</span><span>5 projects</span></div>
+          <div class="rib-bar-bg"><div class="rib-bar-fill" style="width:50%;background:#C8471A"></div></div>
+        </div>
+        <div class="rib-bar-row">
+          <div class="rib-bar-header"><span>Municipal / Infrastructure</span><span>2 projects</span></div>
+          <div class="rib-bar-bg"><div class="rib-bar-fill" style="width:24%;background:#2558A8"></div></div>
+        </div>
+        <div class="rib-footer">
+          <span class="rib-footer-label">Top Opportunity &mdash; AI Score</span>
+          <span class="rib-score">94 / HIGH FIT</span>
+        </div>
+        <div class="rib-footer" style="margin-top:10px;padding-top:10px;">
+          <span class="rib-footer-label">Decision Maker Access</span>
+          <span class="rib-verified">&#10003; Verified</span>
+        </div>
       </div>
     </div>
   </div>
@@ -357,34 +418,39 @@
 
 <!-- BUY BOX -->
 <section id="buybox">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Who We Serve</p>
-    <h2 class="section-title reveal">The Client Buy Box&trade;</h2>
-    <p class="section-subtitle reveal">ConstructIQ is built for a specific type of construction firm &mdash; one that&rsquo;s ready to compete for the right work, not just any work.</p>
-    <div class="buybox-grid">
-      <div class="buybox-card reveal">
-        <h4>Company Size</h4>
-        <p>$5M&ndash;$250M annual revenue. Large enough to execute, focused enough to benefit from intelligence-led BD.</p>
+  <div class="sec">
+    <div class="bb-layout">
+      <div class="bb-copy reveal">
+        <div class="eyebrow">Personalized to You</div>
+        <h2 class="sec-title">Your Client Buy Box&trade;</h2>
+        <div class="sec-rule"></div>
+        <p>Every subscriber completes their own Buy Box &mdash; a precise specification of the opportunities they want to pursue. ConstructIQ uses your criteria to filter, score, and prioritize what lands in your Brief.</p>
+        <a href="#contact" class="btn-ora">Build My Buy Box</a>
       </div>
-      <div class="buybox-card reveal">
-        <h4>Firm Types</h4>
-        <p>General contractors, specialty subcontractors, design-build firms, and construction management companies.</p>
-      </div>
-      <div class="buybox-card reveal">
-        <h4>Project Appetite</h4>
-        <p>Firms pursuing $1M+ projects in commercial, multifamily, healthcare, industrial, or institutional sectors.</p>
-      </div>
-      <div class="buybox-card reveal">
-        <h4>Growth Mindset</h4>
-        <p>Leaders who want to build a real pipeline &mdash; not just respond to whatever lands in their inbox or hits a bid board.</p>
-      </div>
-      <div class="buybox-card reveal">
-        <h4>Geography</h4>
-        <p>Currently serving Florida, with targeted expansion to Southeast and Sunbelt markets in 2026.</p>
-      </div>
-      <div class="buybox-card reveal">
-        <h4>Commitment Level</h4>
-        <p>Teams willing to act on intelligence quickly. The best opportunities have a short window &mdash; speed wins.</p>
+      <div class="reveal">
+        <div class="bb-tags-label">Example Criteria</div>
+        <div class="bb-tags">
+          <span class="tag tag-blue">South Florida</span>
+          <span class="tag tag-blue">Broward County</span>
+          <span class="tag tag-blue">Miami-Dade</span>
+          <span class="tag tag-blue">Multifamily</span>
+          <span class="tag tag-outline">Industrial</span>
+          <span class="tag tag-blue">Workforce Housing</span>
+          <span class="tag tag-ora">LIHTC</span>
+          <span class="tag tag-ora">Affordable Housing</span>
+          <span class="tag tag-outline">Market Rate</span>
+          <span class="tag tag-blue">$5M&ndash;$50M Const. Value</span>
+          <span class="tag tag-outline">100&ndash;400 Units</span>
+          <span class="tag tag-blue">Entitlement Stage</span>
+          <span class="tag tag-outline">Shovel Ready</span>
+          <span class="tag tag-ora">OZ / Opportunity Zone</span>
+          <span class="tag tag-ora">PPP</span>
+          <span class="tag tag-outline">Private Developer</span>
+          <span class="tag tag-blue">Municipal</span>
+          <span class="tag tag-outline">Defense / Infrastructure</span>
+          <span class="tag tag-outline">Repetitive Construction</span>
+        </div>
+        <div class="bb-legend"><strong>Blue</strong> = active filters for this subscriber &nbsp;&middot;&nbsp; <em>Orange</em> = priority / specialty criteria</div>
       </div>
     </div>
   </div>
@@ -392,44 +458,49 @@
 
 <!-- AI SCORE -->
 <section id="score">
-  <div class="section-inner">
+  <div class="sec">
     <div class="score-layout">
-      <div class="score-canvas-wrap reveal">
-        <canvas id="scoreRing" width="300" height="300"></canvas>
-        <div class="score-legend">
-          <div class="score-legend-item"><div class="score-dot" style="background:var(--gold)"></div>Project Fit</div>
-          <div class="score-legend-item"><div class="score-dot" style="background:var(--orange)"></div>Win Probability</div>
-          <div class="score-legend-item"><div class="score-dot" style="background:var(--blue-mid)"></div>Revenue Potential</div>
+      <div class="score-copy reveal">
+        <div class="eyebrow">Proprietary Scoring</div>
+        <h2>AI Opportunity Score</h2>
+        <div class="score-rule"></div>
+        <p>Each opportunity is evaluated across multiple dimensions &mdash; fit, timing, project readiness, decision-maker accessibility, estimated value, and strategic alignment to your buy box.</p>
+        <div class="score-quote">
+          <p>&ldquo;Our scoring model is proprietary, but the objective is simple: help clients focus on the opportunities most likely to convert into revenue.&rdquo;</p>
         </div>
       </div>
-      <div class="reveal">
-        <p class="section-eyebrow">AI Opportunity Score</p>
-        <h2 class="section-title">Know Before You Bid</h2>
-        <p class="section-subtitle">Every opportunity is evaluated across six dimensions and assigned a composite score from 0&ndash;100. Stop wasting resources on long-shots.</p>
-        <div class="score-factors">
-          <div class="score-factor">
-            <div class="score-factor-header"><span class="score-factor-label">Project Size Fit</span><span class="score-factor-val">92</span></div>
-            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="92%"></div></div>
+      <div class="score-visual reveal">
+        <div class="score-ring-wrap">
+          <canvas id="scoreRing" width="200" height="200"></canvas>
+          <div class="score-ring-text">
+            <div class="score-ring-num">94</div>
+            <div class="score-ring-sub">out of 100</div>
           </div>
-          <div class="score-factor">
-            <div class="score-factor-header"><span class="score-factor-label">Relationship Proximity</span><span class="score-factor-val">85</span></div>
-            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="85%"></div></div>
+        </div>
+        <div class="score-bars" style="width:100%">
+          <div class="sbar">
+            <div class="sbar-header"><span>Buy Box Fit</span></div>
+            <div class="sbar-bg"><div class="sbar-fill" style="width:0%" data-width="95%"></div></div>
           </div>
-          <div class="score-factor">
-            <div class="score-factor-header"><span class="score-factor-label">Timeline Alignment</span><span class="score-factor-val">78</span></div>
-            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="78%"></div></div>
+          <div class="sbar">
+            <div class="sbar-header"><span>Project Readiness</span></div>
+            <div class="sbar-bg"><div class="sbar-fill" style="width:0%" data-width="88%"></div></div>
           </div>
-          <div class="score-factor">
-            <div class="score-factor-header"><span class="score-factor-label">Competitive Density</span><span class="score-factor-val">71</span></div>
-            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="71%"></div></div>
+          <div class="sbar">
+            <div class="sbar-header"><span>DM Accessibility</span></div>
+            <div class="sbar-bg"><div class="sbar-fill" style="width:0%" data-width="90%"></div></div>
           </div>
-          <div class="score-factor">
-            <div class="score-factor-header"><span class="score-factor-label">Win Probability</span><span class="score-factor-val">88</span></div>
-            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="88%"></div></div>
+          <div class="sbar">
+            <div class="sbar-header"><span>Estimated Value</span></div>
+            <div class="sbar-bg"><div class="sbar-fill" style="width:0%" data-width="85%"></div></div>
           </div>
-          <div class="score-factor">
-            <div class="score-factor-header"><span class="score-factor-label">Revenue Potential</span><span class="score-factor-val">95</span></div>
-            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="95%"></div></div>
+          <div class="sbar">
+            <div class="sbar-header"><span>Timing</span></div>
+            <div class="sbar-bg"><div class="sbar-fill" style="width:0%" data-width="82%"></div></div>
+          </div>
+          <div class="sbar">
+            <div class="sbar-header"><span>Strategic Alignment</span></div>
+            <div class="sbar-bg"><div class="sbar-fill" style="width:0%" data-width="92%"></div></div>
           </div>
         </div>
       </div>
@@ -439,218 +510,261 @@
 
 <!-- PACKAGES -->
 <section id="packages">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Packages &amp; Pricing</p>
-    <h2 class="section-title reveal">Choose Your Intelligence Level</h2>
-    <p class="section-subtitle reveal">All packages include a Revenue Intelligence Brief&trade;. Choose the depth, frequency, and strategic support that matches where your firm is today.</p>
-    <div class="packages-grid">
-      <div class="pkg-card reveal">
+  <div class="sec">
+    <div class="eyebrow reveal">Intelligence Packages</div>
+    <h2 class="sec-title reveal">Choose Your Coverage Level</h2>
+    <div class="sec-rule reveal" style="margin:0 auto 48px;"></div>
+    <div class="pkg-grid reveal">
+      <div class="pkg">
         <div class="pkg-name">Report&trade;</div>
         <div class="pkg-price"><sup>$</sup>495</div>
-        <div class="pkg-price-sub">per report</div>
-        <div class="pkg-desc">A single Revenue Intelligence Brief for your market. Perfect for evaluating ConstructIQ before committing to a subscription.</div>
+        <div class="pkg-freq">one-time</div>
+        <div class="pkg-type">Single engagement</div>
         <ul class="pkg-features">
           <li>One Revenue Intelligence Brief&trade;</li>
-          <li>Up to 5 scored opportunities</li>
-          <li>Decision-maker contacts</li>
-          <li>AI Opportunity Scores</li>
-          <li>30-day action plan</li>
+          <li>Defined geography or opportunity type</li>
+          <li>Qualified opportunities with scoring</li>
+          <li>Decision maker contacts</li>
+          <li>Outreach strategy + email copy</li>
         </ul>
-        <a href="https://square.link/u/J3CYZHHc" class="pkg-btn outline" target="_blank">Order Report</a>
+        <a href="https://square.link/u/J3CYZHHc" class="pkg-btn" target="_blank">Get the Report</a>
       </div>
-      <div class="pkg-card reveal">
+      <div class="pkg">
         <div class="pkg-name">Growth</div>
-        <div class="pkg-price"><sup>$</sup>1,995</div>
-        <div class="pkg-price-sub">per month</div>
-        <div class="pkg-desc">Monthly intelligence for growing firms building a consistent BD pipeline in a single market.</div>
+        <div class="pkg-price"><sup>$</sup>1,495</div>
+        <div class="pkg-freq">/mo</div>
+        <div class="pkg-type">Monthly subscription</div>
         <ul class="pkg-features">
           <li>Monthly Revenue Intelligence Brief&trade;</li>
-          <li>Up to 8 scored opportunities</li>
-          <li>Decision-maker mapping</li>
-          <li>Outreach scripts included</li>
-          <li>Email support</li>
-          <li>Quarterly strategy review</li>
+          <li>Buy box alignment and calibration</li>
+          <li>Decision-maker research</li>
+          <li>Outreach recommendations</li>
+          <li>AI-generated email copy</li>
         </ul>
-        <a href="https://square.link/u/kQOaobcU" class="pkg-btn" target="_blank">Get Started</a>
+        <a href="https://square.link/u/kQOaobcU" class="pkg-btn" target="_blank">Start Growth</a>
       </div>
-      <div class="pkg-card featured reveal">
-        <div class="pkg-badge">Most Popular</div>
+      <div class="pkg featured">
+        <div class="pkg-popular">Most Popular</div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price"><sup>$</sup>3,995</div>
-        <div class="pkg-price-sub">per month</div>
-        <div class="pkg-desc">Full-service intelligence for firms serious about dominating their market and building a repeatable revenue engine.</div>
+        <div class="pkg-price"><sup>$</sup>2,495</div>
+        <div class="pkg-freq">/mo</div>
+        <div class="pkg-type">Monthly subscription</div>
         <ul class="pkg-features">
-          <li>Bi-weekly Revenue Intelligence Briefs&trade;</li>
-          <li>Up to 15 scored opportunities</li>
-          <li>Full decision-maker dossiers</li>
-          <li>Custom outreach playbooks</li>
-          <li>Competitive landscape reports</li>
-          <li>Monthly strategy call</li>
-          <li>Priority Slack support</li>
+          <li>Expanded coverage and deeper research</li>
+          <li>More verified contacts per opportunity</li>
+          <li>Priority AI opportunity scoring</li>
+          <li>Multi-sector buy box support</li>
+          <li>Executive recommendations</li>
+          <li>Dedicated intelligence calibration</li>
         </ul>
-        <a href="https://square.link/u/kTbYTsAO" class="pkg-btn" target="_blank">Get Started</a>
+        <a href="https://square.link/u/kTbYTsAO" class="pkg-btn solid" target="_blank">Start Professional</a>
       </div>
-      <div class="pkg-card reveal">
+      <div class="pkg">
         <div class="pkg-name">Enterprise</div>
-        <div class="pkg-price" style="font-size:2rem;margin-top:6px;">Custom</div>
-        <div class="pkg-price-sub">&nbsp;</div>
-        <div class="pkg-desc">Multi-market coverage, dedicated analyst, and fully integrated business development support for larger organizations.</div>
+        <div class="pkg-price" style="font-size:1.8rem;font-weight:700;">Custom</div>
+        <div class="pkg-freq">&nbsp;</div>
+        <div class="pkg-type">Tailored engagement</div>
         <ul class="pkg-features">
-          <li>Multiple market coverage</li>
-          <li>Dedicated research analyst</li>
-          <li>Unlimited opportunities</li>
-          <li>Custom reporting cadence</li>
-          <li>BD team training &amp; integration</li>
-          <li>Executive strategy sessions</li>
-          <li>White-glove onboarding</li>
+          <li>Multi-market, multi-sector programs</li>
+          <li>Recurring intelligence cadence</li>
+          <li>Larger organizations and teams</li>
+          <li>Custom buy box frameworks</li>
+          <li>Dedicated account support</li>
+          <li>White-label options available</li>
         </ul>
-        <a href="#contact" class="pkg-btn outline">Contact Us</a>
+        <a href="#contact" class="pkg-btn">Contact Us</a>
       </div>
     </div>
+    <p class="pkg-note reveal"><em>Additional geography may be available for an added fee. Contact us to discuss your specific market needs.</em></p>
   </div>
 </section>
 
-<!-- USE CASE -->
-<section id="usecase">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Sample Use Case</p>
-    <h2 class="section-title reveal">Intelligence in Action</h2>
-    <p class="section-subtitle reveal">How a ConstructIQ Revenue Intelligence Brief translates into real pipeline for a construction firm in South Florida.</p>
-    <div class="usecase-card reveal">
-      <div class="usecase-header">
-        <div class="usecase-client">3D-PB Construction</div>
-        <div class="usecase-tag">South Florida &middot; Q3 2026</div>
-        <div class="usecase-tag">Specialty Contractor</div>
+<!-- INTELLIGENCE IN ACTION -->
+<section id="inaction">
+  <div class="sec">
+    <div class="eyebrow reveal">Intelligence in Action</div>
+    <h2 class="sec-title reveal">From Brief to Pipeline</h2>
+    <div class="sec-rule reveal"></div>
+    <p class="sec-body reveal" style="max-width:600px;margin-bottom:40px;">Here&rsquo;s how a ConstructIQ Revenue Intelligence Brief translates into real, qualified pipeline for a construction firm operating in South Florida.</p>
+    <div class="inaction-card reveal">
+      <div class="inaction-header">
+        <div class="inaction-client">3D-PB Construction</div>
+        <div class="inaction-tag">South Florida &middot; Q3 2026</div>
+        <div class="inaction-tag">Specialty Contractor</div>
       </div>
-      <div class="usecase-metrics">
-        <div class="usecase-metric">
-          <div class="usecase-metric-val">$41.2M</div>
-          <div class="usecase-metric-label">Pipeline Identified</div>
-        </div>
-        <div class="usecase-metric">
-          <div class="usecase-metric-val">7</div>
-          <div class="usecase-metric-label">Qualified Opportunities</div>
-        </div>
-        <div class="usecase-metric">
-          <div class="usecase-metric-val">91</div>
-          <div class="usecase-metric-label">Top AI Score</div>
-        </div>
-        <div class="usecase-metric">
-          <div class="usecase-metric-val">14</div>
-          <div class="usecase-metric-label">Decision-Makers Mapped</div>
-        </div>
+      <div class="inaction-metrics">
+        <div class="inaction-metric"><div class="inaction-metric-val">$41.2M</div><div class="inaction-metric-label">Pipeline Identified</div></div>
+        <div class="inaction-metric"><div class="inaction-metric-val">7</div><div class="inaction-metric-label">Qualified Opportunities</div></div>
+        <div class="inaction-metric"><div class="inaction-metric-val">94</div><div class="inaction-metric-label">Top AI Score</div></div>
+        <div class="inaction-metric"><div class="inaction-metric-val">14</div><div class="inaction-metric-label">Decision-Makers Mapped</div></div>
       </div>
-      <div class="usecase-quote">
+      <div class="inaction-quote">
         <p>&ldquo;ConstructIQ identified a $18.4M mixed-use project in Brickell that wasn&rsquo;t on anyone&rsquo;s radar yet. The brief included the developer&rsquo;s contact, their preferred GC relationships, and a tailored outreach script. We had a meeting scheduled within 10 days.&rdquo;</p>
       </div>
+      <div class="inaction-chips" style="margin-top:24px;">
+        <span class="chip">South Florida</span>
+        <span class="chip">Workforce Housing</span>
+        <span class="chip">Affordable / LIHTC</span>
+        <span class="chip">Multifamily</span>
+        <span class="chip">Opportunity Zones</span>
+        <span class="chip">Repetitive Construction</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- LEGAL -->
-<section id="legal">
-  <div class="section-inner">
-    <h2>Important Disclosures</h2>
-    <p>ConstructIQ&trade; is a business intelligence and market research service. All information provided in Revenue Intelligence Briefs&trade; and related deliverables is compiled from publicly available sources, proprietary research methodologies, and AI-assisted analysis. ConstructIQ does not guarantee the accuracy, completeness, or timeliness of any information provided.</p>
-    <p>AI Opportunity Scores and projections are analytical estimates based on available data and are not guarantees of project availability, bid awards, or revenue outcomes. Past performance of intelligence products does not guarantee future results. All business decisions should be made in conjunction with your own due diligence and professional advisors.</p>
-    <p>ConstructIQ&trade; and Revenue Intelligence Brief&trade; are trademarks. Unauthorized reproduction or distribution of any ConstructIQ deliverable is prohibited. All client information is kept strictly confidential. ConstructIQ does not share client data, market focus areas, or pipeline intelligence with third parties.</p>
-    <p>By engaging ConstructIQ services, clients acknowledge that construction market outcomes depend on many factors outside ConstructIQ&rsquo;s control, including project financing, owner decisions, regulatory approvals, and competitive dynamics. &copy; 2026 ConstructIQ&trade;. All rights reserved. Questions? <a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></p>
+<!-- USE CASE: 3D-PB -->
+<section id="usecase">
+  <div class="sec">
+    <div class="uc-layout">
+      <div class="reveal">
+        <div class="uc-tags-top">
+          <span class="uc-eyebrow-tag">Client Use Case</span>
+          <span class="uc-name-tag">3D-PB</span>
+        </div>
+        <h2 class="uc-title">Autonomous Concrete Printing Meets Construction Intelligence</h2>
+        <div class="uc-rule"></div>
+        <p class="uc-body">For 3D-PB, ConstructIQ identified residential and multifamily opportunities across South Florida aligned with the company&rsquo;s core capabilities in autonomous concrete printing &mdash; with a focus on workforce housing, affordable housing, opportunity zone developments, and repetitive construction formats where the technology delivers measurable cost and schedule advantages.</p>
+        <p class="uc-body">Intelligence was calibrated to 3D-PB&rsquo;s specific buy box, surfacing projects at the entitlement and pre-construction stage with verified developer and owner contacts &mdash; giving the business development team a structured, high-quality pipeline rather than a raw list of leads.</p>
+        <div class="uc-chips">
+          <span class="uc-chip">South Florida</span>
+          <span class="uc-chip">Workforce Housing</span>
+          <span class="uc-chip">Affordable / LIHTC</span>
+          <span class="uc-chip">Multifamily</span>
+          <span class="uc-chip">Opportunity Zones</span>
+          <span class="uc-chip">Repetitive Construction</span>
+          <span class="uc-chip">Autonomous Concrete Printing</span>
+        </div>
+      </div>
+      <div class="uc-brief-card reveal">
+        <div class="uc-brief-header">
+          <div>
+            <div class="uc-brief-title">Revenue Intelligence Brief&trade;</div>
+            <div class="uc-brief-sub">3D-PB &middot; South Florida &middot; Q3 2026</div>
+          </div>
+          <div class="uc-brief-tag">Calibrated</div>
+        </div>
+        <div class="uc-brief-stats">
+          <div class="uc-brief-stat"><div class="uc-brief-stat-val">$41.2M</div><div class="uc-brief-stat-label">Est. Pipeline Value</div></div>
+          <div class="uc-brief-stat"><div class="uc-brief-stat-val wh">22</div><div class="uc-brief-stat-label">Total Opportunities</div></div>
+          <div class="uc-brief-stat"><div class="uc-brief-stat-val">7</div><div class="uc-brief-stat-label">Recommended Pursuits</div></div>
+          <div class="uc-brief-stat"><div class="uc-brief-stat-val wh">94</div><div class="uc-brief-stat-label">Top AI Score</div></div>
+        </div>
+        <div class="uc-brief-rows">
+          <div class="uc-brief-row"><span>Mixed-Use &middot; Brickell</span><span>$18.4M &middot; 94</span></div>
+          <div class="uc-brief-row"><span>Affordable Housing &middot; Hialeah</span><span>$9.7M &middot; 89</span></div>
+          <div class="uc-brief-row"><span>OZ Development &middot; Liberty City</span><span>$7.2M &middot; 86</span></div>
+          <div class="uc-brief-row"><span>Workforce Housing &middot; Doral</span><span>$3.9M &middot; 82</span></div>
+          <div class="uc-brief-row"><span>LIHTC &middot; Homestead</span><span>$2.0M &middot; 77</span></div>
+        </div>
+        <div class="uc-brief-badges">
+          <span class="uc-brief-badge badge-grn">&#10003; Verified Contacts</span>
+          <span class="uc-brief-badge badge-blu">AI Scored</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section id="disclaimer">
+  <div class="sec">
+    <h3>Disclaimer</h3>
+    <p>ConstructIQ provides business development intelligence, market research, and opportunity identification for informational purposes only. ConstructIQ does not guarantee project availability, contract award, profitability, financing, permitting, owner responsiveness, or transaction outcome. Clients are responsible for conducting their own due diligence before pursuing, bidding, contracting, investing in, or relying upon any opportunity identified by ConstructIQ. Project data and contact information are compiled from sources believed to be reliable but may change without notice.</p>
+    <p>AI Opportunity Scores are proprietary estimates based on available data and are not guarantees of outcomes. ConstructIQ&trade; and Revenue Intelligence Brief&trade; are trademarks. All client information is kept strictly confidential. &copy; 2026 ConstructIQ&trade;. All rights reserved. Questions? <a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></p>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Get Started</p>
-    <div class="contact-layout">
-      <div class="contact-left reveal">
-        <h2>Ready to Build Your Pipeline?</h2>
-        <p>Tell us about your firm and your market. We&rsquo;ll respond within one business day with a tailored recommendation.</p>
-        <div class="contact-detail">
-          <div class="contact-icon">&#9993;</div>
-          <div class="contact-text"><a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></div>
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="contact-eyebrow">Get Started</div>
+      <h2 class="contact-title">Request Intelligence.<br>Start Closing.</h2>
+      <div class="contact-rule"></div>
+      <p class="contact-desc">Tell us about your business development goals and we&rsquo;ll show you what ConstructIQ can surface for your market.</p>
+      <div class="contact-detail">
+        <div class="cdet-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
-        <div class="contact-detail">
-          <div class="contact-icon">&#127760;</div>
-          <div class="contact-text"><a href="https://constructiqpb.com" style="color:var(--gold);">ConstructIQpb.com</a></div>
-        </div>
+        <div class="cdet-text"><a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></div>
       </div>
-      <form class="contact-form reveal" action="mailto:hello@constructiqpb.com" method="post" enctype="text/plain">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="first_name" placeholder="John" required>
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="last_name" placeholder="Smith" required>
-          </div>
+      <div class="contact-detail">
+        <div class="cdet-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        <div class="form-group">
-          <label>Company</label>
-          <input type="text" name="company" placeholder="Smith Construction Co." required>
+        <div class="cdet-text"><a href="tel:2035390377">203.539.0377</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="cdet-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" placeholder="john@smithconstruction.com" required>
-        </div>
-        <div class="form-group">
-          <label>Annual Revenue Range</label>
-          <select name="revenue">
-            <option value="">Select range...</option>
-            <option>Under $5M</option>
-            <option>$5M - $25M</option>
-            <option>$25M - $75M</option>
-            <option>$75M - $250M</option>
-            <option>Over $250M</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>What are you looking to accomplish?</label>
-          <textarea name="message" placeholder="Tell us about your target market, project types, and growth goals..."></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send Message &#8594;</button>
-      </form>
+        <div class="cdet-text"><a href="https://constructiqpb.com">ConstructIQpb.com</a></div>
+      </div>
     </div>
+    <form class="contact-form reveal" action="mailto:hello@constructiqpb.com" method="post" enctype="text/plain">
+      <div class="cf-row">
+        <div class="cf-group"><label>Name</label><input type="text" name="name" placeholder="Jane Smith"></div>
+        <div class="cf-group"><label>Company</label><input type="text" name="company" placeholder="Acme Construction"></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-group"><label>Email</label><input type="email" name="email" placeholder="jane@company.com"></div>
+        <div class="cf-group"><label>Phone</label><input type="tel" name="phone" placeholder="(555) 000-0000"></div>
+      </div>
+      <div class="cf-group"><label>Market / Geography</label><input type="text" name="market" placeholder="e.g. South Florida, Dallas&ndash;Fort Worth, Southeast US"></div>
+      <div class="cf-group">
+        <label>Type of Opportunities</label>
+        <select name="type">
+          <option value="">Select opportunity type</option>
+          <option>Multifamily / Residential</option>
+          <option>Workforce / Affordable Housing</option>
+          <option>Commercial / Mixed-Use</option>
+          <option>Industrial / Logistics</option>
+          <option>Healthcare / Institutional</option>
+          <option>Municipal / Infrastructure</option>
+          <option>Multiple Types</option>
+        </select>
+      </div>
+      <div class="cf-group"><label>Estimated Project Size Range</label><input type="text" name="size" placeholder="e.g. $5M&ndash;$50M construction value"></div>
+      <div class="cf-group"><label>Message</label><textarea name="message" placeholder="Tell us about your business development goals and what you&rsquo;re looking to pursue..."></textarea></div>
+      <button type="submit" class="cf-submit">Send Request</button>
+    </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <img src="logo.png" alt="ConstructIQ">
-    </div>
-    <p>&copy; 2026 ConstructIQ&trade; &mdash; Construction Intelligence Platform</p>
-    <p><a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a> &nbsp;&middot;&nbsp; <a href="https://constructiqpb.com">ConstructIQpb.com</a></p>
-  </div>
+  <a href="#hero" class="footer-logo"><img src="logo.png" alt="ConstructIQ"></a>
+  <div class="footer-copy">&copy; 2026 ConstructIQ&trade;. Construction Intelligence Platform. All rights reserved.</div>
 </footer>
 
 <script>
+  // Scroll reveal
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+  // Score ring canvas
   const canvas = document.getElementById('scoreRing');
   const ctx = canvas.getContext('2d');
-  const cx = 150, cy = 150;
-  [[110,'rgba(255,255,255,0.07)',18],[82,'rgba(255,255,255,0.07)',14],[56,'rgba(255,255,255,0.07)',10]].forEach(([r,c,w])=>{
-    ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.strokeStyle=c; ctx.lineWidth=w; ctx.stroke();
-  });
-  [[0.91,110,'#F5B335',18],[0.88,82,'#E05A1A',14],[0.85,56,'#3468C0',10]].forEach(([p,r,c,w])=>{
-    ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*p);
-    ctx.strokeStyle=c; ctx.lineWidth=w; ctx.lineCap='round'; ctx.stroke();
-  });
-  ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.textBaseline='middle';
-  ctx.font='bold 50px -apple-system,sans-serif'; ctx.fillText('91',cx,cy-10);
-  ctx.font='12px -apple-system,sans-serif'; ctx.fillStyle='rgba(255,255,255,0.5)';
-  ctx.fillText('AI Score',cx,cy+22);
+  const cx = 100, cy = 100, r = 80;
+  ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
+  ctx.strokeStyle='rgba(255,255,255,0.1)'; ctx.lineWidth=14; ctx.stroke();
+  const pct = 0.94;
+  ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*pct);
+  ctx.strokeStyle='#C8471A'; ctx.lineWidth=14; ctx.lineCap='round'; ctx.stroke();
 
-  const barObs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting) document.querySelectorAll('.score-bar-fill').forEach(b=>b.style.width=b.dataset.width); });
-  },{threshold:0.3});
-  const s=document.getElementById('score'); if(s) barObs.observe(s);
+  // Animate score bars on scroll
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.sbar-fill').forEach(b => { b.style.width = b.dataset.width; });
+      }
+    });
+  }, { threshold: 0.3 });
+  const sc = document.getElementById('score');
+  if (sc) barObs.observe(sc);
 </script>
 </body>
 </html>
