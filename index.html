@@ -1,2 +1,606 @@
-<!doctype html><html lang="en" data-frame-uuid="befd29f0-7de6-4583-8d52-8a517f4747db"><head><meta property="og:title" content="Claude Artifact"><meta name="twitter:title" content="Claude Artifact"><meta name="description" content="Try out Artifacts created by Claude users"><meta property="og:description" content="Try out Artifacts created by Claude users"><meta name="twitter:description" content="Try out Artifacts created by Claude users"><meta property="og:image" content="https://claude.ai/images/claude_ogimage.png"><meta name="twitter:image" content="https://claude.ai/images/claude_ogimage.png"><meta property="og:image:width" content="1138"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Claude Artifact"><meta name="twitter:card" content="summary"><meta name="robots" content="noindex, nofollow"><meta name="build-timestamp" content="1783621098"><meta name="build-git-hash" content="3fff981942600b85d11728311eb4c03cf6993725"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="referrer" content="no-referrer"><title>Claude Artifact</title><script nonce="CRbEohW6RuAbRhEZjKL3fw==">!function(e,t,r){if(t?.embedded&&(e.embedded=""),parent!==window){var o=location.origin,d=location.ancestorOrigins;if(d)d[0]===o&&d[d.length-1]===o&&(e.embedded="");else if(parent===top&&document.referrer)try{new URL(document.referrer).origin===o&&(e.embedded="")}catch{}}"embedded"in e&&"none"===(t?.chrome??r.get("chrome"))&&(e.chrome="none");var n={mode:["light","dark","system"],platform:["web","desktop"],font:["anthropic","system"]};for(var a of Object.keys(n)){var c=t?.[a]??r.get(a[0]);if("mode"===a&&null==t?.mode&&!("embedded"in e))try{var m=localStorage.getItem("frame-theme");"light"!==m&&"dark"!==m||(c=m)}catch(e){}n[a].includes(c)&&(e[a]=c)}}(document.documentElement.dataset,window.claudeDesktopArtifactPane,new URLSearchParams(location.search))</script><script nonce="CRbEohW6RuAbRhEZjKL3fw==">!function(){try{var e=document.documentElement.dataset.frameUuid;if(!e)return;var t=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/,a=new URLSearchParams(location.search),n=a.get("org"),r=(document.cookie.match(/(?:^|;\s*)lastActiveOrg=([^;]*)/)||[])[1],o=n&&t.test(n)?n:r&&t.test(r)?r:null;if(!o)return;var s=self===top&&!("embedded"in document.documentElement.dataset),i=a.get("via"),c=null!==i?i:s?"user_open":"",d=a.get("sk"),l=new URLSearchParams;l.set("org",o),c&&l.set("via",c),d&&/^[A-Za-z0-9_-]{16,64}$/.test(d)&&l.set("sk",d);var u="/api/frame/"+e+"?"+l.toString(),m=function(e,t){var a=null==e?null:e.toLowerCase();return null!==a&&-1!==t.indexOf(a)?a:null},f=navigator.userAgent,g={"X-Frame-CP":"go","X-Frame-Platform":m(a.get("platform"),["web","desktop","ios","android","cli"])||(f.includes(" Electron/")?"desktop":/Android/.test(f)?"android":/iPad|iPhone|iPod/.test(f)||f.includes("Macintosh")&&navigator.maxTouchPoints>1?"ios":"web")},h=m(a.get("surface"),["chat","cowork","code","slack","teams","standalone"])||(s?"standalone":"");h&&(g["X-Frame-Surface"]=h);var v=fetch(u,{credentials:"same-origin",headers:g,signal:AbortSignal.timeout(2e4)});v.catch(function(){}),window.__frameBootPrefetch={url:u,res:v}}catch(e){}}()</script><link rel="preload" as="font" type="font/woff2" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cc27851ad-DDVos-BJ.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c0f671921-_JGacpB2.woff2"><link rel="preconnect" href="https://js.stripe.com"><link rel="preconnect" href="https://m.stripe.network"><script type="module" crossorigin src="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/frame-shell-BN2RR0kb.js" nonce="CRbEohW6RuAbRhEZjKL3fw=="></script><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/frame-shell-chrome-EJ5NLMnI.js" crossorigin><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-react-RSDKEZ60.js" crossorigin><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-ant-cds-Dm5_jfI0.js" crossorigin><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-base-ui-DCHlJbY9.js" crossorigin><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-radix-qP6Vhe7Y.js" crossorigin><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-base-5_f7mmWg.js" crossorigin><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-virtual-Dv6zxMze.js" crossorigin><link rel="modulepreload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/frame-shell-deferred-Cm624-z1.js" crossorigin><style nonce="CRbEohW6RuAbRhEZjKL3fw==">:root{--bg: #f9f9f7;--fg: #0b0b0b;--mut: #52514e;--line: rgba(11, 11, 11, .1);--bord: rgba(11, 11, 11, .2);--hov: rgba(11, 11, 11, .05);--surf: #ffffff;--brand: #c6613f;--primary: #0b0b0b;--on-primary: #ffffff;--danger-bg: #fad6d6;--danger-bord: #f09595;--danger-fg: #8e2626}html[data-embedded]{--bg: #ffffff;--surf: #ffffff}@media (prefers-color-scheme: dark){html:not([data-mode]){--bg: #0d0d0d;--fg: #ffffff;--mut: #c3c2b7;--line: rgba(255, 255, 255, .1);--bord: rgba(255, 255, 255, .2);--hov: rgba(255, 255, 255, .05);--surf: #2c2c2a;--primary: #ffffff;--on-primary: #0b0b0b;--danger-bg: #3c0e0e;--danger-bord: #641919;--danger-fg: #ec7e7e}html:not([data-mode])[data-embedded]{--bg: #2c2c2a;--surf: #383835}}html[data-mode=light]{color-scheme:light}html[data-mode=dark]{--bg: #0d0d0d;--fg: #ffffff;--mut: #c3c2b7;--line: rgba(255, 255, 255, .1);--bord: rgba(255, 255, 255, .2);--hov: rgba(255, 255, 255, .05);--surf: #2c2c2a;--primary: #ffffff;--on-primary: #0b0b0b;--danger-bg: #3c0e0e;--danger-bord: #641919;--danger-fg: #ec7e7e;color-scheme:dark}html[data-mode=dark][data-embedded]{--bg: #2c2c2a;--surf: #383835}@font-face{font-family:"Anthropic Serif";src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c66fc489e-2VcCjn5t.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}@font-face{font-family:Anthropic Sans;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cc27851ad-DDVos-BJ.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}@font-face{font-family:Anthropicons-Variable;src:url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c0f671921-_JGacpB2.woff2) format("woff2-variations");font-weight:400 700;font-display:block}.ico{font-family:Anthropicons-Variable;font-size:16px;line-height:1;font-weight:400;-webkit-font-smoothing:auto;-webkit-user-select:none;user-select:none}:root{--bar: 36px;color-scheme:light dark}@layer{*{box-sizing:border-box;margin:0;padding:0}button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}}html,body{height:100%;overflow:hidden;overscroll-behavior:none;background:var(--bg);color:var(--fg);font:13px/1.4 Anthropic Sans,-apple-system,BlinkMacSystemFont,system-ui,sans-serif}#hdr{position:relative;height:var(--bar);display:flex;align-items:center;justify-content:space-between;padding:0 12px}.l,.r{display:flex;align-items:center;gap:10px}.l{flex:1 1 0%;min-width:0}.r{flex:none}.logo{width:24px;height:24px;flex-shrink:0;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:var(--surf);border:.5px solid var(--bord);color:var(--fg);text-decoration:none}a.logo:hover{background:var(--hov)}.byline{font-size:var(--cds-font-size-caption, 12px);color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:24rem}.l>button[data-title-menu]{margin-left:-6px;flex-shrink:1000;min-width:0;overflow:hidden}.l button[data-title-menu]>span,.l button[data-title-menu] .truncate{min-width:0}.skel{display:inline-block;background:var(--hov);border-radius:4px}.skel-logo{width:24px;height:24px;border-radius:8px}.skel-title{width:8em;height:1em}.skel-avatar{width:24px;height:24px;border-radius:50%}.degraded-title{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#hdr-degraded,body.chrome-degraded #hdr{display:none}body.chrome-degraded #hdr-degraded{display:flex;align-items:center;gap:10px;height:var(--bar);padding:0 12px}@media (max-width: 768px){:root{--bar: 50px}#hdr{padding-left:4px}.logo,.skel-logo{display:none}.l{flex-direction:column;align-items:flex-start;justify-content:center;gap:0}.l>button[data-title-menu]{margin-left:0;max-width:100%}.byline{margin:-2px 0 0 6px;max-width:100%}.skel-avatar{width:32px;height:32px}}html[data-embedded]{--bar: 42px}html[data-embedded] #hdr{padding:0 8px}html[data-embedded] .byline{flex-shrink:1;max-width:100%}html[data-embedded] .skel-logo,html[data-embedded] .skel-title,html[data-embedded] .skel-avatar,html[data-embedded] .logo,html[data-embedded][data-chrome=none] #hdr,html[data-embedded][data-chrome=none] #hdr-degraded,html[data-header-hidden] #hdr,html[data-header-hidden] #hdr-degraded{display:none}html[data-embedded][data-chrome=none],html[data-header-hidden]{--bar: 0px}main{position:absolute;inset:var(--bar) 0 0 0;display:flex}#frame-slot{flex:1;min-width:0;position:relative}#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}#loading.slow{flex-direction:column;gap:12px;text-align:center;color:var(--mut);font-size:13px;padding:0 24px}#loading:after{content:"";width:24px;height:24px;border:2px solid var(--line);border-top-color:var(--mut);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}#frame-content{position:absolute;inset:0;width:100%;height:100%;border:0;box-shadow:0 0 0 .5px var(--line),0 2px 4px #0b0b0b12,0 6px 16px #0b0b0b14;border-radius:8px 8px 0 0;opacity:0;transition:opacity .12s}html[data-embedded] #frame-content,html[data-header-hidden] #frame-content,body.embed #frame-content{border-radius:0;box-shadow:none}#frame-content.ready{opacity:1}@media (prefers-reduced-motion: reduce){#loading:after{animation:none}#frame-content{transition:none}}body.err #hdr,body.err #hdr-degraded,#err[hidden]{display:none}#err{position:absolute;inset:0;display:grid;place-content:safe center;gap:8px;padding:96px 16px 128px;overflow-y:auto;text-align:center;color:var(--fg)}
-</style><meta name="robots" content="noindex, nofollow"><link rel="preconnect" href="https://befd29f0-7de6-4583-8d52-8a517f4747db.frame.claudeusercontent.com"></head><body><header id="hdr"><div class="l" aria-hidden="true"><span class="skel skel-logo"></span> <span class="skel skel-title"></span></div><div class="r" aria-hidden="true"><span class="skel skel-avatar"></span></div></header><div id="hdr-degraded"><a class="logo" href="/code/artifacts" aria-label="Your artifacts"><span class="ico" aria-hidden="true">&#xE017;</span></a> <span class="degraded-title"></span> <span class="byline">Content is user-generated and unverified.</span></div><main><div id="frame-slot" data-frame-uuid="befd29f0-7de6-4583-8d52-8a517f4747db" data-frame-uchost="befd29f0-7de6-4583-8d52-8a517f4747db.frame.claudeusercontent.com"><div id="loading" role="status" aria-label="Loading"></div></div></main><div id="err" hidden></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConstructIQ™ — Construction Intelligence Platform</title>
+<style>
+  :root {
+    --navy:      #0D1B2A;
+    --blue:      #2558A8;
+    --blue-mid:  #3468C0;
+    --orange:    #E05A1A;
+    --gold:      #F5B335;
+    --sky:       #EDF2FB;
+    --sky-mid:   #D8E5F7;
+    --white:     #FFFFFF;
+    --ink:       #0D1B2A;
+    --ink-mid:   #3A4A60;
+    --ink-light: #6A7A90;
+    --rule:      #C8D4E8;
+    --green:     #1A9E5C;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--ink); background: var(--white); }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(37,88,168,0.97); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 64px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 44px; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { background: var(--orange); color: var(--white) !important; padding: 8px 20px; border-radius: 6px; font-weight: 600 !important; }
+  .nav-cta:hover { background: #c44e15 !important; }
+
+  #hero {
+    background: var(--blue); color: var(--white);
+    padding: 140px 40px 100px; text-align: center;
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .hero-logo { margin-bottom: 36px; }
+  .hero-logo img { height: 90px; }
+  #hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+  #hero h1 span { color: var(--gold); }
+  #hero p { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto 40px; line-height: 1.6; }
+  .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: background .2s; }
+  .btn-primary:hover { background: #c44e15; }
+  .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all .2s; }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  section { padding: 96px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+  .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+  .section-subtitle { font-size: 1.1rem; color: var(--ink-mid); max-width: 620px; line-height: 1.6; margin-bottom: 48px; }
+
+  #what { background: var(--sky); }
+  .what-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+  .what-card { background: var(--white); border-radius: 12px; padding: 32px; border: 1px solid var(--rule); transition: box-shadow .2s; }
+  .what-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.10); }
+  .what-icon { font-size: 2rem; margin-bottom: 16px; }
+  .what-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .what-card p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.6; }
+
+  #rib { background: var(--white); }
+  .rib-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .rib-mockup { background: var(--navy); border-radius: 16px; padding: 32px; color: var(--white); box-shadow: 0 20px 60px rgba(13,27,42,0.25); }
+  .rib-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+  .rib-badge { background: var(--blue); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
+  .rib-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
+  .rib-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+  .rib-metric-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.55); margin-bottom: 4px; }
+  .rib-metric-value { font-size: 2.4rem; font-weight: 900; color: var(--orange); }
+  .rib-metric-sub { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-top: 2px; margin-bottom: 16px; }
+  .rib-verified { display: inline-flex; align-items: center; gap: 6px; background: rgba(26,158,92,0.2); color: #4ade80; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 20px; }
+  .rib-items { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+  .rib-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 0.88rem; }
+  .rib-item span:first-child { color: rgba(255,255,255,0.75); }
+  .rib-item span:last-child { color: var(--white); font-weight: 600; }
+  .rib-copy h3 { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+  .rib-copy p { color: var(--ink-mid); line-height: 1.7; margin-bottom: 16px; }
+  .rib-features { list-style: none; margin-top: 24px; }
+  .rib-features li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--ink-mid); }
+  .rib-features li::before { content: "checkmark"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 0; }
+  .rib-features li::before { content: "\2713"; font-size: 0.95rem; }
+
+  #buybox { background: var(--sky); }
+  .buybox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .buybox-card { background: var(--white); border-radius: 10px; padding: 28px 24px; border: 1px solid var(--rule); border-left: 4px solid var(--blue); }
+  .buybox-card h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 8px; }
+  .buybox-card p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.5; }
+
+  #score { background: var(--navy); color: var(--white); }
+  #score .section-eyebrow { color: var(--gold); }
+  #score .section-title { color: var(--white); }
+  #score .section-subtitle { color: rgba(255,255,255,0.7); }
+  .score-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .score-canvas-wrap { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+  .score-legend { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .score-legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+  .score-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .score-factors { display: flex; flex-direction: column; gap: 20px; }
+  .score-factor-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .score-factor-label { font-size: 0.9rem; color: rgba(255,255,255,0.85); font-weight: 600; }
+  .score-factor-val { font-size: 0.9rem; color: var(--gold); font-weight: 700; }
+  .score-bar-bg { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue-mid), var(--gold)); transition: width 1.5s ease; }
+
+  #packages { background: var(--white); }
+  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .pkg-card { border: 1px solid var(--rule); border-radius: 14px; padding: 36px 28px; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
+  .pkg-card:hover { box-shadow: 0 12px 40px rgba(13,27,42,0.12); transform: translateY(-2px); }
+  .pkg-card.featured { border-color: var(--blue); border-width: 2px; }
+  .pkg-badge { position: absolute; top: 16px; right: 16px; background: var(--orange); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+  .pkg-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--blue); margin-bottom: 12px; }
+  .pkg-price { font-size: 2.6rem; font-weight: 900; color: var(--navy); margin-bottom: 4px; }
+  .pkg-price sup { font-size: 1.2rem; vertical-align: super; }
+  .pkg-price span { font-size: 1rem; font-weight: 400; color: var(--ink-light); }
+  .pkg-desc { font-size: 0.9rem; color: var(--ink-mid); margin-bottom: 24px; line-height: 1.5; }
+  .pkg-features { list-style: none; margin-bottom: 32px; flex: 1; }
+  .pkg-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--ink-mid); margin-bottom: 10px; }
+  .pkg-features li::before { content: "\2713"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .pkg-btn { display: block; text-align: center; padding: 13px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all .2s; background: var(--blue); color: var(--white); }
+  .pkg-btn:hover { background: var(--navy); }
+  .pkg-btn.outline { background: transparent; border: 2px solid var(--blue); color: var(--blue); }
+  .pkg-btn.outline:hover { background: var(--blue); color: var(--white); }
+
+  #usecase { background: var(--sky); }
+  .usecase-card { background: var(--white); border-radius: 16px; padding: 48px; border: 1px solid var(--rule); box-shadow: 0 4px 24px rgba(13,27,42,0.06); }
+  .usecase-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; flex-wrap: wrap; }
+  .usecase-client { font-size: 1.4rem; font-weight: 800; color: var(--navy); }
+  .usecase-tag { background: var(--sky-mid); color: var(--blue); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+  .usecase-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin-bottom: 32px; }
+  .usecase-metric { text-align: center; padding: 20px; background: var(--sky); border-radius: 10px; }
+  .usecase-metric-val { font-size: 1.8rem; font-weight: 900; color: var(--orange); }
+  .usecase-metric-label { font-size: 0.8rem; color: var(--ink-mid); margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .usecase-quote { border-left: 4px solid var(--blue); padding-left: 20px; }
+  .usecase-quote p { font-size: 1.05rem; color: var(--ink-mid); line-height: 1.7; font-style: italic; }
+
+  #legal { background: var(--white); padding: 60px 40px; }
+  #legal .section-inner { max-width: 800px; }
+  #legal h2 { font-size: 1rem; font-weight: 700; color: var(--ink-mid); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  #legal p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 12px; }
+
+  #contact { background: var(--blue); color: var(--white); }
+  #contact .section-eyebrow { color: var(--gold); }
+  #contact .section-title { color: var(--white); }
+  #contact .section-subtitle { color: rgba(255,255,255,0.8); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+  .form-group input, .form-group select, .form-group textarea { padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.12); color: var(--white); font-size: 0.95rem; outline: none; transition: border-color .2s; font-family: inherit; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.45); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+  .form-group select option { background: var(--navy); color: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit { background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 700; border: none; cursor: pointer; transition: background .2s; font-family: inherit; align-self: flex-start; }
+  .form-submit:hover { background: #c44e15; }
+  .contact-info h3 { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+  .contact-info p { color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 24px; }
+  .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .contact-detail-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .contact-detail-text { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+  .contact-detail-text a { color: var(--gold); text-decoration: none; }
+
+  footer { background: #1A3F80; color: rgba(255,255,255,0.6); padding: 40px; text-align: center; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-logo { display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .footer-logo img { height: 36px; }
+  footer p { font-size: 0.85rem; margin-bottom: 8px; }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 64px 20px; }
+    #hero { padding: 120px 20px 80px; }
+    .rib-layout, .score-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .usecase-card { padding: 28px 20px; }
+    footer { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">
+    <img src="logo.png" alt="ConstructIQ">
+  </a>
+  <div class="nav-links">
+    <a href="#what">What We Do</a>
+    <a href="#rib">Intelligence Brief</a>
+    <a href="#packages">Pricing</a>
+    <a href="#usecase">Case Study</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-logo reveal">
+    <img src="logo.png" alt="ConstructIQ">
+  </div>
+  <h1 class="reveal">Stop Chasing Bids.<br><span>Start Winning Contracts.</span></h1>
+  <p class="reveal">ConstructIQ&trade; delivers AI-powered revenue intelligence that tells you exactly which projects to pursue, who the decision-makers are, and how to win &mdash; before your competitors even find out about the opportunity.</p>
+  <div class="hero-btns reveal">
+    <a href="#packages" class="btn-primary">See Packages &amp; Pricing</a>
+    <a href="#rib" class="btn-outline">View Sample Brief</a>
+  </div>
+</section>
+
+<section id="what">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">The Platform</p>
+    <h2 class="section-title reveal">Intelligence That Drives Revenue</h2>
+    <p class="section-subtitle reveal">We combine public data, permit records, relationship mapping, and AI scoring to surface the highest-value opportunities in your market &mdash; before they hit the bid boards.</p>
+    <div class="what-grid">
+      <div class="what-card reveal">
+        <div class="what-icon">&#128269;</div>
+        <h3>Opportunity Discovery</h3>
+        <p>We scan permit filings, zoning applications, corporate registrations, and market signals to identify projects in pre-development &mdash; months before a bid is ever issued.</p>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-icon">&#127919;</div>
+        <h3>Decision-Maker Mapping</h3>
+        <p>Know exactly who controls the budget, who influences the award, and what their relationship history looks like &mdash; so your outreach lands with the right person every time.</p>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-icon">&#129302;</div>
+        <h3>AI Opportunity Scoring</h3>
+        <p>Every opportunity is scored across 6 dimensions: project size, timeline fit, relationship proximity, competitive density, win probability, and revenue potential.</p>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-icon">&#128203;</div>
+        <h3>Outreach Playbooks</h3>
+        <p>Receive tailored messaging scripts, LinkedIn sequences, and meeting agendas built around each specific opportunity &mdash; so you walk in prepared, not guessing.</p>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-icon">&#128205;</div>
+        <h3>Market Intelligence</h3>
+        <p>Understand the competitive landscape in your geography &mdash; who&rsquo;s winning, what they&rsquo;re pricing, and where the underserved pockets of demand exist in your market.</p>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-icon">&#128202;</div>
+        <h3>Revenue Pipeline Reports</h3>
+        <p>Monthly Revenue Intelligence Briefs that translate raw market data into a prioritized action plan your business development team can execute immediately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rib">
+  <div class="section-inner">
+    <div class="rib-layout">
+      <div class="rib-mockup reveal">
+        <div class="rib-header">
+          <div>
+            <div class="rib-title">Revenue Intelligence Brief&trade;</div>
+            <div class="rib-sub">South Florida &middot; Q3 2026</div>
+          </div>
+          <div class="rib-badge">Confidential</div>
+        </div>
+        <div class="rib-metric-label">Total Identified Opportunity Value</div>
+        <div class="rib-metric-value">$41.2M</div>
+        <div class="rib-metric-sub">Across 7 qualified opportunities</div>
+        <div class="rib-verified">&#10003; Verified &nbsp;&middot;&nbsp; AI Scored &nbsp;&middot;&nbsp; Decision-Makers Mapped</div>
+        <div class="rib-items">
+          <div class="rib-item"><span>Mixed-Use Development &middot; Brickell</span><span>$18.4M &middot; Score 91</span></div>
+          <div class="rib-item"><span>Medical Campus Expansion &middot; Coral Gables</span><span>$9.7M &middot; Score 87</span></div>
+          <div class="rib-item"><span>Luxury Residential &middot; Coconut Grove</span><span>$7.2M &middot; Score 82</span></div>
+          <div class="rib-item"><span>Warehouse Logistics &middot; Hialeah</span><span>$3.9M &middot; Score 78</span></div>
+          <div class="rib-item"><span>Hotel Renovation &middot; South Beach</span><span>$2.0M &middot; Score 74</span></div>
+        </div>
+      </div>
+      <div class="rib-copy reveal">
+        <p class="section-eyebrow">Revenue Intelligence Brief&trade;</p>
+        <h2 class="section-title" style="font-size:1.9rem;">Your Market, Decoded</h2>
+        <p>The Revenue Intelligence Brief is ConstructIQ&rsquo;s flagship deliverable &mdash; a comprehensive monthly report that maps your highest-value pipeline opportunities, scored by AI and verified by our research team.</p>
+        <p>Every brief is custom-built for your company, your geography, and your target project profile. No generic data dumps. No leads you&rsquo;ve already seen on bid boards.</p>
+        <ul class="rib-features">
+          <li>Qualified opportunities with verified owner/developer contacts</li>
+          <li>AI Opportunity Scores across 6 weighted dimensions</li>
+          <li>Project timeline estimates and permit status</li>
+          <li>Competitive landscape per opportunity</li>
+          <li>Custom outreach scripts and meeting frameworks</li>
+          <li>Executive summary with 30-day action plan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="buybox">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Who We Serve</p>
+    <h2 class="section-title reveal">The Client Buy Box&trade;</h2>
+    <p class="section-subtitle reveal">ConstructIQ is built for a specific type of construction firm &mdash; one that&rsquo;s ready to compete for the right work, not just any work.</p>
+    <div class="buybox-grid">
+      <div class="buybox-card reveal">
+        <h4>Company Size</h4>
+        <p>$5M&ndash;$250M annual revenue. Large enough to execute, focused enough to benefit from intelligence-led BD.</p>
+      </div>
+      <div class="buybox-card reveal">
+        <h4>Firm Types</h4>
+        <p>General contractors, specialty subcontractors, design-build firms, and construction management companies.</p>
+      </div>
+      <div class="buybox-card reveal">
+        <h4>Project Appetite</h4>
+        <p>Firms pursuing $1M+ projects in commercial, multifamily, healthcare, industrial, or institutional sectors.</p>
+      </div>
+      <div class="buybox-card reveal">
+        <h4>Growth Mindset</h4>
+        <p>Leaders who want to build a real pipeline &mdash; not just respond to whatever lands in their inbox or hits a bid board.</p>
+      </div>
+      <div class="buybox-card reveal">
+        <h4>Geography</h4>
+        <p>Currently serving Florida, with targeted expansion to Southeast and Sunbelt markets in 2026.</p>
+      </div>
+      <div class="buybox-card reveal">
+        <h4>Commitment Level</h4>
+        <p>Teams willing to act on intelligence quickly. The best opportunities have a short window &mdash; speed wins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="score">
+  <div class="section-inner">
+    <div class="score-layout">
+      <div class="score-canvas-wrap reveal">
+        <canvas id="scoreRing" width="300" height="300"></canvas>
+        <div class="score-legend">
+          <div class="score-legend-item"><div class="score-dot" style="background:var(--gold)"></div>Project Fit</div>
+          <div class="score-legend-item"><div class="score-dot" style="background:var(--orange)"></div>Win Probability</div>
+          <div class="score-legend-item"><div class="score-dot" style="background:var(--blue-mid)"></div>Revenue Potential</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="section-eyebrow">AI Opportunity Score</p>
+        <h2 class="section-title">Know Before You Bid</h2>
+        <p class="section-subtitle">Every opportunity in your brief is evaluated across six dimensions and assigned a composite score from 0&ndash;100. Stop wasting resources on long-shots.</p>
+        <div class="score-factors">
+          <div class="score-factor">
+            <div class="score-factor-header"><span class="score-factor-label">Project Size Fit</span><span class="score-factor-val">92</span></div>
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="92%"></div></div>
+          </div>
+          <div class="score-factor">
+            <div class="score-factor-header"><span class="score-factor-label">Relationship Proximity</span><span class="score-factor-val">85</span></div>
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="85%"></div></div>
+          </div>
+          <div class="score-factor">
+            <div class="score-factor-header"><span class="score-factor-label">Timeline Alignment</span><span class="score-factor-val">78</span></div>
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="78%"></div></div>
+          </div>
+          <div class="score-factor">
+            <div class="score-factor-header"><span class="score-factor-label">Competitive Density</span><span class="score-factor-val">71</span></div>
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="71%"></div></div>
+          </div>
+          <div class="score-factor">
+            <div class="score-factor-header"><span class="score-factor-label">Win Probability</span><span class="score-factor-val">88</span></div>
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="88%"></div></div>
+          </div>
+          <div class="score-factor">
+            <div class="score-factor-header"><span class="score-factor-label">Revenue Potential</span><span class="score-factor-val">95</span></div>
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-width="95%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Packages &amp; Pricing</p>
+    <h2 class="section-title reveal">Choose Your Intelligence Level</h2>
+    <p class="section-subtitle reveal">All packages include a Revenue Intelligence Brief&trade;. Choose the level of depth, frequency, and strategic support that matches where your firm is today.</p>
+    <div class="packages-grid">
+      <div class="pkg-card reveal">
+        <div class="pkg-name">Report&trade;</div>
+        <div class="pkg-price"><sup>$</sup>495<span>/report</span></div>
+        <div class="pkg-desc">A single Revenue Intelligence Brief for your market. Perfect for evaluating ConstructIQ before committing to a subscription.</div>
+        <ul class="pkg-features">
+          <li>One Revenue Intelligence Brief&trade;</li>
+          <li>Up to 5 scored opportunities</li>
+          <li>Decision-maker contacts</li>
+          <li>AI Opportunity Scores</li>
+          <li>30-day action plan</li>
+        </ul>
+        <a href="https://square.link/u/J3CYZHHc" class="pkg-btn outline" target="_blank">Order Report</a>
+      </div>
+      <div class="pkg-card reveal">
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-price"><sup>$</sup>1,995<span>/mo</span></div>
+        <div class="pkg-desc">Monthly intelligence for growing firms building a consistent BD pipeline in a single market.</div>
+        <ul class="pkg-features">
+          <li>Monthly Revenue Intelligence Brief&trade;</li>
+          <li>Up to 8 scored opportunities</li>
+          <li>Decision-maker mapping</li>
+          <li>Outreach scripts included</li>
+          <li>Email support</li>
+          <li>Quarterly strategy review</li>
+        </ul>
+        <a href="https://square.link/u/kQOaobcU" class="pkg-btn" target="_blank">Get Started</a>
+      </div>
+      <div class="pkg-card featured reveal">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-name">Professional</div>
+        <div class="pkg-price"><sup>$</sup>3,995<span>/mo</span></div>
+        <div class="pkg-desc">Full-service intelligence for firms serious about dominating their market and building a repeatable revenue engine.</div>
+        <ul class="pkg-features">
+          <li>Bi-weekly Revenue Intelligence Briefs&trade;</li>
+          <li>Up to 15 scored opportunities</li>
+          <li>Full decision-maker dossiers</li>
+          <li>Custom outreach playbooks</li>
+          <li>Competitive landscape reports</li>
+          <li>Monthly strategy call</li>
+          <li>Priority Slack support</li>
+        </ul>
+        <a href="https://square.link/u/kTbYTsAO" class="pkg-btn" target="_blank">Get Started</a>
+      </div>
+      <div class="pkg-card reveal">
+        <div class="pkg-name">Enterprise</div>
+        <div class="pkg-price" style="font-size:1.8rem;padding-top:6px;">Custom</div>
+        <div class="pkg-desc">Multi-market coverage, dedicated analyst, and fully integrated business development support for larger organizations.</div>
+        <ul class="pkg-features">
+          <li>Multiple market coverage</li>
+          <li>Dedicated research analyst</li>
+          <li>Unlimited opportunities</li>
+          <li>Custom reporting cadence</li>
+          <li>BD team training &amp; integration</li>
+          <li>Executive strategy sessions</li>
+          <li>White-glove onboarding</li>
+        </ul>
+        <a href="#contact" class="pkg-btn outline">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usecase">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Sample Use Case</p>
+    <h2 class="section-title reveal">Intelligence in Action</h2>
+    <p class="section-subtitle reveal">Here&rsquo;s how a ConstructIQ Revenue Intelligence Brief translates into real pipeline for a construction firm operating in South Florida.</p>
+    <div class="usecase-card reveal">
+      <div class="usecase-header">
+        <div class="usecase-client">3D-PB Construction</div>
+        <div class="usecase-tag">South Florida &middot; Q3 2026</div>
+        <div class="usecase-tag">Specialty Contractor</div>
+      </div>
+      <div class="usecase-metrics">
+        <div class="usecase-metric">
+          <div class="usecase-metric-val">$41.2M</div>
+          <div class="usecase-metric-label">Pipeline Identified</div>
+        </div>
+        <div class="usecase-metric">
+          <div class="usecase-metric-val">7</div>
+          <div class="usecase-metric-label">Qualified Opportunities</div>
+        </div>
+        <div class="usecase-metric">
+          <div class="usecase-metric-val">91</div>
+          <div class="usecase-metric-label">Top AI Score</div>
+        </div>
+        <div class="usecase-metric">
+          <div class="usecase-metric-val">14</div>
+          <div class="usecase-metric-label">Decision-Makers Mapped</div>
+        </div>
+      </div>
+      <div class="usecase-quote">
+        <p>&ldquo;ConstructIQ identified a $18.4M mixed-use project in Brickell that wasn&rsquo;t on anyone&rsquo;s radar yet. The brief included the developer&rsquo;s contact, their preferred GC relationships, and a tailored outreach script. We had a meeting scheduled within 10 days.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="legal">
+  <div class="section-inner">
+    <h2>Important Disclosures</h2>
+    <p>ConstructIQ&trade; is a business intelligence and market research service. All information provided in Revenue Intelligence Briefs&trade; and related deliverables is compiled from publicly available sources, proprietary research methodologies, and AI-assisted analysis. ConstructIQ does not guarantee the accuracy, completeness, or timeliness of any information provided.</p>
+    <p>AI Opportunity Scores and projections are analytical estimates based on available data and are not guarantees of project availability, bid awards, or revenue outcomes. Past performance of intelligence products does not guarantee future results. All business decisions should be made in conjunction with your own due diligence and professional advisors.</p>
+    <p>ConstructIQ&trade; and Revenue Intelligence Brief&trade; are trademarks. Unauthorized reproduction or distribution of any ConstructIQ deliverable is prohibited. All client information is kept strictly confidential. ConstructIQ does not share client data, market focus areas, or pipeline intelligence with third parties.</p>
+    <p>By engaging ConstructIQ services, clients acknowledge that construction market outcomes depend on many factors outside ConstructIQ&rsquo;s control, including but not limited to project financing, owner decisions, regulatory approvals, and competitive dynamics. ConstructIQ&rsquo;s role is to improve the quality and timeliness of business development intelligence &mdash; not to guarantee contract awards.</p>
+    <p>&copy; 2026 ConstructIQ&trade;. All rights reserved. Service provided by ConstructIQpb.com. Questions? Contact <a href="mailto:hello@constructiqpb.com" style="color:var(--blue);">hello@constructiqpb.com</a></p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p class="section-eyebrow">Get Started</p>
+        <h2 class="section-title" style="color:var(--white);font-size:2rem;">Ready to Build Your Pipeline?</h2>
+        <p style="color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:32px;">Tell us about your firm and your market. We&rsquo;ll respond within one business day with a tailored recommendation.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">&#9993;</div>
+          <div class="contact-detail-text"><a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">&#127760;</div>
+          <div class="contact-detail-text"><a href="https://constructiqpb.com" style="color:var(--gold);">ConstructIQpb.com</a></div>
+        </div>
+      </div>
+      <form class="contact-form" action="mailto:hello@constructiqpb.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" name="company" placeholder="Smith Construction Co." required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="john@smithconstruction.com" required>
+        </div>
+        <div class="form-group">
+          <label>Annual Revenue Range</label>
+          <select name="revenue">
+            <option value="">Select range...</option>
+            <option>Under $5M</option>
+            <option>$5M - $25M</option>
+            <option>$25M - $75M</option>
+            <option>$75M - $250M</option>
+            <option>Over $250M</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What are you looking to accomplish?</label>
+          <textarea name="message" placeholder="Tell us about your target market, project types, and growth goals..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message &#8594;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="logo.png" alt="ConstructIQ">
+    </div>
+    <p>&copy; 2026 ConstructIQ&trade; &mdash; Construction Intelligence Platform</p>
+    <p><a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a> &nbsp;&middot;&nbsp; <a href="https://constructiqpb.com">ConstructIQpb.com</a></p>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  const canvas = document.getElementById('scoreRing');
+  const ctx = canvas.getContext('2d');
+  const cx = 150, cy = 150;
+  function drawRing(pct, radius, color, lw, start) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, start, start + Math.PI * 2 * pct);
+    ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.stroke();
+  }
+  ctx.clearRect(0,0,300,300);
+  [[110,'rgba(255,255,255,0.08)',18],[82,'rgba(255,255,255,0.08)',14],[56,'rgba(255,255,255,0.08)',10]].forEach(([r,c,w]) => {
+    ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.strokeStyle=c; ctx.lineWidth=w; ctx.stroke();
+  });
+  drawRing(0.91,110,'#F5B335',18,-Math.PI/2);
+  drawRing(0.88,82,'#E05A1A',14,-Math.PI/2);
+  drawRing(0.85,56,'#3468C0',10,-Math.PI/2);
+  ctx.fillStyle='#FFFFFF'; ctx.font='bold 52px -apple-system,sans-serif';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText('91',cx,cy-10);
+  ctx.font='13px -apple-system,sans-serif'; ctx.fillStyle='rgba(255,255,255,0.55)';
+  ctx.fillText('AI Score',cx,cy+22);
+
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.score-bar-fill').forEach(b => { b.style.width = b.dataset.width; });
+      }
+    });
+  }, { threshold: 0.3 });
+  const scoreSection = document.getElementById('score');
+  if (scoreSection) barObserver.observe(scoreSection);
+</script>
+</body>
+</html>
