@@ -5,219 +5,788 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sample Revenue Intelligence Brief™ | ConstructIQ™</title>
 <meta name="description" content="See a sample Revenue Intelligence Brief™ — the AI-powered construction opportunity report delivered by ConstructIQ.">
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#162336;--navy-dk:#0D1B2A;--blue:#2558A8;--orange:#E05A1A;
-  --sky:#EEF1F8;--ink:#0D1B2A;--ink-mid:#3A4A60;--ink-lt:#6A7A90;
-  --rule:#DDE3EE;--card-bg:#F7F9FC;--green:#1A7A4A;--amber:#C07800;
+:root {
+  --navy:    #162336;
+  --navy-dk: #0D1B2A;
+  --navy-xdk:#08111C;
+  --blue:    #2558A8;
+  --orange:  #E05A1A;
+  --sky:     #EEF1F8;
+  --ink:     #0D1B2A;
+  --ink-mid: #3A4A60;
+  --ink-lt:  #6A7A90;
+  --rule:    #DDE3EE;
+  --card-bg: #F7F9FC;
+  --green:   #1A7A4A;
+  --amber:   #C07800;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Exo 2',sans-serif;color:var(--ink);background:#fff;line-height:1.65;}
 
-/* NAV */
-nav{background:var(--blue);height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
-nav a img{height:72px;display:block;}
-nav .nav-cta{background:var(--orange);color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:4px;text-decoration:none;white-space:nowrap;}
-nav .nav-cta:hover{background:#C44D15;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* SAMPLE BANNER */
-.sample-banner{background:var(--orange);color:#fff;text-align:center;padding:12px 24px;font-size:0.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
-.sample-banner span{font-weight:400;letter-spacing:0;text-transform:none;opacity:0.9;}
+html { scroll-behavior: smooth; }
 
-/* REPORT HEADER */
-.report-header{background:var(--navy-dk);color:#fff;padding:56px 0 48px;}
-.report-header-inner{max-width:900px;margin:0 auto;padding:0 48px;}
-.report-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:6px 14px;margin-bottom:28px;}
-.report-badge-label{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
-.report-badge-text{font-size:0.75rem;color:rgba(255,255,255,0.6);}
-.report-badge-sep{width:1px;height:14px;background:rgba(255,255,255,0.2);}
-.report-title{font-size:2.4rem;font-weight:900;line-height:1.05;margin-bottom:16px;}
-.report-title span{color:var(--orange);}
-.report-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15);}
-.report-meta-item{display:flex;flex-direction:column;gap:3px;}
-.report-meta-label{font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
-.report-meta-value{font-size:0.88rem;color:rgba(255,255,255,0.85);}
+body {
+  font-family: 'Exo 2', system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* PAGE LAYOUT */
-.report-body{max-width:900px;margin:0 auto;padding:56px 48px 96px;}
+/* ─── NAV ─────────────────────────────────────────────────────────────────── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--blue);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+.site-nav img { height: 64px; display: block; }
+.nav-cta {
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: #C44D15; }
 
-/* SECTION STYLES */
-.section{margin-bottom:56px;}
-.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--rule);}
-.section-num{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-size:0.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.section-title{font-size:1.15rem;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:1px;}
+/* ─── SAMPLE BANNER ───────────────────────────────────────────────────────── */
+.sample-banner {
+  position: fixed;
+  top: 72px; left: 0; right: 0;
+  z-index: 99;
+  background: var(--orange);
+  color: #fff;
+  text-align: center;
+  padding: 8px 24px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.sample-banner em { font-weight: 400; letter-spacing: 0; text-transform: none; font-style: normal; opacity: 0.85; }
 
-/* KEY METRICS */
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.metric-card{background:var(--card-bg);border:1px solid var(--rule);border-radius:8px;padding:20px 18px;}
-.metric-label{font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-lt);margin-bottom:8px;}
-.metric-value{font-size:2rem;font-weight:900;color:var(--ink);line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums;}
-.metric-value.orange{color:var(--orange);}
-.metric-value.blue{color:var(--blue);}
-.metric-sub{font-size:0.75rem;color:var(--ink-lt);}
+/* ─── COVER ───────────────────────────────────────────────────────────────── */
+.cover {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--navy-xdk) 0%, var(--navy-dk) 55%, #0F1E30 100%);
+  display: flex;
+  flex-direction: column;
+  padding-top: 104px; /* nav + banner */
+  overflow: hidden;
+}
+.cover-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.cover-inner {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 48px 0;
+  width: 100%;
+}
+.cover-type-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.cover-type-label span {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.cover-type-label::before,
+.cover-type-label::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+.cover-type-label::before { width: 0; }
+.cover-type-label::after  { width: 48px; }
+.cover-client {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.0;
+  text-wrap: balance;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.cover-period {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.5px;
+  margin-bottom: 56px;
+}
+.cover-divider {
+  width: 56px;
+  height: 3px;
+  background: var(--orange);
+  margin-bottom: 36px;
+}
+.cover-specs {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cover-spec { display: flex; flex-direction: column; gap: 4px; }
+.cover-spec-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.cover-spec-value {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+}
+.cover-footer {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 64px;
+}
+.cover-footer-left {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.5px;
+}
+.cover-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+}
+.cover-scroll span {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+.cover-scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+}
 
-/* EXECUTIVE SUMMARY */
-.exec-summary{background:var(--sky);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:24px 28px;margin-bottom:20px;}
-.exec-summary p{font-size:0.95rem;color:var(--ink-mid);margin-bottom:12px;}
-.exec-summary p:last-child{margin-bottom:0;}
+/* ─── REPORT BODY ──────────────────────────────────────────────────────────── */
+.report-body { max-width: 900px; margin: 0 auto; padding: 0 48px 96px; }
 
-/* OPPORTUNITY CARDS */
-.opportunity-card{background:#fff;border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
-.opp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 24px 18px;border-bottom:1px solid var(--rule);}
-.opp-left{flex:1;}
-.opp-stage-badge{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:10px;}
-.stage-design{background:#EEF3FF;color:#2558A8;}
-.stage-entitlement{background:#FFF8EE;color:#C07800;}
-.stage-gc-selection{background:#F0FAF4;color:#1A7A4A;}
-.opp-name{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:6px;}
-.opp-address{font-size:0.82rem;color:var(--ink-lt);}
-.opp-cis{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
-.cis-ring-wrap{position:relative;width:72px;height:72px;}
-.cis-ring-wrap canvas{display:block;}
-.cis-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:var(--ink);}
-.cis-label{font-size:0.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-lt);}
-.opp-body{padding:18px 24px;}
-.opp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:16px;}
-.opp-field{display:flex;flex-direction:column;gap:3px;}
-.opp-field-label{font-size:0.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-lt);}
-.opp-field-value{font-size:0.88rem;font-weight:600;color:var(--ink);}
-.opp-insight{background:var(--sky);border-radius:6px;padding:12px 16px;font-size:0.85rem;color:var(--ink-mid);line-height:1.6;}
-.opp-insight strong{color:var(--blue);}
+/* ─── SECTION ─────────────────────────────────────────────────────────────── */
+.report-section { padding-top: 72px; margin-bottom: 72px; }
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.section-label-text {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+}
+.section-label-line { flex: 1; height: 1px; background: var(--rule); }
+.section-label-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(37,88,168,0.35);
+  letter-spacing: 1px;
+}
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.section-title span { color: var(--orange); }
 
-/* DECISION MAKER CARDS */
-.dm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.dm-card{background:var(--card-bg);border:1px solid var(--rule);border-radius:8px;padding:20px;}
-.dm-name{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:2px;}
-.dm-title{font-size:0.8rem;color:var(--blue);font-weight:600;margin-bottom:12px;}
-.dm-detail{font-size:0.82rem;color:var(--ink-mid);margin-bottom:6px;}
-.dm-detail strong{color:var(--ink);font-weight:700;}
+/* ─── EXECUTIVE SUMMARY ───────────────────────────────────────────────────── */
+.exec-block {
+  background: var(--sky);
+  border-left: 3px solid var(--blue);
+  padding: 28px 32px;
+  border-radius: 0 6px 6px 0;
+}
+.exec-block p {
+  font-size: 0.97rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.exec-block p:last-child { margin-bottom: 0; }
+.exec-action {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.exec-action-flag {
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(224,90,26,0.08);
+  border: 1px solid rgba(224,90,26,0.2);
+  border-radius: 3px;
+  padding: 4px 8px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+.exec-action p {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  margin: 0;
+  line-height: 1.6;
+}
 
-/* OUTREACH */
-.outreach-card{background:var(--card-bg);border:1px solid var(--rule);border-radius:8px;padding:24px;margin-bottom:16px;}
-.outreach-project{font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
-.outreach-subject{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:12px;}
-.outreach-body{font-size:0.88rem;color:var(--ink-mid);line-height:1.7;white-space:pre-line;}
-.outreach-note{margin-top:12px;padding-top:12px;border-top:1px solid var(--rule);font-size:0.78rem;color:var(--ink-lt);font-style:italic;}
+/* ─── KEY METRICS ─────────────────────────────────────────────────────────── */
+.metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.metric-card {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 22px 20px;
+}
+.metric-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  margin-bottom: 10px;
+}
+.metric-value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.metric-value.c-orange { color: var(--orange); }
+.metric-value.c-blue   { color: var(--blue); }
+.metric-sub { font-size: 0.72rem; color: var(--ink-lt); }
 
-/* METHODOLOGY */
-.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.method-item{display:flex;gap:14px;align-items:flex-start;}
-.method-icon{width:36px;height:36px;background:var(--sky);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;}
-.method-text h4{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
-.method-text p{font-size:0.82rem;color:var(--ink-mid);}
+/* ─── OPPORTUNITY RANKINGS ────────────────────────────────────────────────── */
+.rankings-table { width: 100%; border-collapse: collapse; }
+.rankings-table th {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  text-align: left;
+  padding: 0 16px 12px;
+  border-bottom: 2px solid var(--rule);
+}
+.rankings-table th:first-child { padding-left: 0; width: 40px; }
+.rankings-table th:nth-child(2) { width: 80px; }
+.rankings-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+}
+.rankings-table td:first-child { padding-left: 0; }
+.rankings-table tr:last-child td { border-bottom: none; }
+.rankings-table tr:hover td { background: var(--sky); }
+.rank-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-lt);
+  font-variant-numeric: tabular-nums;
+}
+.cis-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 28px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+.cis-pill.c-orange { background: rgba(224,90,26,0.1);  color: var(--orange); }
+.cis-pill.c-blue   { background: rgba(37,88,168,0.1);  color: var(--blue); }
+.cis-pill.c-amber  { background: rgba(192,120,0,0.1);  color: var(--amber); }
+.rank-project-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.rank-project-name a {
+  color: inherit;
+  text-decoration: none;
+}
+.rank-project-name a:hover { color: var(--blue); }
+.rank-project-sub { font-size: 0.75rem; color: var(--ink-lt); }
+.rank-type { font-size: 0.78rem; color: var(--ink-mid); }
+.rank-value { font-size: 0.82rem; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.stage-chip {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.stage-chip.gc-green  { background: #EBF7F1; color: var(--green); }
+.stage-chip.gc-amber  { background: #FFF8EE; color: var(--amber); }
+.stage-chip.watch     { background: rgba(192,120,0,0.08); color: var(--amber); border: 1px dashed rgba(192,120,0,0.35); }
 
-/* SOURCES */
-.sources-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.sources-list li{font-size:0.82rem;color:var(--ink-mid);padding-left:16px;position:relative;}
-.sources-list li::before{content:"—";position:absolute;left:0;color:var(--ink-lt);}
+/* ─── OPPORTUNITY DETAIL ──────────────────────────────────────────────────── */
+.opp-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.opp-card.early-watch { border-style: dashed; opacity: 0.82; }
+.opp-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--card-bg);
+}
+.opp-card-left { flex: 1; }
+.opp-card-stage { margin-bottom: 10px; }
+.opp-card-name { font-size: 1.15rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.opp-card-addr { font-size: 0.8rem; color: var(--ink-lt); }
+.opp-card-cis { display: flex; flex-direction: column; align-items: center; gap: 5px; flex-shrink: 0; }
+.cis-ring-wrap { position: relative; width: 80px; height: 80px; }
+.cis-ring-wrap canvas { display: block; }
+.cis-ring-num {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.45rem; font-weight: 900; color: var(--ink);
+}
+.cis-ring-lbl { font-size: 0.58rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-lt); }
+.opp-card-body { padding: 20px 28px; }
+.opp-fields {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px 20px;
+  margin-bottom: 18px;
+}
+.opp-field-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  margin-bottom: 3px;
+}
+.opp-field-value { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+.opp-intel {
+  background: var(--sky);
+  border-radius: 5px;
+  padding: 14px 18px;
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+.opp-intel strong { color: var(--blue); }
+.opp-intel.watch-intel {
+  background: rgba(255,248,238,0.9);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 5px 5px 0;
+}
+.opp-intel.watch-intel strong { color: var(--amber); }
 
-/* DISCLAIMER */
-.disclaimer-box{background:#F7F7F7;border:1px solid var(--rule);border-radius:8px;padding:20px 24px;}
-.disclaimer-box p{font-size:0.72rem;color:var(--ink-lt);line-height:1.65;margin-bottom:8px;}
-.disclaimer-box p:last-child{margin-bottom:0;}
+/* ─── MARKET INTELLIGENCE ─────────────────────────────────────────────────── */
+.market-intro {
+  font-size: 0.97rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+.market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+.market-card {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 20px 22px;
+}
+.market-card-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  margin-bottom: 8px;
+}
+.market-card-headline {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.market-card-headline .signal { color: var(--orange); }
+.market-card-body { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.65; }
+.market-signal-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  padding: 20px;
+  background: var(--navy-dk);
+  border-radius: 6px;
+}
+.market-signal-item { display: flex; flex-direction: column; gap: 4px; }
+.market-signal-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.market-signal-val {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.market-signal-val.good  { color: #4EC98A; }
+.market-signal-val.warn  { color: var(--orange); }
+.market-signal-sub { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
 
-/* CTA STRIP */
-.cta-strip{background:var(--navy);border-radius:12px;padding:48px;text-align:center;margin-top:64px;}
-.cta-strip h2{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:12px;}
-.cta-strip p{font-size:0.95rem;color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 28px;}
-.btn-ora{display:inline-block;background:var(--orange);color:#fff;font-size:0.9rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:16px 36px;border-radius:4px;text-decoration:none;}
-.btn-ora:hover{background:#C44D15;}
-.btn-ghost{display:inline-block;background:transparent;color:rgba(255,255,255,0.7);font-size:0.82rem;font-weight:600;padding:10px 24px;border:1px solid rgba(255,255,255,0.25);border-radius:4px;text-decoration:none;margin-left:16px;}
-.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+/* ─── OUTREACH STRATEGY ───────────────────────────────────────────────────── */
+.outreach-block { margin-bottom: 40px; }
+.outreach-block-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.outreach-block-opp {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.outreach-two-col { display: grid; grid-template-columns: 1fr 1.6fr; gap: 16px; }
+.dm-card {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 20px;
+}
+.dm-name { font-size: 0.95rem; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
+.dm-title { font-size: 0.78rem; font-weight: 600; color: var(--blue); margin-bottom: 14px; }
+.dm-row { font-size: 0.8rem; color: var(--ink-mid); margin-bottom: 6px; line-height: 1.5; }
+.dm-row strong { color: var(--ink); font-weight: 700; }
+.dm-signal {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.75rem;
+  color: var(--ink-lt);
+  font-style: italic;
+  line-height: 1.6;
+}
+.dm-channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+.dm-channel.email    { background: #EBF0FB; color: var(--blue); }
+.dm-channel.linkedin { background: #E8F0F8; color: #0A66C2; }
+.dm-channel.warm     { background: #F0FAF4; color: var(--green); }
+.script-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.script-card-header {
+  background: var(--card-bg);
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.script-subject {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.script-body {
+  padding: 18px 20px;
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  white-space: pre-line;
+}
+.script-note {
+  padding: 12px 20px;
+  background: var(--sky);
+  border-top: 1px solid var(--rule);
+  font-size: 0.75rem;
+  color: var(--ink-lt);
+  font-style: italic;
+  line-height: 1.6;
+}
 
-/* FOOTER */
-footer{background:var(--navy-dk);padding:32px 48px;text-align:center;}
-footer img{height:72px;display:block;margin:0 auto 14px;}
-footer p{font-size:0.75rem;color:rgba(255,255,255,0.35);}
-footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
+/* ─── SOURCES ─────────────────────────────────────────────────────────────── */
+.sources-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 32px;
+}
+.sources-grid li {
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.6;
+}
+.sources-grid li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--ink-lt);
+}
 
-@media(max-width:720px){
-  nav{padding:0 20px;}
-  .report-header-inner,.report-body{padding-left:20px;padding-right:20px;}
-  .metrics-grid{grid-template-columns:1fr 1fr;}
-  .opp-grid{grid-template-columns:1fr 1fr;}
-  .dm-grid{grid-template-columns:1fr;}
-  .method-grid{grid-template-columns:1fr;}
-  .sources-list{grid-template-columns:1fr;}
-  .cta-strip{padding:32px 20px;}
-  .report-title{font-size:1.7rem;}
-  .btn-ghost{margin-left:0;margin-top:12px;display:block;}
+/* ─── DISCLAIMER ──────────────────────────────────────────────────────────── */
+.disclaimer-wrap {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 24px 28px;
+}
+.disclaimer-wrap p {
+  font-size: 0.72rem;
+  color: var(--ink-lt);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.disclaimer-wrap p:last-child { margin-bottom: 0; }
+.disclaimer-wrap p strong { color: var(--ink-mid); font-weight: 700; }
+
+/* ─── CTA STRIP ───────────────────────────────────────────────────────────── */
+.cta-strip {
+  background: var(--navy-dk);
+  border-radius: 8px;
+  padding: 52px 48px;
+  text-align: center;
+  margin-top: 72px;
+}
+.cta-strip h2 { font-size: 1.9rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
+.cta-strip p { font-size: 0.95rem; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto 28px; }
+.btn-ora {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 15px 36px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.btn-ora:hover { background: #C44D15; }
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 10px 22px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 3px;
+  text-decoration: none;
+  margin-left: 14px;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+/* ─── FOOTER ──────────────────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--navy-xdk);
+  padding: 32px 48px;
+  text-align: center;
+}
+.site-footer img { height: 64px; display: block; margin: 0 auto 14px; }
+.site-footer p { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.site-footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .site-nav { padding: 0 20px; }
+  .cover-inner { padding: 40px 20px 0; }
+  .cover-client { font-size: 2.2rem; }
+  .cover-footer { padding: 24px 20px; }
+  .report-body { padding: 0 20px 64px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .opp-fields { grid-template-columns: 1fr 1fr; }
+  .market-grid { grid-template-columns: 1fr; }
+  .market-signal-row { grid-template-columns: 1fr 1fr; }
+  .outreach-two-col { grid-template-columns: 1fr; }
+  .sources-grid { grid-template-columns: 1fr; }
+  .rankings-table th:nth-child(4),
+  .rankings-table td:nth-child(4) { display: none; }
+  .cta-strip { padding: 36px 20px; }
+  .btn-ghost { margin-left: 0; margin-top: 12px; display: block; }
 }
 </style>
 </head>
 <body>
 
-<nav>
+<!-- NAV -->
+<nav class="site-nav">
   <a href="/"><img src="logo.png" alt="ConstructIQ"></a>
   <a href="/#qualify" class="nav-cta">Get My Brief</a>
 </nav>
 
+<!-- SAMPLE BANNER -->
 <div class="sample-banner">
-  SAMPLE REPORT — Illustrative Data Only &nbsp;·&nbsp; <span>All company names, contacts, and project details are fictional. For demonstration purposes only.</span>
+  Sample Report &nbsp;·&nbsp; <em>All company names, projects, and contacts are fictional. For illustrative purposes only.</em>
 </div>
 
-<!-- REPORT HEADER -->
-<div class="report-header">
-  <div class="report-header-inner">
-    <div class="report-badge">
-      <span class="report-badge-label">Revenue Intelligence Brief™</span>
-      <div class="report-badge-sep"></div>
-      <span class="report-badge-text">Sample Report &middot; For Illustrative Purposes</span>
+<!-- ═══════════════════════════════════════════════════════════ COVER ═══ -->
+<div class="cover" id="top">
+  <canvas class="cover-canvas" id="coverCanvas"></canvas>
+
+  <div class="cover-inner">
+    <div class="cover-type-label">
+      <span>Revenue Intelligence Brief™</span>
     </div>
-    <h1 class="report-title">Meridian Building Group<br><span>— Q3 2026 Intelligence Brief</span></h1>
-    <div class="report-meta">
-      <div class="report-meta-item">
-        <span class="report-meta-label">Report Date</span>
-        <span class="report-meta-value">July 2026</span>
+    <h1 class="cover-client">Meridian<br>Building Group</h1>
+    <p class="cover-period">Q3 2026 — Southwest Metro</p>
+    <div class="cover-divider"></div>
+    <div class="cover-specs">
+      <div class="cover-spec">
+        <span class="cover-spec-label">Report Date</span>
+        <span class="cover-spec-value">July 2026</span>
       </div>
-      <div class="report-meta-item">
-        <span class="report-meta-label">Coverage Period</span>
-        <span class="report-meta-value">Q3 2026 Opportunities</span>
+      <div class="cover-spec">
+        <span class="cover-spec-label">Report ID</span>
+        <span class="cover-spec-value">MBG-2026-03 (SAMPLE)</span>
       </div>
-      <div class="report-meta-item">
-        <span class="report-meta-label">Target Market</span>
-        <span class="report-meta-value">Southwest Metro / Commercial &amp; Industrial</span>
+      <div class="cover-spec">
+        <span class="cover-spec-label">Market</span>
+        <span class="cover-spec-value">Phoenix Metro / Commercial &amp; Industrial</span>
       </div>
-      <div class="report-meta-item">
-        <span class="report-meta-label">Report Number</span>
-        <span class="report-meta-value">MBG-2026-03 (SAMPLE)</span>
+      <div class="cover-spec">
+        <span class="cover-spec-label">Classification</span>
+        <span class="cover-spec-value">Confidential — Client Use Only</span>
       </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-left">
+      ConstructIQ™ Intelligence Platform &nbsp;·&nbsp; constructiqpb.com &nbsp;·&nbsp; hello@constructiqpb.com
+    </div>
+    <div class="cover-scroll">
+      <span>Scroll</span>
+      <div class="cover-scroll-line"></div>
     </div>
   </div>
 </div>
 
-<!-- REPORT BODY -->
+<!-- ═══════════════════════════════════════════════════ REPORT BODY ═══ -->
 <div class="report-body">
 
-  <!-- 1. EXECUTIVE SUMMARY -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">1</div>
-      <div class="section-title">Executive Summary</div>
+  <!-- ── EXECUTIVE SUMMARY ─────────────────────────────────────────── -->
+  <div class="report-section" id="exec-summary">
+    <div class="section-label">
+      <span class="section-label-text">Executive Summary</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">01</span>
     </div>
-    <div class="exec-summary">
+    <div class="exec-block">
       <p>This brief surfaces 5 active construction opportunities in the Southwest Metro market aligned to Meridian Building Group's Client Blueprint™ — commercial office, light industrial, and mixed-use projects between $4M and $40M, within a 60-mile service radius, excluding residential and hospitality.</p>
-      <p>Three opportunities are rated High Priority (CIS™ 78+) based on project readiness, owner relationship accessibility, and alignment to Meridian's proven delivery capabilities. Two are flagged Early Watch — projects in active entitlement where early relationship-building now creates competitive advantage before the formal bid window opens.</p>
-      <p>Decision-maker contact profiles and tailored outreach scripts are included for all five projects. Recommended immediate action: outreach to the Apex Logistics Center owner group within the next 10 business days, before the GC shortlist is formalized.</p>
+      <p>Three opportunities are rated High Priority (CIS™ 78 or above) based on project readiness, owner relationship accessibility, and direct alignment to Meridian's proven delivery capabilities. Two are flagged Early Watch — projects in active entitlement where early relationship-building now creates a structural competitive advantage before the formal bid window opens.</p>
+      <p>Decision-maker contact profiles and tailored outreach scripts are included for all five projects. Market Intelligence confirms accelerating permit activity in the West Valley industrial corridor — the highest volume since 2005 — and tightening industrial vacancy across the metro, both favorable conditions for Meridian's pipeline.</p>
+      <div class="exec-action">
+        <span class="exec-action-flag">Act Now</span>
+        <p>Outreach to the Apex Logistics Center owner group within the next 10 business days — before the GC shortlist is formalized. Owner preference for self-perform concrete aligns directly to Meridian's core capability and is the differentiation angle to lead with.</p>
+      </div>
     </div>
   </div>
 
-  <!-- 2. KEY METRICS -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">2</div>
-      <div class="section-title">Key Metrics</div>
+  <!-- ── KEY METRICS ───────────────────────────────────────────────── -->
+  <div class="report-section" id="key-metrics">
+    <div class="section-label">
+      <span class="section-label-text">Key Metrics</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">02</span>
     </div>
     <div class="metrics-grid">
       <div class="metric-card">
         <div class="metric-label">Opportunities Identified</div>
-        <div class="metric-value blue">5</div>
+        <div class="metric-value c-blue">5</div>
         <div class="metric-sub">This coverage period</div>
       </div>
       <div class="metric-card">
         <div class="metric-label">Total Pipeline Value</div>
-        <div class="metric-value orange">$92M</div>
+        <div class="metric-value c-orange">$92M</div>
         <div class="metric-sub">Combined project estimate</div>
       </div>
       <div class="metric-card">
@@ -233,373 +802,535 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
     </div>
   </div>
 
-  <!-- 3. SAMPLE OPPORTUNITIES -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">3</div>
-      <div class="section-title">Identified Opportunities</div>
+  <!-- ── OPPORTUNITY RANKINGS ──────────────────────────────────────── -->
+  <div class="report-section" id="rankings">
+    <div class="section-label">
+      <span class="section-label-text">Opportunity Rankings</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">03</span>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="rankings-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>CIS™</th>
+            <th>Project</th>
+            <th>Type</th>
+            <th>Est. Value</th>
+            <th>Stage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank-num">1</span></td>
+            <td><span class="cis-pill c-orange">91</span></td>
+            <td>
+              <div class="rank-project-name"><a href="#opp-1">Apex Logistics Center — Phase II</a></div>
+              <div class="rank-project-sub">Scottsdale, AZ 85260</div>
+            </td>
+            <td class="rank-type">Light Industrial / Logistics</td>
+            <td class="rank-value">$28M – $34M</td>
+            <td><span class="stage-chip gc-green">GC Selection — Imminent</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">2</span></td>
+            <td><span class="cis-pill c-blue">83</span></td>
+            <td>
+              <div class="rank-project-name"><a href="#opp-2">Sunridge Medical Office Campus — Bldg C</a></div>
+              <div class="rank-project-sub">Phoenix, AZ 85016</div>
+            </td>
+            <td class="rank-type">Medical Office / MOB</td>
+            <td class="rank-value">$14M – $18M</td>
+            <td><span class="stage-chip gc-green">GC Selection — Open</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">3</span></td>
+            <td><span class="cis-pill c-blue">78</span></td>
+            <td>
+              <div class="rank-project-name"><a href="#opp-3">Maricopa Gateway Commerce Park</a></div>
+              <div class="rank-project-sub">Goodyear, AZ 85338</div>
+            </td>
+            <td class="rank-type">Spec Industrial / Flex</td>
+            <td class="rank-value">$22M – $27M</td>
+            <td><span class="stage-chip gc-green">GC Selection — Informal</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">4</span></td>
+            <td><span class="cis-pill c-amber">71</span></td>
+            <td>
+              <div class="rank-project-name"><a href="#opp-4">Desert Ridge Office Park — Tower 4</a></div>
+              <div class="rank-project-sub">Phoenix, AZ 85050</div>
+            </td>
+            <td class="rank-type">Class A Office</td>
+            <td class="rank-value">$18M – $24M</td>
+            <td><span class="stage-chip watch">Early Watch</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">5</span></td>
+            <td><span class="cis-pill c-amber">64</span></td>
+            <td>
+              <div class="rank-project-name"><a href="#opp-5">Chandler Crossroads Retail &amp; Flex — Ph. 1</a></div>
+              <div class="rank-project-sub">Chandler, AZ 85226</div>
+            </td>
+            <td class="rank-type">Retail / Mixed-Use Flex</td>
+            <td class="rank-value">$9M – $12M</td>
+            <td><span class="stage-chip watch">Early Watch</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── OPPORTUNITY DETAIL ─────────────────────────────────────────── -->
+  <div class="report-section" id="opp-detail">
+    <div class="section-label">
+      <span class="section-label-text">Opportunity Detail</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">04</span>
     </div>
 
-    <!-- OPPORTUNITY 1 -->
-    <div class="opportunity-card">
-      <div class="opp-header">
-        <div class="opp-left">
-          <div class="opp-stage-badge stage-gc-selection">GC Selection — Imminent</div>
-          <div class="opp-name">Apex Logistics Center — Phase II Expansion</div>
-          <div class="opp-address">4400 Commerce Parkway, Scottsdale, AZ 85260</div>
+    <!-- OPP 1 -->
+    <div class="opp-card" id="opp-1">
+      <div class="opp-card-header">
+        <div class="opp-card-left">
+          <div class="opp-card-stage"><span class="stage-chip gc-green">GC Selection — Imminent</span></div>
+          <div class="opp-card-name">Apex Logistics Center — Phase II Expansion</div>
+          <div class="opp-card-addr">4400 Commerce Parkway, Scottsdale, AZ 85260</div>
         </div>
-        <div class="opp-cis">
+        <div class="opp-card-cis">
           <div class="cis-ring-wrap">
-            <canvas id="cis1" width="72" height="72"></canvas>
-            <div class="cis-num">91</div>
+            <canvas id="cis1" width="80" height="80"></canvas>
+            <div class="cis-ring-num">91</div>
           </div>
-          <div class="cis-label">CIS™ Score</div>
+          <div class="cis-ring-lbl">CIS™ Score</div>
         </div>
       </div>
-      <div class="opp-body">
-        <div class="opp-grid">
-          <div class="opp-field">
+      <div class="opp-card-body">
+        <div class="opp-fields">
+          <div>
             <div class="opp-field-label">Project Type</div>
             <div class="opp-field-value">Light Industrial / Logistics</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Value</div>
             <div class="opp-field-value">$28M – $34M</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Start</div>
             <div class="opp-field-value">Q4 2026</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Owner</div>
             <div class="opp-field-value">Apex Industrial REIT</div>
           </div>
-          <div class="opp-field">
-            <div class="opp-field-label">Architect</div>
+          <div>
+            <div class="opp-field-label">Architect of Record</div>
             <div class="opp-field-value">Cornerstone Design Studio</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Permit Status</div>
             <div class="opp-field-value">Approved — Active</div>
           </div>
         </div>
-        <div class="opp-insight"><strong>Intelligence:</strong> Phase I was delivered by a regional GC that lost a key superintendent to retirement. Ownership contacted two GCs in June for Phase II — the shortlist has not been formalized. Meridian's documented tilt-up track record in the $25M+ range is a direct match. Outreach in the next 10 business days positions ahead of the shortlist cutoff. Owner prefers GCs with local subcontractor relationships and self-perform concrete.</div>
+        <div class="opp-intel"><strong>Intelligence:</strong> Phase I was delivered by a regional GC that lost a key superintendent to retirement. Ownership contacted two GCs in June for Phase II — the shortlist has not been formalized. Meridian's documented tilt-up track record in the $25M+ range is a direct match. Outreach in the next 10 business days positions ahead of the shortlist cutoff. Owner preference for self-perform concrete and local subcontractor relationships is Meridian's primary differentiator here.</div>
       </div>
     </div>
 
-    <!-- OPPORTUNITY 2 -->
-    <div class="opportunity-card">
-      <div class="opp-header">
-        <div class="opp-left">
-          <div class="opp-stage-badge stage-gc-selection">GC Selection — Open</div>
-          <div class="opp-name">Sunridge Medical Office Campus — Building C</div>
-          <div class="opp-address">1850 E. Thomas Road, Phoenix, AZ 85016</div>
+    <!-- OPP 2 -->
+    <div class="opp-card" id="opp-2">
+      <div class="opp-card-header">
+        <div class="opp-card-left">
+          <div class="opp-card-stage"><span class="stage-chip gc-green">GC Selection — Open</span></div>
+          <div class="opp-card-name">Sunridge Medical Office Campus — Building C</div>
+          <div class="opp-card-addr">1850 E. Thomas Road, Phoenix, AZ 85016</div>
         </div>
-        <div class="opp-cis">
+        <div class="opp-card-cis">
           <div class="cis-ring-wrap">
-            <canvas id="cis2" width="72" height="72"></canvas>
-            <div class="cis-num">83</div>
+            <canvas id="cis2" width="80" height="80"></canvas>
+            <div class="cis-ring-num">83</div>
           </div>
-          <div class="cis-label">CIS™ Score</div>
+          <div class="cis-ring-lbl">CIS™ Score</div>
         </div>
       </div>
-      <div class="opp-body">
-        <div class="opp-grid">
-          <div class="opp-field">
+      <div class="opp-card-body">
+        <div class="opp-fields">
+          <div>
             <div class="opp-field-label">Project Type</div>
             <div class="opp-field-value">Medical Office / MOB</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Value</div>
             <div class="opp-field-value">$14M – $18M</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Start</div>
             <div class="opp-field-value">Q1 2027</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Owner</div>
             <div class="opp-field-value">Sunridge Health Properties LLC</div>
           </div>
-          <div class="opp-field">
-            <div class="opp-field-label">Architect</div>
+          <div>
+            <div class="opp-field-label">Architect of Record</div>
             <div class="opp-field-value">MedPlan Architects</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Permit Status</div>
             <div class="opp-field-value">In Review — City of Phoenix</div>
           </div>
         </div>
-        <div class="opp-insight"><strong>Intelligence:</strong> Campus development is part of a three-building master plan. Buildings A and B were completed by two separate GCs — owner expressed dissatisfaction with coordination between them. Positioning Meridian as the single GC able to deliver the full campus vision is a differentiated narrative. Decision-maker LinkedIn profile shows preference for in-person relationship-building over cold email.</div>
+        <div class="opp-intel"><strong>Intelligence:</strong> Campus development is part of a three-building master plan. Buildings A and B were completed by two separate GCs — owner expressed dissatisfaction with coordination between them. Positioning Meridian as the single GC able to deliver the full campus vision is a differentiated narrative. Decision-maker LinkedIn shows strong preference for in-person relationship-building; a warm introduction via MedPlan Architects (with whom Meridian has an existing relationship) is the recommended first step.</div>
       </div>
     </div>
 
-    <!-- OPPORTUNITY 3 -->
-    <div class="opportunity-card">
-      <div class="opp-header">
-        <div class="opp-left">
-          <div class="opp-stage-badge stage-gc-selection">GC Selection — Informal</div>
-          <div class="opp-name">Maricopa Gateway Commerce Park — Spec Industrial</div>
-          <div class="opp-address">Loop 303 &amp; Camelback Rd, Goodyear, AZ 85338</div>
+    <!-- OPP 3 -->
+    <div class="opp-card" id="opp-3">
+      <div class="opp-card-header">
+        <div class="opp-card-left">
+          <div class="opp-card-stage"><span class="stage-chip gc-green">GC Selection — Informal</span></div>
+          <div class="opp-card-name">Maricopa Gateway Commerce Park — Spec Industrial</div>
+          <div class="opp-card-addr">Loop 303 &amp; Camelback Rd, Goodyear, AZ 85338</div>
         </div>
-        <div class="opp-cis">
+        <div class="opp-card-cis">
           <div class="cis-ring-wrap">
-            <canvas id="cis3" width="72" height="72"></canvas>
-            <div class="cis-num">78</div>
+            <canvas id="cis3" width="80" height="80"></canvas>
+            <div class="cis-ring-num">78</div>
           </div>
-          <div class="cis-label">CIS™ Score</div>
+          <div class="cis-ring-lbl">CIS™ Score</div>
         </div>
       </div>
-      <div class="opp-body">
-        <div class="opp-grid">
-          <div class="opp-field">
+      <div class="opp-card-body">
+        <div class="opp-fields">
+          <div>
             <div class="opp-field-label">Project Type</div>
             <div class="opp-field-value">Spec Industrial / Flex</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Value</div>
             <div class="opp-field-value">$22M – $27M</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Start</div>
             <div class="opp-field-value">Q2 2027</div>
           </div>
-          <div class="opp-field">
-            <div class="opp-field-label">Owner/Developer</div>
+          <div>
+            <div class="opp-field-label">Owner / Developer</div>
             <div class="opp-field-value">Valor Industrial Partners</div>
           </div>
-          <div class="opp-field">
-            <div class="opp-field-label">Architect</div>
+          <div>
+            <div class="opp-field-label">Architect of Record</div>
             <div class="opp-field-value">Walsh &amp; Dunn AIA</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Permit Status</div>
             <div class="opp-field-value">Pre-Application — City of Goodyear</div>
           </div>
         </div>
-        <div class="opp-insight"><strong>Intelligence:</strong> Developer is new to the Goodyear submarket — previous projects were all Tempe/Chandler. They are actively seeking GC partners with established subcontractor relationships in the West Valley. Introductory relationship call is the right first step; formal bid likely won't be issued until Q4 2026.</div>
+        <div class="opp-intel"><strong>Intelligence:</strong> Developer is new to the Goodyear submarket — all prior projects were Tempe/Chandler. They are actively seeking GC partners with established West Valley subcontractor relationships. An introductory relationship call is the right first step; formal bid selection is unlikely until Q4 2026. Decision-maker posted publicly about West Valley sub availability last week — direct outreach referencing that signal is a high-probability conversation starter.</div>
       </div>
     </div>
 
-    <!-- OPPORTUNITY 4 — EARLY WATCH -->
-    <div class="opportunity-card" style="opacity:0.8;border-style:dashed;">
-      <div class="opp-header">
-        <div class="opp-left">
-          <div class="opp-stage-badge stage-entitlement">Early Watch — Entitlement</div>
-          <div class="opp-name">Desert Ridge Office Park — Tower 4</div>
-          <div class="opp-address">21001 N. Tatum Blvd, Phoenix, AZ 85050</div>
+    <!-- OPP 4 — EARLY WATCH -->
+    <div class="opp-card early-watch" id="opp-4">
+      <div class="opp-card-header">
+        <div class="opp-card-left">
+          <div class="opp-card-stage"><span class="stage-chip watch">Early Watch — Entitlement</span></div>
+          <div class="opp-card-name">Desert Ridge Office Park — Tower 4</div>
+          <div class="opp-card-addr">21001 N. Tatum Blvd, Phoenix, AZ 85050</div>
         </div>
-        <div class="opp-cis">
+        <div class="opp-card-cis">
           <div class="cis-ring-wrap">
-            <canvas id="cis4" width="72" height="72"></canvas>
-            <div class="cis-num">71</div>
+            <canvas id="cis4" width="80" height="80"></canvas>
+            <div class="cis-ring-num">71</div>
           </div>
-          <div class="cis-label">CIS™ Score</div>
+          <div class="cis-ring-lbl">CIS™ Score</div>
         </div>
       </div>
-      <div class="opp-body">
-        <div class="opp-grid">
-          <div class="opp-field">
+      <div class="opp-card-body">
+        <div class="opp-fields">
+          <div>
             <div class="opp-field-label">Project Type</div>
             <div class="opp-field-value">Class A Office</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Value</div>
             <div class="opp-field-value">$18M – $24M</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Estimated Start</div>
             <div class="opp-field-value">Q3 2027 (projected)</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Owner</div>
             <div class="opp-field-value">Pinnacle Office Ventures</div>
           </div>
-          <div class="opp-field">
+          <div>
             <div class="opp-field-label">Status</div>
             <div class="opp-field-value">City Planning Review</div>
           </div>
-          <div class="opp-field">
-            <div class="opp-field-label">Horizon</div>
-            <div class="opp-field-value">12–15 months to bid</div>
+          <div>
+            <div class="opp-field-label">Horizon to Bid</div>
+            <div class="opp-field-value">12–15 months</div>
           </div>
         </div>
-        <div class="opp-insight" style="background:rgba(255,248,238,0.7);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;"><strong style="color:var(--amber);">Early Watch:</strong> Formal bid window is 12–15 months out. Recommended action: one warm introductory touchpoint now to establish recognition before the project goes to market. ConstructIQ will monitor permit activity and surface this again when GC selection begins.</div>
+        <div class="opp-intel watch-intel"><strong>Early Watch:</strong> Formal bid window is 12–15 months out. Recommended action: one warm introductory touchpoint now to establish recognition before the project goes to market. Owner has worked with 3 different GCs across earlier Pinnacle towers and favors repeat relationships — being known before the RFQ is issued is the entire competitive advantage available at this stage. ConstructIQ will monitor permit activity and escalate when GC selection begins.</div>
       </div>
     </div>
 
+    <!-- OPP 5 — EARLY WATCH -->
+    <div class="opp-card early-watch" id="opp-5">
+      <div class="opp-card-header">
+        <div class="opp-card-left">
+          <div class="opp-card-stage"><span class="stage-chip watch">Early Watch — Design</span></div>
+          <div class="opp-card-name">Chandler Crossroads Retail &amp; Flex — Phase 1</div>
+          <div class="opp-card-addr">2200 W. Chandler Blvd, Chandler, AZ 85226</div>
+        </div>
+        <div class="opp-card-cis">
+          <div class="cis-ring-wrap">
+            <canvas id="cis5" width="80" height="80"></canvas>
+            <div class="cis-ring-num">64</div>
+          </div>
+          <div class="cis-ring-lbl">CIS™ Score</div>
+        </div>
+      </div>
+      <div class="opp-card-body">
+        <div class="opp-fields">
+          <div>
+            <div class="opp-field-label">Project Type</div>
+            <div class="opp-field-value">Retail / Mixed-Use Flex</div>
+          </div>
+          <div>
+            <div class="opp-field-label">Estimated Value</div>
+            <div class="opp-field-value">$9M – $12M</div>
+          </div>
+          <div>
+            <div class="opp-field-label">Estimated Start</div>
+            <div class="opp-field-value">Q4 2027 (projected)</div>
+          </div>
+          <div>
+            <div class="opp-field-label">Developer</div>
+            <div class="opp-field-value">Highmark Retail Development</div>
+          </div>
+          <div>
+            <div class="opp-field-label">Architect of Record</div>
+            <div class="opp-field-value">TBD — design underway</div>
+          </div>
+          <div>
+            <div class="opp-field-label">Permit Status</div>
+            <div class="opp-field-value">Pre-Application — Not Filed</div>
+          </div>
+        </div>
+        <div class="opp-intel watch-intel"><strong>Early Watch:</strong> Earliest-stage project in this brief — design is underway but no permit has been filed. Included because the developer is repeat-active in the Chandler submarket and the project type aligns to Meridian's portfolio. No outreach recommended at this stage — ConstructIQ will monitor and resurface when design nears completion. Lower priority than opportunities 1–4 for this period.</div>
+      </div>
+    </div>
   </div>
 
-  <!-- 4. DECISION-MAKER INTELLIGENCE -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">4</div>
-      <div class="section-title">Decision-Maker Intelligence</div>
+  <!-- ── MARKET INTELLIGENCE ────────────────────────────────────────── -->
+  <div class="report-section" id="market-intel">
+    <div class="section-label">
+      <span class="section-label-text">Market Intelligence</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">05</span>
     </div>
-    <div class="dm-grid">
-      <div class="dm-card">
-        <div class="dm-name">James R. Calloway</div>
-        <div class="dm-title">VP Development &mdash; Apex Industrial REIT</div>
-        <div class="dm-detail"><strong>Project:</strong> Apex Logistics Center Phase II</div>
-        <div class="dm-detail"><strong>Contact:</strong> jcalloway@apexindreit.com &nbsp;·&nbsp; LinkedIn active</div>
-        <div class="dm-detail"><strong>Background:</strong> 18 years industrial development; prior roles at Prologis and DRW Real Estate. Prefers detailed preconstruction budgets and self-perform GCs.</div>
-        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;">Shared two posts about labor shortages in tilt-up construction in the last 60 days — opening for Meridian's workforce differentiation pitch.</div>
+    <p class="market-intro">The Southwest Metro construction market continues to outperform the national average on project pipeline velocity. The four trends below are the most consequential signals for Meridian's active pursuit strategy this quarter.</p>
+
+    <div class="market-signal-row" style="margin-bottom:20px;">
+      <div class="market-signal-item">
+        <span class="market-signal-label">Industrial Permit Volume — West Valley</span>
+        <span class="market-signal-val good">+34%</span>
+        <span class="market-signal-sub">vs. same quarter 2025</span>
       </div>
-      <div class="dm-card">
-        <div class="dm-name">Dr. Patricia Nguyen</div>
-        <div class="dm-title">CEO &mdash; Sunridge Health Properties LLC</div>
-        <div class="dm-detail"><strong>Project:</strong> Sunridge Medical Office Campus Building C</div>
-        <div class="dm-detail"><strong>Contact:</strong> pnguyen@sunridgehealth.com</div>
-        <div class="dm-detail"><strong>Background:</strong> Healthcare administrator turned developer; first commercial development role was the Sunridge campus. Values relationship continuity and single points of contact.</div>
-        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;">No inbound email outreach — recommend a warm introduction through the project architect (MedPlan Architects), with whom Meridian has an existing relationship.</div>
+      <div class="market-signal-item">
+        <span class="market-signal-label">Metro Industrial Vacancy</span>
+        <span class="market-signal-val good">3.1%</span>
+        <span class="market-signal-sub">Historic low — driving new spec starts</span>
       </div>
-      <div class="dm-card">
-        <div class="dm-name">Marcus Okafor</div>
-        <div class="dm-title">Principal &mdash; Valor Industrial Partners</div>
-        <div class="dm-detail"><strong>Project:</strong> Maricopa Gateway Commerce Park</div>
-        <div class="dm-detail"><strong>Contact:</strong> m.okafor@valorip.com &nbsp;·&nbsp; LinkedIn: @marcokafor</div>
-        <div class="dm-detail"><strong>Background:</strong> 12 years multifamily and light industrial development. West Valley debut project. Active on LinkedIn; responds to detailed, project-specific outreach.</div>
-        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;">Posted last week about challenges finding West Valley subcontractor relationships. Direct outreach referencing this is a high-probability conversation starter.</div>
+      <div class="market-signal-item">
+        <span class="market-signal-label">Active GC Shortlists — Open</span>
+        <span class="market-signal-val warn">11</span>
+        <span class="market-signal-sub">Tracked in target geography</span>
       </div>
-      <div class="dm-card" style="opacity:0.75;">
-        <div class="dm-name">Sandra Willetts</div>
-        <div class="dm-title">Director of Development &mdash; Pinnacle Office Ventures</div>
-        <div class="dm-detail"><strong>Project:</strong> Desert Ridge Office Park Tower 4</div>
-        <div class="dm-detail"><strong>Contact:</strong> Confirm via company directory (profile semi-private)</div>
-        <div class="dm-detail"><strong>Background:</strong> Has worked with 3 GCs across earlier Pinnacle towers; favors repeat relationships. Early Watch only — recommend one brief touchpoint in the next 30 days.</div>
-        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;"><em>Early Watch profile — limited intelligence at this stage. Full profile compiled at GC selection phase.</em></div>
+    </div>
+
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-label">Industrial Pipeline</div>
+        <div class="market-card-headline">West Valley is the <span class="signal">fastest-moving corridor</span> in the metro</div>
+        <div class="market-card-body">Permit filings in the Loop 303 / I-10 interchange zone are at their highest volume since 2005, driven by logistics and last-mile distribution demand. Owner groups are accelerating timelines — projects that would have been 2027 starts are moving to Q4 2026 across multiple active sites. GC shortlists are forming 4–6 weeks earlier than typical cycle.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-label">Medical Office / MOB</div>
+        <div class="market-card-headline">Healthcare developer activity <span class="signal">resurgent</span> post-consolidation</div>
+        <div class="market-card-body">Three major healthcare systems are expanding outpatient footprint across the Phoenix metro following 2024 consolidation activity. Medical office construction is at the highest pace since 2019. Owner groups are prioritizing GCs with healthcare experience and infection control protocols. Meridian's MOB experience is a competitive differentiator in this segment.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-label">Labor Market</div>
+        <div class="market-card-headline">Tilt-up and structural concrete crews <span class="signal">in short supply</span></div>
+        <div class="market-card-body">Three large industrial projects started simultaneously in Q2 absorbed most available tilt-up concrete labor in the East Valley. GCs without self-perform concrete or established crew relationships are pricing a 6–8 week labor delay into bids. Meridian's self-perform capability is a pricing and schedule advantage that owners are actively prioritizing.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-label">Competitive Landscape</div>
+        <div class="market-card-headline">Mid-tier GC field <span class="signal">consolidating</span> — fewer qualified bidders</div>
+        <div class="market-card-body">Two established mid-tier GCs in the $10M–$40M range retired or merged in the past 18 months. Owner groups that relied on those firms are actively building new GC relationships. This is creating unusual openness to introductory conversations from GCs without prior relationship history — an environment Meridian should capitalize on this quarter.</div>
       </div>
     </div>
   </div>
 
-  <!-- 5. OUTREACH STRATEGY -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">5</div>
-      <div class="section-title">Recommended Outreach</div>
+  <!-- ── OUTREACH STRATEGY ──────────────────────────────────────────── -->
+  <div class="report-section" id="outreach">
+    <div class="section-label">
+      <span class="section-label-text">Outreach Strategy</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">06</span>
     </div>
 
-    <div class="outreach-card">
-      <div class="outreach-project">Apex Logistics Center Phase II &mdash; Calloway / Apex Industrial REIT</div>
-      <div class="outreach-subject">Subject: Meridian + Apex Phase II — West Valley Tilt-Up Delivery</div>
-      <div class="outreach-body">James —
+    <!-- OUTREACH 1 -->
+    <div class="outreach-block">
+      <div class="outreach-block-header">
+        <span class="outreach-block-opp">Apex Logistics Center Phase II</span>
+        <span class="stage-chip gc-green" style="font-size:0.58rem;">CIS™ 91 — Priority 1</span>
+      </div>
+      <div class="outreach-two-col">
+        <div class="dm-card">
+          <div class="dm-name">James R. Calloway</div>
+          <div class="dm-title">VP Development — Apex Industrial REIT</div>
+          <div class="dm-channel email">Email First</div>
+          <div class="dm-row"><strong>Contact:</strong> jcalloway@apexindreit.com</div>
+          <div class="dm-row"><strong>LinkedIn:</strong> Active — @jrcalloway</div>
+          <div class="dm-row"><strong>Background:</strong> 18 years industrial development; prior roles at Prologis and DRW Real Estate. Prefers detailed preconstruction budgets and self-perform GCs.</div>
+          <div class="dm-signal">Shared two posts about tilt-up concrete labor shortages in the past 60 days — direct opening for Meridian's self-perform pitch.</div>
+        </div>
+        <div class="script-card">
+          <div class="script-card-header">
+            <div class="script-subject">Subject: Meridian + Apex Phase II — West Valley Tilt-Up Delivery</div>
+          </div>
+          <div class="script-body">James —
 
 I've followed Apex's Phase I work at Commerce Parkway — clean execution in a tight labor market. We understand Phase II is moving toward GC selection, and I wanted to reach out before the shortlist is set.
 
-Meridian has delivered six tilt-up industrial projects in the $20M–$35M range in Scottsdale and the East Valley over the last four years, including the Irongate Distribution Center (28M SF, delivered 4 weeks early). We self-perform concrete and maintain direct relationships with three West Valley framing and MEP subs who've worked with your Phase I site.
+Meridian has delivered six tilt-up industrial projects in the $20M–$35M range in Scottsdale and the East Valley over the last four years, including the Irongate Distribution Center (28M SF, delivered 4 weeks early). We self-perform concrete and maintain direct relationships with three West Valley framing and MEP subs who've worked your Phase I site.
 
-Happy to share a brief capabilities overview and Phase II unit cost benchmarks if helpful — no obligation.
+Happy to share a brief capabilities overview and Phase II unit cost benchmarks — no obligation.
 
 Would a 20-minute call this week or next work?</div>
-      <div class="outreach-note">Send via email first; follow up on LinkedIn after 5 business days if no response. Lead with the concrete self-perform differentiator — Calloway flagged this in public posts.</div>
+          <div class="script-note">Send email first. Follow up on LinkedIn after 5 business days if no response. Lead with self-perform concrete — Calloway's public posts make this the highest-resonance differentiator.</div>
+        </div>
+      </div>
     </div>
 
-    <div class="outreach-card">
-      <div class="outreach-project">Maricopa Gateway Commerce Park &mdash; Okafor / Valor Industrial Partners</div>
-      <div class="outreach-subject">Subject: West Valley Subcontractor Network — Maricopa Gateway Intro</div>
-      <div class="outreach-body">Marcus —
+    <!-- OUTREACH 2 -->
+    <div class="outreach-block">
+      <div class="outreach-block-header">
+        <span class="outreach-block-opp">Sunridge Medical Office Campus — Building C</span>
+        <span class="stage-chip gc-green" style="font-size:0.58rem;">CIS™ 83 — Priority 2</span>
+      </div>
+      <div class="outreach-two-col">
+        <div class="dm-card">
+          <div class="dm-name">Dr. Patricia Nguyen</div>
+          <div class="dm-title">CEO — Sunridge Health Properties LLC</div>
+          <div class="dm-channel warm">Warm Intro</div>
+          <div class="dm-row"><strong>Contact:</strong> pnguyen@sunridgehealth.com</div>
+          <div class="dm-row"><strong>Background:</strong> Healthcare administrator turned developer — the Sunridge campus is her first commercial project. Values relationship continuity and single points of contact above all else.</div>
+          <div class="dm-signal">Do not cold-email. A warm introduction through MedPlan Architects — with whom Meridian has a prior relationship — is the recommended path. Cold outreach from an unknown GC is likely to be dismissed.</div>
+        </div>
+        <div class="script-card">
+          <div class="script-card-header">
+            <div class="script-subject">Subject: Introduction — Meridian Building Group re: Building C</div>
+          </div>
+          <div class="script-body">Dr. Nguyen —
 
-Saw your recent post about West Valley subcontractor relationships — that's exactly the gap we built for. Meridian has been active in the Goodyear/Avondale submarket for five years and has vetted subs in concrete, steel, MEP, and roofing who've specifically delivered in that growth corridor.
+[MedPlan contact name] suggested I reach out. We worked together on [prior project] and they thought our team might be a good fit for Building C as the campus reaches its final phase.
 
-I noticed the Maricopa Gateway project is working through the Goodyear planning process and thought it was worth a quick introduction now — even if formal GC selection is months out, the sub relationships we've built can meaningfully affect how a budget comes together early.
+We've followed the Sunridge campus since Building A — it's a well-executed master plan, and we understand how important it is to maintain that continuity of vision through completion. We've delivered two comparable MOB projects in the Valley and have a strong record on infection control protocols and hospital-adjacent site logistics.
 
-Would you be open to a 15-minute call? No pitch, just an introduction and a look at what we've seen move in that corridor recently.</div>
-      <div class="outreach-note">LinkedIn outreach is the preferred first channel for Okafor — he is active and responds to direct, specific messages. Reference the subcontractor post directly.</div>
+I'd welcome the chance to introduce Meridian and hear more about your priorities for Building C.
+
+Would a 20-minute call work in the next two weeks?</div>
+          <div class="script-note">Only use this script if a warm introduction from MedPlan can be arranged first. The intro email should come from MedPlan; this script is the follow-up. Do not send cold.</div>
+        </div>
+      </div>
     </div>
+
+    <!-- OUTREACH 3 -->
+    <div class="outreach-block">
+      <div class="outreach-block-header">
+        <span class="outreach-block-opp">Maricopa Gateway Commerce Park</span>
+        <span class="stage-chip gc-green" style="font-size:0.58rem;">CIS™ 78 — Priority 3</span>
+      </div>
+      <div class="outreach-two-col">
+        <div class="dm-card">
+          <div class="dm-name">Marcus Okafor</div>
+          <div class="dm-title">Principal — Valor Industrial Partners</div>
+          <div class="dm-channel linkedin">LinkedIn First</div>
+          <div class="dm-row"><strong>Contact:</strong> m.okafor@valorip.com</div>
+          <div class="dm-row"><strong>LinkedIn:</strong> Active — @marcokafor</div>
+          <div class="dm-row"><strong>Background:</strong> 12 years multifamily and light industrial development. West Valley debut project. Responds to detailed, project-specific LinkedIn messages.</div>
+          <div class="dm-signal">Posted last week about challenges finding West Valley subcontractor relationships. Referencing this post directly is a high-probability conversation starter.</div>
+        </div>
+        <div class="script-card">
+          <div class="script-card-header">
+            <div class="script-subject">LinkedIn: West Valley Subcontractor Network — Maricopa Gateway</div>
+          </div>
+          <div class="script-body">Marcus —
+
+Saw your post about West Valley subcontractor relationships — that's exactly the gap we built for. Meridian has been active in the Goodyear/Avondale submarket for five years and has vetted subs in concrete, steel, MEP, and roofing who've specifically delivered in that corridor.
+
+I noticed Maricopa Gateway is working through Goodyear planning and thought it was worth an introduction now — even months before GC selection, the sub relationships we've built can meaningfully affect how an early budget comes together.
+
+Open to a 15-minute call? No pitch — just an introduction and a look at what we've seen move in that corridor.</div>
+          <div class="script-note">Send LinkedIn direct message first. Reference the subcontractor post explicitly — Okafor responds to context, not cold intros. Follow up via email 5–7 days later if no LinkedIn response.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- 6. METHODOLOGY -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">6</div>
-      <div class="section-title">Methodology</div>
+  <!-- ── SOURCES ────────────────────────────────────────────────────── -->
+  <div class="report-section" id="sources">
+    <div class="section-label">
+      <span class="section-label-text">Sources &amp; Data Inputs</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">07</span>
     </div>
-    <div class="method-grid">
-      <div class="method-item">
-        <div class="method-icon">🏗️</div>
-        <div class="method-text">
-          <h4>Permit &amp; Entitlement Monitoring</h4>
-          <p>Daily monitoring of municipal permit portals, planning commission agendas, and AZ Department of Real Estate filings across the target geography.</p>
-        </div>
-      </div>
-      <div class="method-item">
-        <div class="method-icon">🧠</div>
-        <div class="method-text">
-          <h4>AI Research Engine</h4>
-          <p>The ConstructIQ Intelligence Engine™ cross-references permit data, news sources, LinkedIn signals, and commercial real estate databases to surface and score opportunities.</p>
-        </div>
-      </div>
-      <div class="method-item">
-        <div class="method-icon">📋</div>
-        <div class="method-text">
-          <h4>Client Blueprint™ Alignment</h4>
-          <p>Every opportunity is filtered against your Blueprint: project type, size range, geography, delivery method preferences, and named exclusions.</p>
-        </div>
-      </div>
-      <div class="method-item">
-        <div class="method-icon">📊</div>
-        <div class="method-text">
-          <h4>CIS™ Scoring</h4>
-          <p>The ConstructIQ Intelligence Score™ (0–100) rates each opportunity on project readiness, owner accessibility, competitive landscape, and Blueprint fit. Scores above 75 indicate high-priority pursuit.</p>
-        </div>
-      </div>
-      <div class="method-item">
-        <div class="method-icon">👤</div>
-        <div class="method-text">
-          <h4>Decision-Maker Research</h4>
-          <p>Each project's key decision-maker is profiled using publicly available professional data, LinkedIn activity, and relationship mapping.</p>
-        </div>
-      </div>
-      <div class="method-item">
-        <div class="method-icon">✍️</div>
-        <div class="method-text">
-          <h4>Founder Review</h4>
-          <p>Every brief is reviewed by a ConstructIQ principal before delivery. No report is published by automation alone — human judgment is applied to all scoring, outreach copy, and intelligence summaries.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7. SOURCES -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">7</div>
-      <div class="section-title">Sources &amp; Data Inputs</div>
-    </div>
-    <ul class="sources-list">
+    <ul class="sources-grid">
       <li>City of Scottsdale — Building Permit Database</li>
       <li>City of Phoenix — Development Services Portal</li>
       <li>City of Goodyear — Planning &amp; Zoning Records</li>
+      <li>City of Chandler — Permit Activity Feed</li>
       <li>Maricopa County Assessor — Parcel &amp; Ownership Records</li>
       <li>Arizona Commerce Authority — Project Announcements</li>
       <li>CoStar Group — Commercial Real Estate Database</li>
-      <li>LinkedIn — Professional Profiles &amp; Activity</li>
       <li>Dodge Data &amp; Analytics — Construction Pipeline</li>
-      <li>Phoenix Business Journal — News &amp; Project Announcements</li>
+      <li>LinkedIn — Professional Profiles &amp; Activity Signals</li>
+      <li>Phoenix Business Journal — News &amp; Announcements</li>
       <li>State of Arizona — Secretary of State Entity Filings</li>
+      <li>CBRE Phoenix — Industrial Market Report Q2 2026</li>
       <li>ConstructIQ Intelligence Engine™ — Aggregation &amp; Scoring</li>
       <li>ConstructIQ Founder Review — Human Validation</li>
     </ul>
   </div>
 
-  <!-- 8. DISCLAIMER -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">8</div>
-      <div class="section-title">Disclaimer</div>
+  <!-- ── DISCLAIMER ─────────────────────────────────────────────────── -->
+  <div class="report-section" id="disclaimer">
+    <div class="section-label">
+      <span class="section-label-text">Disclaimer</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-num">08</span>
     </div>
-    <div class="disclaimer-box">
+    <div class="disclaimer-wrap">
       <p><strong>THIS IS A SAMPLE REPORT FOR ILLUSTRATIVE PURPOSES ONLY.</strong> All company names, project names, addresses, contact names, email addresses, financial figures, and other details in this document are entirely fictional and are not intended to represent any real company, person, project, or transaction.</p>
       <p>Revenue Intelligence Briefs™ produced for actual ConstructIQ clients are based on real publicly available data compiled from the sources listed above. ConstructIQ does not guarantee project availability, contract award, owner responsiveness, meeting outcomes, revenue generation, or any other business outcome. All deliverables are for informational and strategic planning purposes only.</p>
-      <p>ConstructIQ Intelligence Scores™ are proprietary estimates derived from multiple data inputs. They are not guarantees of project success or competitive outcome. Clients are solely responsible for conducting their own due diligence before pursuing any identified opportunity.</p>
-      <p>Data in live reports is compiled from sources believed to be reliable but may be incomplete, outdated, or subject to change. ConstructIQ makes no warranty, express or implied, regarding the accuracy or completeness of any information contained in a Revenue Intelligence Brief™.</p>
+      <p>ConstructIQ Intelligence Scores™ are proprietary estimates derived from multiple data inputs and are subject to founder review before delivery. They are not guarantees of project success or competitive outcome. Clients are solely responsible for conducting their own due diligence before pursuing any identified opportunity.</p>
+      <p>Data in live reports is compiled from sources believed to be reliable but may be incomplete, outdated, or subject to change without notice. ConstructIQ makes no warranty, express or implied, regarding the accuracy or completeness of any information contained in a Revenue Intelligence Brief™.</p>
+      <p>This report is confidential and prepared solely for the named client. It may not be reproduced, redistributed, or shared with third parties without written permission from ConstructIQ.</p>
     </div>
   </div>
 
-  <!-- CTA STRIP -->
+  <!-- CTA -->
   <div class="cta-strip">
     <h2>See Your Real Brief</h2>
-    <p>This sample used fictional data to show you the format. Your Revenue Intelligence Brief™ covers real opportunities — filtered to your market, your project sizes, your capabilities.</p>
+    <p>This sample used fictional data. Your Revenue Intelligence Brief™ covers real opportunities — filtered to your market, your sizes, your capabilities.</p>
     <a href="/#qualify" class="btn-ora">Find My Next Best Project</a>
     <a href="/#packages" class="btn-ghost">View Packages</a>
   </div>
@@ -607,30 +1338,68 @@ Would you be open to a 15-minute call? No pitch, just an introduction and a look
 </div>
 
 <!-- FOOTER -->
-<footer>
+<footer class="site-footer">
   <img src="logo.png" alt="ConstructIQ">
   <p>&copy; 2026 ConstructIQ&#8482;. AI-Powered Construction Intelligence Platform. All rights reserved. &nbsp;&middot;&nbsp; <a href="/terms.html">Terms</a> &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy</a></p>
 </footer>
 
 <script>
+/* ─── Cover canvas: large ambient CIS ring ───────────────────────────────── */
+(function () {
+  const canvas = document.getElementById('coverCanvas');
+  if (!canvas) return;
+  function drawCover() {
+    const W = canvas.offsetWidth, H = canvas.offsetHeight;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, W, H);
+    const cx = W * 0.78, cy = H * 0.42, r = Math.min(W, H) * 0.32, lw = 1.5;
+    // outer faint ring
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = lw; ctx.stroke();
+    // inner ring
+    ctx.beginPath(); ctx.arc(cx, cy, r * 0.72, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(255,255,255,0.03)'; ctx.lineWidth = lw; ctx.stroke();
+    // orange arc ~85% fill
+    const start = -Math.PI / 2, end = start + 0.85 * 2 * Math.PI;
+    ctx.beginPath(); ctx.arc(cx, cy, r, start, end);
+    ctx.strokeStyle = 'rgba(224,90,26,0.12)'; ctx.lineWidth = 28;
+    ctx.lineCap = 'round'; ctx.stroke();
+    // track
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(255,255,255,0.025)'; ctx.lineWidth = 28; ctx.stroke();
+    // spoke lines
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * 2 * Math.PI;
+      const x1 = cx + Math.cos(a) * (r - 38), y1 = cy + Math.sin(a) * (r - 38);
+      const x2 = cx + Math.cos(a) * (r + 14), y2 = cy + Math.sin(a) * (r + 14);
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
+      ctx.strokeStyle = 'rgba(255,255,255,0.03)'; ctx.lineWidth = 1; ctx.stroke();
+    }
+  }
+  drawCover();
+  window.addEventListener('resize', drawCover);
+})();
+
+/* ─── Opportunity CIS rings ──────────────────────────────────────────────── */
 function drawCIS(id, score, color) {
   const canvas = document.getElementById(id);
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const cx = 36, cy = 36, r = 28, lw = 5;
-  const start = -Math.PI / 2;
-  const end = start + (score / 100) * 2 * Math.PI;
-  ctx.clearRect(0, 0, 72, 72);
+  const cx = 40, cy = 40, r = 31, lw = 5;
+  const start = -Math.PI / 2, end = start + (score / 100) * 2 * Math.PI;
+  ctx.clearRect(0, 0, 80, 80);
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
   ctx.strokeStyle = '#DDE3EE'; ctx.lineWidth = lw; ctx.stroke();
   ctx.beginPath(); ctx.arc(cx, cy, r, start, end);
-  ctx.strokeStyle = color || '#2558A8'; ctx.lineWidth = lw;
-  ctx.lineCap = 'round'; ctx.stroke();
+  ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.stroke();
 }
-drawCIS('cis1', 91, '#E05A1A');
-drawCIS('cis2', 83, '#2558A8');
-drawCIS('cis3', 78, '#2558A8');
-drawCIS('cis4', 71, '#C07800');
+function cisColor(s) { return s >= 90 ? '#E05A1A' : s >= 75 ? '#2558A8' : '#C07800'; }
+drawCIS('cis1', 91, cisColor(91));
+drawCIS('cis2', 83, cisColor(83));
+drawCIS('cis3', 78, cisColor(78));
+drawCIS('cis4', 71, cisColor(71));
+drawCIS('cis5', 64, cisColor(64));
 </script>
 
 </body>
