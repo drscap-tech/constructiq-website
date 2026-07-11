@@ -561,15 +561,39 @@ section{padding:96px 48px;}
         <div class="contact-detail-info"><div class="label">Support</div><div class="value"><a href="mailto:support@constructiqpb.com">support@constructiqpb.com</a></div></div>
       </div>
     </div>
-    <form class="reveal" style="max-width:680px;margin:0 auto;text-align:left;" onsubmit="return false;">
-      <div class="form-row"><input class="form-input" type="text" placeholder="First Name"><input class="form-input" type="text" placeholder="Last Name"></div>
-      <div class="form-row"><input class="form-input" type="text" placeholder="Company"><input class="form-input" type="email" placeholder="Email"></div>
-      <div class="form-row"><input class="form-input" type="tel" placeholder="Phone"><input class="form-input" type="text" placeholder="Market / Geography"></div>
-      <select class="form-input"><option>Type of Opportunities</option><option>General Contractor</option><option>Specialty Contractor</option><option>Developer</option><option>Homebuilder</option><option>Other</option></select>
-      <input class="form-input" type="text" placeholder="Estimated Project Size">
-      <textarea class="form-input" rows="4" placeholder="Message"></textarea>
-      <button class="btn-ora" style="width:100%;font-size:1rem;padding:16px;">Train My Intelligence Engine&#8482;</button>
+    <form id="contactForm" class="reveal" style="max-width:680px;margin:0 auto;text-align:left;" action="https://formspree.io/f/FORMSPREE_FORM_ID" method="POST">
+      <input type="hidden" name="_subject" value="ConstructIQ | Sales | Contact Form Submission">
+      <div class="form-row">
+        <input class="form-input" type="text" name="first_name" placeholder="First Name" required>
+        <input class="form-input" type="text" name="last_name" placeholder="Last Name" required>
+      </div>
+      <div class="form-row">
+        <input class="form-input" type="text" name="company" placeholder="Company" required>
+        <input class="form-input" type="email" name="email" placeholder="Email" required>
+      </div>
+      <input class="form-input" type="text" name="market" placeholder="Market / Geography">
+      <select class="form-input" name="opportunity_type">
+        <option value="">Type of Opportunities</option>
+        <option>General Contractor</option>
+        <option>Specialty Contractor</option>
+        <option>Developer</option>
+        <option>Homebuilder</option>
+        <option>Multifamily / Residential</option>
+        <option>Commercial / Mixed-Use</option>
+        <option>Industrial / Logistics</option>
+        <option>Healthcare / Institutional</option>
+        <option>Municipal / Infrastructure</option>
+        <option>Other</option>
+      </select>
+      <input class="form-input" type="text" name="project_size" placeholder="Estimated Project Size">
+      <textarea class="form-input" rows="4" name="message" placeholder="Message"></textarea>
+      <button type="submit" class="btn-ora" style="width:100%;font-size:1rem;padding:16px;">Train My Intelligence Engine&#8482;</button>
     </form>
+    <div id="contactSuccess" style="display:none;max-width:680px;margin:0 auto;text-align:center;padding:48px 32px;background:rgba(255,255,255,0.08);border-radius:10px;border:1px solid rgba(255,255,255,0.15);">
+      <div style="font-size:2rem;margin-bottom:16px;">&#10003;</div>
+      <h3 style="color:white;font-size:1.3rem;font-weight:800;margin-bottom:10px;">Message Received</h3>
+      <p style="color:rgba(255,255,255,0.75);line-height:1.7;">Thank you. A member of the ConstructIQ team will follow up within 1 business day at the email you provided.</p>
+    </div>
   </div>
 </section>
 
@@ -784,6 +808,9 @@ section{padding:96px 48px;}
 
 <script>
 function trackEvent(name,data){if(typeof gtag!=='undefined')gtag('event',name,data||{});}
+// Contact form — Formspree AJAX
+const contactForm=document.getElementById('contactForm');
+if(contactForm){contactForm.addEventListener('submit',async function(e){e.preventDefault();const btn=contactForm.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';try{const res=await fetch(contactForm.action,{method:'POST',body:new FormData(contactForm),headers:{Accept:'application/json'}});if(res.ok){contactForm.style.display='none';const s=document.getElementById('contactSuccess');if(s)s.style.display='block';trackEvent('contact_form_submitted',{});}else{btn.disabled=false;btn.textContent='Train My Intelligence Engine™';alert('There was a problem sending your message. Please email hello@constructiqpb.com directly.');}}catch(err){btn.disabled=false;btn.textContent='Train My Intelligence Engine™';alert('There was a problem sending your message. Please email hello@constructiqpb.com directly.');}});}
 document.querySelectorAll('[data-track]').forEach(el=>{el.addEventListener('click',()=>trackEvent(el.dataset.track,{}));});
 let currentStep=1;
 const totalSteps=8;
