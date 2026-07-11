@@ -560,10 +560,6 @@ section{padding:96px 48px;}
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect x="1" y="1" width="16" height="12" rx="2" stroke="white" stroke-width="1.5"/><path d="M1 3l8 5 8-5" stroke="white" stroke-width="1.5"/></svg>
         <div class="contact-detail-info"><div class="label">Support</div><div class="value"><a href="mailto:support@constructiqpb.com">support@constructiqpb.com</a></div></div>
       </div>
-      <div class="contact-detail">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h4l1.5 3.5-2 1.5a10 10 0 004.5 4.5l1.5-2L15 11v4a1 1 0 01-1 1C6.268 16 0 9.732 0 3a1 1 0 011-1h1z" stroke="white" stroke-width="1.5"/></svg>
-        <div class="contact-detail-info"><div class="label">Phone</div><div class="value">203.539.0377</div></div>
-      </div>
     </div>
     <form class="reveal" style="max-width:680px;margin:0 auto;text-align:left;" onsubmit="return false;">
       <div class="form-row"><input class="form-input" type="text" placeholder="First Name"><input class="form-input" type="text" placeholder="Last Name"></div>
@@ -606,7 +602,6 @@ section{padding:96px 48px;}
         <input id="q1_company" class="qinput" type="text" placeholder="Company Name *">
         <input id="q1_website" class="qinput" type="text" placeholder="Company Website">
         <input id="q1_email" class="qinput" type="email" placeholder="Business Email *">
-        <input id="q1_phone" class="qinput" type="tel" placeholder="Phone Number">
       </div>
     </div>
 
@@ -819,7 +814,7 @@ function showStep(n){
 function nextStep(){if(currentStep<8){collectStepData(currentStep);trackEvent('qual_step_'+(currentStep+1),{});showStep(currentStep+1);}}
 function prevStep(){if(currentStep>1)showStep(currentStep-1);}
 function collectStepData(step){
-  if(step===1){qualData.firstName=document.getElementById('q1_firstName').value;qualData.lastName=document.getElementById('q1_lastName').value;qualData.company=document.getElementById('q1_company').value;qualData.website=document.getElementById('q1_website').value;qualData.email=document.getElementById('q1_email').value;qualData.phone=document.getElementById('q1_phone').value;}
+  if(step===1){qualData.firstName=document.getElementById('q1_firstName').value;qualData.lastName=document.getElementById('q1_lastName').value;qualData.company=document.getElementById('q1_company').value;qualData.website=document.getElementById('q1_website').value;qualData.email=document.getElementById('q1_email').value;}
   else if(step===2){const sel=document.querySelector('input[name="q2_type"]:checked');qualData.companyType=sel?sel.value:'';}
   else if(step===3){qualData.oppTypes=[...document.querySelectorAll('.opp-chip.selected')].map(c=>c.dataset.value);}
   else if(step===4){qualData.country=document.getElementById('q4_country').value;qualData.state=document.getElementById('q4_state').value;qualData.city=document.getElementById('q4_city').value;qualData.zip=document.getElementById('q4_zip').value;qualData.radius=document.getElementById('q4_radius').value;qualData.additionalMarkets=document.getElementById('q4_additional').value;qualData.excludedMarkets=document.getElementById('q4_excluded').value;}
@@ -832,7 +827,7 @@ function submitQual(){
   const agree=document.getElementById('q8_agree').checked;
   if(!agree){alert('Please confirm your agreement to continue.');return;}
   localStorage.setItem('ciq_qual',JSON.stringify(qualData));
-  const body=['CONSTRUCTIQ QUALIFICATION SUBMISSION','=====================================','Name: '+qualData.firstName+' '+qualData.lastName,'Company: '+qualData.company,'Website: '+(qualData.website||'Not provided'),'Email: '+qualData.email,'Phone: '+(qualData.phone||'Not provided'),'','Company Type: '+(qualData.companyType||'Not specified'),'Opportunity Types: '+(qualData.oppTypes?qualData.oppTypes.join(', '):'Not specified'),'','Geography:','  State: '+(qualData.state||''),'  City: '+(qualData.city||''),'  ZIP: '+(qualData.zip||''),'  Radius: '+(qualData.radius||''),'  Additional: '+(qualData.additionalMarkets||''),'  Excluded: '+(qualData.excludedMarkets||''),'','Opportunity Size: '+(qualData.size||'Not specified'),'Primary Challenge: '+(qualData.challenge||'Not specified'),'Timing: '+(qualData.timing||'Not specified')].join('\n');
+  const body=['CONSTRUCTIQ QUALIFICATION SUBMISSION','=====================================','Name: '+qualData.firstName+' '+qualData.lastName,'Company: '+qualData.company,'Website: '+(qualData.website||'Not provided'),'Email: '+qualData.email,'','Company Type: '+(qualData.companyType||'Not specified'),'Opportunity Types: '+(qualData.oppTypes?qualData.oppTypes.join(', '):'Not specified'),'','Geography:','  State: '+(qualData.state||''),'  City: '+(qualData.city||''),'  ZIP: '+(qualData.zip||''),'  Radius: '+(qualData.radius||''),'  Additional: '+(qualData.additionalMarkets||''),'  Excluded: '+(qualData.excludedMarkets||''),'','Opportunity Size: '+(qualData.size||'Not specified'),'Primary Challenge: '+(qualData.challenge||'Not specified'),'Timing: '+(qualData.timing||'Not specified')].join('\n');
   const subject='ConstructIQ | Sales | New Qualification | '+(qualData.company||'Unknown');
   window.open('mailto:hello@constructiqpb.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body),'_blank');
   trackEvent('qualification_completed',{company:qualData.company});
