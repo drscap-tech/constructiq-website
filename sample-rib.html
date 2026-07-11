@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Revenue Intelligence Brief™ | ConstructIQ™</title>
+<meta name="description" content="See a sample Revenue Intelligence Brief™ — the AI-powered construction opportunity report delivered by ConstructIQ.">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#162336;--navy-dk:#0D1B2A;--blue:#2558A8;--orange:#E05A1A;
+  --sky:#EEF1F8;--ink:#0D1B2A;--ink-mid:#3A4A60;--ink-lt:#6A7A90;
+  --rule:#DDE3EE;--card-bg:#F7F9FC;--green:#1A7A4A;--amber:#C07800;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Exo 2',sans-serif;color:var(--ink);background:#fff;line-height:1.65;}
+
+/* NAV */
+nav{background:var(--blue);height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+nav a img{height:72px;display:block;}
+nav .nav-cta{background:var(--orange);color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:4px;text-decoration:none;white-space:nowrap;}
+nav .nav-cta:hover{background:#C44D15;}
+
+/* SAMPLE BANNER */
+.sample-banner{background:var(--orange);color:#fff;text-align:center;padding:12px 24px;font-size:0.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.sample-banner span{font-weight:400;letter-spacing:0;text-transform:none;opacity:0.9;}
+
+/* REPORT HEADER */
+.report-header{background:var(--navy-dk);color:#fff;padding:56px 0 48px;}
+.report-header-inner{max-width:900px;margin:0 auto;padding:0 48px;}
+.report-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:6px 14px;margin-bottom:28px;}
+.report-badge-label{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+.report-badge-text{font-size:0.75rem;color:rgba(255,255,255,0.6);}
+.report-badge-sep{width:1px;height:14px;background:rgba(255,255,255,0.2);}
+.report-title{font-size:2.4rem;font-weight:900;line-height:1.05;margin-bottom:16px;}
+.report-title span{color:var(--orange);}
+.report-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15);}
+.report-meta-item{display:flex;flex-direction:column;gap:3px;}
+.report-meta-label{font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.report-meta-value{font-size:0.88rem;color:rgba(255,255,255,0.85);}
+
+/* PAGE LAYOUT */
+.report-body{max-width:900px;margin:0 auto;padding:56px 48px 96px;}
+
+/* SECTION STYLES */
+.section{margin-bottom:56px;}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--rule);}
+.section-num{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-size:0.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.section-title{font-size:1.15rem;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:1px;}
+
+/* KEY METRICS */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.metric-card{background:var(--card-bg);border:1px solid var(--rule);border-radius:8px;padding:20px 18px;}
+.metric-label{font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-lt);margin-bottom:8px;}
+.metric-value{font-size:2rem;font-weight:900;color:var(--ink);line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums;}
+.metric-value.orange{color:var(--orange);}
+.metric-value.blue{color:var(--blue);}
+.metric-sub{font-size:0.75rem;color:var(--ink-lt);}
+
+/* EXECUTIVE SUMMARY */
+.exec-summary{background:var(--sky);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:24px 28px;margin-bottom:20px;}
+.exec-summary p{font-size:0.95rem;color:var(--ink-mid);margin-bottom:12px;}
+.exec-summary p:last-child{margin-bottom:0;}
+
+/* OPPORTUNITY CARDS */
+.opportunity-card{background:#fff;border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.opp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 24px 18px;border-bottom:1px solid var(--rule);}
+.opp-left{flex:1;}
+.opp-stage-badge{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:10px;}
+.stage-design{background:#EEF3FF;color:#2558A8;}
+.stage-entitlement{background:#FFF8EE;color:#C07800;}
+.stage-gc-selection{background:#F0FAF4;color:#1A7A4A;}
+.opp-name{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:6px;}
+.opp-address{font-size:0.82rem;color:var(--ink-lt);}
+.opp-cis{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
+.cis-ring-wrap{position:relative;width:72px;height:72px;}
+.cis-ring-wrap canvas{display:block;}
+.cis-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:var(--ink);}
+.cis-label{font-size:0.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-lt);}
+.opp-body{padding:18px 24px;}
+.opp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:16px;}
+.opp-field{display:flex;flex-direction:column;gap:3px;}
+.opp-field-label{font-size:0.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-lt);}
+.opp-field-value{font-size:0.88rem;font-weight:600;color:var(--ink);}
+.opp-insight{background:var(--sky);border-radius:6px;padding:12px 16px;font-size:0.85rem;color:var(--ink-mid);line-height:1.6;}
+.opp-insight strong{color:var(--blue);}
+
+/* DECISION MAKER CARDS */
+.dm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.dm-card{background:var(--card-bg);border:1px solid var(--rule);border-radius:8px;padding:20px;}
+.dm-name{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:2px;}
+.dm-title{font-size:0.8rem;color:var(--blue);font-weight:600;margin-bottom:12px;}
+.dm-detail{font-size:0.82rem;color:var(--ink-mid);margin-bottom:6px;}
+.dm-detail strong{color:var(--ink);font-weight:700;}
+
+/* OUTREACH */
+.outreach-card{background:var(--card-bg);border:1px solid var(--rule);border-radius:8px;padding:24px;margin-bottom:16px;}
+.outreach-project{font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+.outreach-subject{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.outreach-body{font-size:0.88rem;color:var(--ink-mid);line-height:1.7;white-space:pre-line;}
+.outreach-note{margin-top:12px;padding-top:12px;border-top:1px solid var(--rule);font-size:0.78rem;color:var(--ink-lt);font-style:italic;}
+
+/* METHODOLOGY */
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.method-item{display:flex;gap:14px;align-items:flex-start;}
+.method-icon{width:36px;height:36px;background:var(--sky);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;}
+.method-text h4{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.method-text p{font-size:0.82rem;color:var(--ink-mid);}
+
+/* SOURCES */
+.sources-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.sources-list li{font-size:0.82rem;color:var(--ink-mid);padding-left:16px;position:relative;}
+.sources-list li::before{content:"—";position:absolute;left:0;color:var(--ink-lt);}
+
+/* DISCLAIMER */
+.disclaimer-box{background:#F7F7F7;border:1px solid var(--rule);border-radius:8px;padding:20px 24px;}
+.disclaimer-box p{font-size:0.72rem;color:var(--ink-lt);line-height:1.65;margin-bottom:8px;}
+.disclaimer-box p:last-child{margin-bottom:0;}
+
+/* CTA STRIP */
+.cta-strip{background:var(--navy);border-radius:12px;padding:48px;text-align:center;margin-top:64px;}
+.cta-strip h2{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:12px;}
+.cta-strip p{font-size:0.95rem;color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 28px;}
+.btn-ora{display:inline-block;background:var(--orange);color:#fff;font-size:0.9rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:16px 36px;border-radius:4px;text-decoration:none;}
+.btn-ora:hover{background:#C44D15;}
+.btn-ghost{display:inline-block;background:transparent;color:rgba(255,255,255,0.7);font-size:0.82rem;font-weight:600;padding:10px 24px;border:1px solid rgba(255,255,255,0.25);border-radius:4px;text-decoration:none;margin-left:16px;}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+
+/* FOOTER */
+footer{background:var(--navy-dk);padding:32px 48px;text-align:center;}
+footer img{height:72px;display:block;margin:0 auto 14px;}
+footer p{font-size:0.75rem;color:rgba(255,255,255,0.35);}
+footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
+
+@media(max-width:720px){
+  nav{padding:0 20px;}
+  .report-header-inner,.report-body{padding-left:20px;padding-right:20px;}
+  .metrics-grid{grid-template-columns:1fr 1fr;}
+  .opp-grid{grid-template-columns:1fr 1fr;}
+  .dm-grid{grid-template-columns:1fr;}
+  .method-grid{grid-template-columns:1fr;}
+  .sources-list{grid-template-columns:1fr;}
+  .cta-strip{padding:32px 20px;}
+  .report-title{font-size:1.7rem;}
+  .btn-ghost{margin-left:0;margin-top:12px;display:block;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/"><img src="logo.png" alt="ConstructIQ"></a>
+  <a href="/#qualify" class="nav-cta">Get My Brief</a>
+</nav>
+
+<div class="sample-banner">
+  SAMPLE REPORT — Illustrative Data Only &nbsp;·&nbsp; <span>All company names, contacts, and project details are fictional. For demonstration purposes only.</span>
+</div>
+
+<!-- REPORT HEADER -->
+<div class="report-header">
+  <div class="report-header-inner">
+    <div class="report-badge">
+      <span class="report-badge-label">Revenue Intelligence Brief™</span>
+      <div class="report-badge-sep"></div>
+      <span class="report-badge-text">Sample Report &middot; For Illustrative Purposes</span>
+    </div>
+    <h1 class="report-title">Meridian Building Group<br><span>— Q3 2026 Intelligence Brief</span></h1>
+    <div class="report-meta">
+      <div class="report-meta-item">
+        <span class="report-meta-label">Report Date</span>
+        <span class="report-meta-value">July 2026</span>
+      </div>
+      <div class="report-meta-item">
+        <span class="report-meta-label">Coverage Period</span>
+        <span class="report-meta-value">Q3 2026 Opportunities</span>
+      </div>
+      <div class="report-meta-item">
+        <span class="report-meta-label">Target Market</span>
+        <span class="report-meta-value">Southwest Metro / Commercial &amp; Industrial</span>
+      </div>
+      <div class="report-meta-item">
+        <span class="report-meta-label">Report Number</span>
+        <span class="report-meta-value">MBG-2026-03 (SAMPLE)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REPORT BODY -->
+<div class="report-body">
+
+  <!-- 1. EXECUTIVE SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Executive Summary</div>
+    </div>
+    <div class="exec-summary">
+      <p>This brief surfaces 5 active construction opportunities in the Southwest Metro market aligned to Meridian Building Group's Client Blueprint™ — commercial office, light industrial, and mixed-use projects between $4M and $40M, within a 60-mile service radius, excluding residential and hospitality.</p>
+      <p>Three opportunities are rated High Priority (CIS™ 78+) based on project readiness, owner relationship accessibility, and alignment to Meridian's proven delivery capabilities. Two are flagged Early Watch — projects in active entitlement where early relationship-building now creates competitive advantage before the formal bid window opens.</p>
+      <p>Decision-maker contact profiles and tailored outreach scripts are included for all five projects. Recommended immediate action: outreach to the Apex Logistics Center owner group within the next 10 business days, before the GC shortlist is formalized.</p>
+    </div>
+  </div>
+
+  <!-- 2. KEY METRICS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">Key Metrics</div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Opportunities Identified</div>
+        <div class="metric-value blue">5</div>
+        <div class="metric-sub">This coverage period</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Total Pipeline Value</div>
+        <div class="metric-value orange">$92M</div>
+        <div class="metric-sub">Combined project estimate</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">High Priority</div>
+        <div class="metric-value">3</div>
+        <div class="metric-sub">CIS™ score 78 or above</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Avg. CIS™ Score</div>
+        <div class="metric-value">81</div>
+        <div class="metric-sub">Out of 100</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SAMPLE OPPORTUNITIES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">Identified Opportunities</div>
+    </div>
+
+    <!-- OPPORTUNITY 1 -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-left">
+          <div class="opp-stage-badge stage-gc-selection">GC Selection — Imminent</div>
+          <div class="opp-name">Apex Logistics Center — Phase II Expansion</div>
+          <div class="opp-address">4400 Commerce Parkway, Scottsdale, AZ 85260</div>
+        </div>
+        <div class="opp-cis">
+          <div class="cis-ring-wrap">
+            <canvas id="cis1" width="72" height="72"></canvas>
+            <div class="cis-num">91</div>
+          </div>
+          <div class="cis-label">CIS™ Score</div>
+        </div>
+      </div>
+      <div class="opp-body">
+        <div class="opp-grid">
+          <div class="opp-field">
+            <div class="opp-field-label">Project Type</div>
+            <div class="opp-field-value">Light Industrial / Logistics</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Value</div>
+            <div class="opp-field-value">$28M – $34M</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Start</div>
+            <div class="opp-field-value">Q4 2026</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Owner</div>
+            <div class="opp-field-value">Apex Industrial REIT</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Architect</div>
+            <div class="opp-field-value">Cornerstone Design Studio</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Permit Status</div>
+            <div class="opp-field-value">Approved — Active</div>
+          </div>
+        </div>
+        <div class="opp-insight"><strong>Intelligence:</strong> Phase I was delivered by a regional GC that lost a key superintendent to retirement. Ownership contacted two GCs in June for Phase II — the shortlist has not been formalized. Meridian's documented tilt-up track record in the $25M+ range is a direct match. Outreach in the next 10 business days positions ahead of the shortlist cutoff. Owner prefers GCs with local subcontractor relationships and self-perform concrete.</div>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 2 -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-left">
+          <div class="opp-stage-badge stage-gc-selection">GC Selection — Open</div>
+          <div class="opp-name">Sunridge Medical Office Campus — Building C</div>
+          <div class="opp-address">1850 E. Thomas Road, Phoenix, AZ 85016</div>
+        </div>
+        <div class="opp-cis">
+          <div class="cis-ring-wrap">
+            <canvas id="cis2" width="72" height="72"></canvas>
+            <div class="cis-num">83</div>
+          </div>
+          <div class="cis-label">CIS™ Score</div>
+        </div>
+      </div>
+      <div class="opp-body">
+        <div class="opp-grid">
+          <div class="opp-field">
+            <div class="opp-field-label">Project Type</div>
+            <div class="opp-field-value">Medical Office / MOB</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Value</div>
+            <div class="opp-field-value">$14M – $18M</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Start</div>
+            <div class="opp-field-value">Q1 2027</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Owner</div>
+            <div class="opp-field-value">Sunridge Health Properties LLC</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Architect</div>
+            <div class="opp-field-value">MedPlan Architects</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Permit Status</div>
+            <div class="opp-field-value">In Review — City of Phoenix</div>
+          </div>
+        </div>
+        <div class="opp-insight"><strong>Intelligence:</strong> Campus development is part of a three-building master plan. Buildings A and B were completed by two separate GCs — owner expressed dissatisfaction with coordination between them. Positioning Meridian as the single GC able to deliver the full campus vision is a differentiated narrative. Decision-maker LinkedIn profile shows preference for in-person relationship-building over cold email.</div>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 3 -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-left">
+          <div class="opp-stage-badge stage-gc-selection">GC Selection — Informal</div>
+          <div class="opp-name">Maricopa Gateway Commerce Park — Spec Industrial</div>
+          <div class="opp-address">Loop 303 &amp; Camelback Rd, Goodyear, AZ 85338</div>
+        </div>
+        <div class="opp-cis">
+          <div class="cis-ring-wrap">
+            <canvas id="cis3" width="72" height="72"></canvas>
+            <div class="cis-num">78</div>
+          </div>
+          <div class="cis-label">CIS™ Score</div>
+        </div>
+      </div>
+      <div class="opp-body">
+        <div class="opp-grid">
+          <div class="opp-field">
+            <div class="opp-field-label">Project Type</div>
+            <div class="opp-field-value">Spec Industrial / Flex</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Value</div>
+            <div class="opp-field-value">$22M – $27M</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Start</div>
+            <div class="opp-field-value">Q2 2027</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Owner/Developer</div>
+            <div class="opp-field-value">Valor Industrial Partners</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Architect</div>
+            <div class="opp-field-value">Walsh &amp; Dunn AIA</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Permit Status</div>
+            <div class="opp-field-value">Pre-Application — City of Goodyear</div>
+          </div>
+        </div>
+        <div class="opp-insight"><strong>Intelligence:</strong> Developer is new to the Goodyear submarket — previous projects were all Tempe/Chandler. They are actively seeking GC partners with established subcontractor relationships in the West Valley. Introductory relationship call is the right first step; formal bid likely won't be issued until Q4 2026.</div>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 4 — EARLY WATCH -->
+    <div class="opportunity-card" style="opacity:0.8;border-style:dashed;">
+      <div class="opp-header">
+        <div class="opp-left">
+          <div class="opp-stage-badge stage-entitlement">Early Watch — Entitlement</div>
+          <div class="opp-name">Desert Ridge Office Park — Tower 4</div>
+          <div class="opp-address">21001 N. Tatum Blvd, Phoenix, AZ 85050</div>
+        </div>
+        <div class="opp-cis">
+          <div class="cis-ring-wrap">
+            <canvas id="cis4" width="72" height="72"></canvas>
+            <div class="cis-num">71</div>
+          </div>
+          <div class="cis-label">CIS™ Score</div>
+        </div>
+      </div>
+      <div class="opp-body">
+        <div class="opp-grid">
+          <div class="opp-field">
+            <div class="opp-field-label">Project Type</div>
+            <div class="opp-field-value">Class A Office</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Value</div>
+            <div class="opp-field-value">$18M – $24M</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Estimated Start</div>
+            <div class="opp-field-value">Q3 2027 (projected)</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Owner</div>
+            <div class="opp-field-value">Pinnacle Office Ventures</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Status</div>
+            <div class="opp-field-value">City Planning Review</div>
+          </div>
+          <div class="opp-field">
+            <div class="opp-field-label">Horizon</div>
+            <div class="opp-field-value">12–15 months to bid</div>
+          </div>
+        </div>
+        <div class="opp-insight" style="background:rgba(255,248,238,0.7);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;"><strong style="color:var(--amber);">Early Watch:</strong> Formal bid window is 12–15 months out. Recommended action: one warm introductory touchpoint now to establish recognition before the project goes to market. ConstructIQ will monitor permit activity and surface this again when GC selection begins.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 4. DECISION-MAKER INTELLIGENCE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">Decision-Maker Intelligence</div>
+    </div>
+    <div class="dm-grid">
+      <div class="dm-card">
+        <div class="dm-name">James R. Calloway</div>
+        <div class="dm-title">VP Development &mdash; Apex Industrial REIT</div>
+        <div class="dm-detail"><strong>Project:</strong> Apex Logistics Center Phase II</div>
+        <div class="dm-detail"><strong>Contact:</strong> jcalloway@apexindreit.com &nbsp;·&nbsp; LinkedIn active</div>
+        <div class="dm-detail"><strong>Background:</strong> 18 years industrial development; prior roles at Prologis and DRW Real Estate. Prefers detailed preconstruction budgets and self-perform GCs.</div>
+        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;">Shared two posts about labor shortages in tilt-up construction in the last 60 days — opening for Meridian's workforce differentiation pitch.</div>
+      </div>
+      <div class="dm-card">
+        <div class="dm-name">Dr. Patricia Nguyen</div>
+        <div class="dm-title">CEO &mdash; Sunridge Health Properties LLC</div>
+        <div class="dm-detail"><strong>Project:</strong> Sunridge Medical Office Campus Building C</div>
+        <div class="dm-detail"><strong>Contact:</strong> pnguyen@sunridgehealth.com</div>
+        <div class="dm-detail"><strong>Background:</strong> Healthcare administrator turned developer; first commercial development role was the Sunridge campus. Values relationship continuity and single points of contact.</div>
+        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;">No inbound email outreach — recommend a warm introduction through the project architect (MedPlan Architects), with whom Meridian has an existing relationship.</div>
+      </div>
+      <div class="dm-card">
+        <div class="dm-name">Marcus Okafor</div>
+        <div class="dm-title">Principal &mdash; Valor Industrial Partners</div>
+        <div class="dm-detail"><strong>Project:</strong> Maricopa Gateway Commerce Park</div>
+        <div class="dm-detail"><strong>Contact:</strong> m.okafor@valorip.com &nbsp;·&nbsp; LinkedIn: @marcokafor</div>
+        <div class="dm-detail"><strong>Background:</strong> 12 years multifamily and light industrial development. West Valley debut project. Active on LinkedIn; responds to detailed, project-specific outreach.</div>
+        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;">Posted last week about challenges finding West Valley subcontractor relationships. Direct outreach referencing this is a high-probability conversation starter.</div>
+      </div>
+      <div class="dm-card" style="opacity:0.75;">
+        <div class="dm-name">Sandra Willetts</div>
+        <div class="dm-title">Director of Development &mdash; Pinnacle Office Ventures</div>
+        <div class="dm-detail"><strong>Project:</strong> Desert Ridge Office Park Tower 4</div>
+        <div class="dm-detail"><strong>Contact:</strong> Confirm via company directory (profile semi-private)</div>
+        <div class="dm-detail"><strong>Background:</strong> Has worked with 3 GCs across earlier Pinnacle towers; favors repeat relationships. Early Watch only — recommend one brief touchpoint in the next 30 days.</div>
+        <div class="dm-detail" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--ink-lt);font-style:italic;"><em>Early Watch profile — limited intelligence at this stage. Full profile compiled at GC selection phase.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. OUTREACH STRATEGY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">Recommended Outreach</div>
+    </div>
+
+    <div class="outreach-card">
+      <div class="outreach-project">Apex Logistics Center Phase II &mdash; Calloway / Apex Industrial REIT</div>
+      <div class="outreach-subject">Subject: Meridian + Apex Phase II — West Valley Tilt-Up Delivery</div>
+      <div class="outreach-body">James —
+
+I've followed Apex's Phase I work at Commerce Parkway — clean execution in a tight labor market. We understand Phase II is moving toward GC selection, and I wanted to reach out before the shortlist is set.
+
+Meridian has delivered six tilt-up industrial projects in the $20M–$35M range in Scottsdale and the East Valley over the last four years, including the Irongate Distribution Center (28M SF, delivered 4 weeks early). We self-perform concrete and maintain direct relationships with three West Valley framing and MEP subs who've worked with your Phase I site.
+
+Happy to share a brief capabilities overview and Phase II unit cost benchmarks if helpful — no obligation.
+
+Would a 20-minute call this week or next work?</div>
+      <div class="outreach-note">Send via email first; follow up on LinkedIn after 5 business days if no response. Lead with the concrete self-perform differentiator — Calloway flagged this in public posts.</div>
+    </div>
+
+    <div class="outreach-card">
+      <div class="outreach-project">Maricopa Gateway Commerce Park &mdash; Okafor / Valor Industrial Partners</div>
+      <div class="outreach-subject">Subject: West Valley Subcontractor Network — Maricopa Gateway Intro</div>
+      <div class="outreach-body">Marcus —
+
+Saw your recent post about West Valley subcontractor relationships — that's exactly the gap we built for. Meridian has been active in the Goodyear/Avondale submarket for five years and has vetted subs in concrete, steel, MEP, and roofing who've specifically delivered in that growth corridor.
+
+I noticed the Maricopa Gateway project is working through the Goodyear planning process and thought it was worth a quick introduction now — even if formal GC selection is months out, the sub relationships we've built can meaningfully affect how a budget comes together early.
+
+Would you be open to a 15-minute call? No pitch, just an introduction and a look at what we've seen move in that corridor recently.</div>
+      <div class="outreach-note">LinkedIn outreach is the preferred first channel for Okafor — he is active and responds to direct, specific messages. Reference the subcontractor post directly.</div>
+    </div>
+  </div>
+
+  <!-- 6. METHODOLOGY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">Methodology</div>
+    </div>
+    <div class="method-grid">
+      <div class="method-item">
+        <div class="method-icon">🏗️</div>
+        <div class="method-text">
+          <h4>Permit &amp; Entitlement Monitoring</h4>
+          <p>Daily monitoring of municipal permit portals, planning commission agendas, and AZ Department of Real Estate filings across the target geography.</p>
+        </div>
+      </div>
+      <div class="method-item">
+        <div class="method-icon">🧠</div>
+        <div class="method-text">
+          <h4>AI Research Engine</h4>
+          <p>The ConstructIQ Intelligence Engine™ cross-references permit data, news sources, LinkedIn signals, and commercial real estate databases to surface and score opportunities.</p>
+        </div>
+      </div>
+      <div class="method-item">
+        <div class="method-icon">📋</div>
+        <div class="method-text">
+          <h4>Client Blueprint™ Alignment</h4>
+          <p>Every opportunity is filtered against your Blueprint: project type, size range, geography, delivery method preferences, and named exclusions.</p>
+        </div>
+      </div>
+      <div class="method-item">
+        <div class="method-icon">📊</div>
+        <div class="method-text">
+          <h4>CIS™ Scoring</h4>
+          <p>The ConstructIQ Intelligence Score™ (0–100) rates each opportunity on project readiness, owner accessibility, competitive landscape, and Blueprint fit. Scores above 75 indicate high-priority pursuit.</p>
+        </div>
+      </div>
+      <div class="method-item">
+        <div class="method-icon">👤</div>
+        <div class="method-text">
+          <h4>Decision-Maker Research</h4>
+          <p>Each project's key decision-maker is profiled using publicly available professional data, LinkedIn activity, and relationship mapping.</p>
+        </div>
+      </div>
+      <div class="method-item">
+        <div class="method-icon">✍️</div>
+        <div class="method-text">
+          <h4>Founder Review</h4>
+          <p>Every brief is reviewed by a ConstructIQ principal before delivery. No report is published by automation alone — human judgment is applied to all scoring, outreach copy, and intelligence summaries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. SOURCES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">Sources &amp; Data Inputs</div>
+    </div>
+    <ul class="sources-list">
+      <li>City of Scottsdale — Building Permit Database</li>
+      <li>City of Phoenix — Development Services Portal</li>
+      <li>City of Goodyear — Planning &amp; Zoning Records</li>
+      <li>Maricopa County Assessor — Parcel &amp; Ownership Records</li>
+      <li>Arizona Commerce Authority — Project Announcements</li>
+      <li>CoStar Group — Commercial Real Estate Database</li>
+      <li>LinkedIn — Professional Profiles &amp; Activity</li>
+      <li>Dodge Data &amp; Analytics — Construction Pipeline</li>
+      <li>Phoenix Business Journal — News &amp; Project Announcements</li>
+      <li>State of Arizona — Secretary of State Entity Filings</li>
+      <li>ConstructIQ Intelligence Engine™ — Aggregation &amp; Scoring</li>
+      <li>ConstructIQ Founder Review — Human Validation</li>
+    </ul>
+  </div>
+
+  <!-- 8. DISCLAIMER -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div class="section-title">Disclaimer</div>
+    </div>
+    <div class="disclaimer-box">
+      <p><strong>THIS IS A SAMPLE REPORT FOR ILLUSTRATIVE PURPOSES ONLY.</strong> All company names, project names, addresses, contact names, email addresses, financial figures, and other details in this document are entirely fictional and are not intended to represent any real company, person, project, or transaction.</p>
+      <p>Revenue Intelligence Briefs™ produced for actual ConstructIQ clients are based on real publicly available data compiled from the sources listed above. ConstructIQ does not guarantee project availability, contract award, owner responsiveness, meeting outcomes, revenue generation, or any other business outcome. All deliverables are for informational and strategic planning purposes only.</p>
+      <p>ConstructIQ Intelligence Scores™ are proprietary estimates derived from multiple data inputs. They are not guarantees of project success or competitive outcome. Clients are solely responsible for conducting their own due diligence before pursuing any identified opportunity.</p>
+      <p>Data in live reports is compiled from sources believed to be reliable but may be incomplete, outdated, or subject to change. ConstructIQ makes no warranty, express or implied, regarding the accuracy or completeness of any information contained in a Revenue Intelligence Brief™.</p>
+    </div>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2>See Your Real Brief</h2>
+    <p>This sample used fictional data to show you the format. Your Revenue Intelligence Brief™ covers real opportunities — filtered to your market, your project sizes, your capabilities.</p>
+    <a href="/#qualify" class="btn-ora">Find My Next Best Project</a>
+    <a href="/#packages" class="btn-ghost">View Packages</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.png" alt="ConstructIQ">
+  <p>&copy; 2026 ConstructIQ&#8482;. AI-Powered Construction Intelligence Platform. All rights reserved. &nbsp;&middot;&nbsp; <a href="/terms.html">Terms</a> &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy</a></p>
+</footer>
+
+<script>
+function drawCIS(id, score, color) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const cx = 36, cy = 36, r = 28, lw = 5;
+  const start = -Math.PI / 2;
+  const end = start + (score / 100) * 2 * Math.PI;
+  ctx.clearRect(0, 0, 72, 72);
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+  ctx.strokeStyle = '#DDE3EE'; ctx.lineWidth = lw; ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx, cy, r, start, end);
+  ctx.strokeStyle = color || '#2558A8'; ctx.lineWidth = lw;
+  ctx.lineCap = 'round'; ctx.stroke();
+}
+drawCIS('cis1', 91, '#E05A1A');
+drawCIS('cis2', 83, '#2558A8');
+drawCIS('cis3', 78, '#2558A8');
+drawCIS('cis4', 71, '#C07800');
+</script>
+
+</body>
+</html>
