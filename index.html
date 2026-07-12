@@ -868,7 +868,31 @@ function submitQual(){
   localStorage.setItem('ciq_qual',JSON.stringify(qualData));
   const body=['CONSTRUCTIQ QUALIFICATION SUBMISSION','=====================================','Name: '+qualData.firstName+' '+qualData.lastName,'Company: '+qualData.company,'Website: '+(qualData.website||'Not provided'),'Email: '+qualData.email,'','Company Type: '+(qualData.companyType||'Not specified'),'Opportunity Types: '+(qualData.oppTypes?qualData.oppTypes.join(', '):'Not specified'),'','Geography:','  State: '+(qualData.state||''),'  City: '+(qualData.city||''),'  ZIP: '+(qualData.zip||''),'  Radius: '+(qualData.radius||''),'  Additional: '+(qualData.additionalMarkets||''),'  Excluded: '+(qualData.excludedMarkets||''),'','Opportunity Size: '+(qualData.size||'Not specified'),'Primary Challenge: '+(qualData.challenge||'Not specified'),'Timing: '+(qualData.timing||'Not specified')].join('\n');
   trackEvent('qualification_completed',{company:qualData.company});
-  fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:qualData.firstName+' '+qualData.lastName,email:qualData.email,company:qualData.company,website:qualData.website||'',companyType:qualData.companyType||'',oppTypes:(qualData.oppTypes||[]).join(', '),state:qualData.state||'',city:qualData.city||'',zip:qualData.zip||'',radius:qualData.radius||'',additionalMarkets:qualData.additionalMarkets||'',excludedMarkets:qualData.excludedMarkets||'',size:qualData.size||'',challenge:qualData.challenge||'',timing:qualData.timing||'',_subject:'ConstructIQ | Sales | New Qualification | '+(qualData.company||'Unknown')})}).catch(function(){});
+  const msg=[
+    '--- CONTACT ---',
+    'Name:     '+qualData.firstName+' '+qualData.lastName,
+    'Email:    '+qualData.email,
+    'Company:  '+qualData.company,
+    'Website:  '+(qualData.website||'Not provided'),
+    '',
+    '--- PROFILE ---',
+    'Company Type:       '+(qualData.companyType||'Not specified'),
+    'Opportunity Types:  '+(qualData.oppTypes&&qualData.oppTypes.length?qualData.oppTypes.join(', '):'Not specified'),
+    'Opportunity Size:   '+(qualData.size||'Not specified'),
+    '',
+    '--- GEOGRAPHY ---',
+    'City:     '+(qualData.city||'—'),
+    'State:    '+(qualData.state||'—'),
+    'ZIP:      '+(qualData.zip||'—'),
+    'Radius:   '+(qualData.radius||'—'),
+    'Additional Markets: '+(qualData.additionalMarkets||'None'),
+    'Excluded Markets:   '+(qualData.excludedMarkets||'None'),
+    '',
+    '--- INTENT ---',
+    'Primary Challenge:  '+(qualData.challenge||'Not specified'),
+    'Timing:             '+(qualData.timing||'Not specified')
+  ].join('\n');
+  fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'ConstructIQ | New Qualification | '+(qualData.company||'Unknown'),message:msg,name:qualData.firstName+' '+qualData.lastName,email:qualData.email})}).catch(function(){});
   showStep(9);
   const summaryEl=document.getElementById('qualResultSummary');
   if(summaryEl)summaryEl.textContent=(qualData.firstName||'')+' '+(qualData.lastName||'')+' — '+(qualData.company||'')+' — '+(qualData.city||qualData.state||'Target market')+' — '+(qualData.size||'Any size');
