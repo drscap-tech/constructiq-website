@@ -799,7 +799,7 @@ section{padding:96px 48px;}
       <div class="result-card">
         <div style="font-weight:800;font-size:1rem;margin-bottom:4px;">Schedule a Brief Consultation</div>
         <div style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:16px;">15-minute call with a ConstructIQ advisor.</div>
-        <button onclick="closeQual();document.getElementById('contact').scrollIntoView({behavior:'smooth'});" style="width:100%;padding:10px;border:1.5px solid var(--blue);border-radius:6px;background:transparent;color:var(--blue);font-weight:700;cursor:pointer;font-family:'Exo 2',sans-serif;">Schedule a Consultation</button>
+        <button onclick="scheduleConsult();" style="width:100%;padding:10px;border:1.5px solid var(--blue);border-radius:6px;background:transparent;color:var(--blue);font-weight:700;cursor:pointer;font-family:'Exo 2',sans-serif;">Schedule a Consultation</button>
       </div>
       <div class="result-card">
         <div style="font-weight:800;font-size:1rem;margin-bottom:4px;">Request More Information</div>
@@ -827,7 +827,8 @@ document.querySelectorAll('[data-track]').forEach(el=>{el.addEventListener('clic
 let currentStep=1;
 const totalSteps=8;
 const qualData={};
-function openQual(){document.getElementById('qualOverlay').style.display='flex';document.body.style.overflow='hidden';showStep(1);trackEvent('qual_started',{});}
+function resetQual(){Object.keys(qualData).forEach(k=>delete qualData[k]);const ov=document.getElementById('qualOverlay');if(ov){ov.querySelectorAll('input:not([type=radio]):not([type=checkbox]),textarea').forEach(el=>{el.value='';});ov.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(el=>{el.checked=false;});ov.querySelectorAll('select').forEach(el=>{el.selectedIndex=0;});ov.querySelectorAll('.opp-chip.selected').forEach(c=>c.classList.remove('selected'));}const cr=document.getElementById('customSizeRow');if(cr)cr.style.display='none';try{localStorage.removeItem('ciq_qual');}catch(e){}}
+function openQual(){resetQual();document.getElementById('qualOverlay').style.display='flex';document.body.style.overflow='hidden';showStep(1);trackEvent('qual_started',{});}
 function closeQual(){document.getElementById('qualOverlay').style.display='none';document.body.style.overflow='';}
 function showStep(n){
   document.querySelectorAll('.qstep').forEach(s=>s.style.display='none');
@@ -865,7 +866,6 @@ function submitQual(){
   collectStepData(8);
   const agree=document.getElementById('q8_agree').checked;
   if(!agree){alert('Please confirm your agreement to continue.');return;}
-  localStorage.setItem('ciq_qual',JSON.stringify(qualData));
   const body=['CONSTRUCTIQ QUALIFICATION SUBMISSION','=====================================','Name: '+qualData.firstName+' '+qualData.lastName,'Company: '+qualData.company,'Website: '+(qualData.website||'Not provided'),'Email: '+qualData.email,'','Company Type: '+(qualData.companyType||'Not specified'),'Opportunity Types: '+(qualData.oppTypes?qualData.oppTypes.join(', '):'Not specified'),'','Geography:','  State: '+(qualData.state||''),'  City: '+(qualData.city||''),'  ZIP: '+(qualData.zip||''),'  Radius: '+(qualData.radius||''),'  Additional: '+(qualData.additionalMarkets||''),'  Excluded: '+(qualData.excludedMarkets||''),'','Opportunity Size: '+(qualData.size||'Not specified'),'Primary Challenge: '+(qualData.challenge||'Not specified'),'Timing: '+(qualData.timing||'Not specified')].join('\n');
   trackEvent('qualification_completed',{company:qualData.company});
   const msg=[
@@ -898,6 +898,7 @@ function submitQual(){
   if(summaryEl)summaryEl.textContent=(qualData.firstName||'')+' '+(qualData.lastName||'')+' — '+(qualData.company||'')+' — '+(qualData.city||qualData.state||'Target market')+' — '+(qualData.size||'Any size');
 }
 function sendMoreInfo(){fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:qualData.firstName+' '+qualData.lastName,email:qualData.email,company:qualData.company||'',_subject:'ConstructIQ | Sales | More Information | '+(qualData.company||'')})}).catch(function(){});}
+function scheduleConsult(){var set=function(name,val){var el=document.querySelector('#contactForm [name="'+name+'"]');if(el&&val)el.value=val;};set('first_name',qualData.firstName);set('last_name',qualData.lastName);set('company',qualData.company);set('email',qualData.email);set('market',[qualData.city,qualData.state].filter(Boolean).join(', '));set('project_size',qualData.size);closeQual();var c=document.getElementById('contact');if(c)c.scrollIntoView({behavior:'smooth'});}
 document.querySelectorAll('.opp-chip').forEach(chip=>{chip.addEventListener('click',()=>chip.classList.toggle('selected'));});
 document.querySelectorAll('input[name="q5_size"]').forEach(radio=>{radio.addEventListener('change',()=>{const customRow=document.getElementById('customSizeRow');if(customRow)customRow.style.display=radio.value==='Custom range'?'flex':'none';});});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});
