@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ConstructIQ | Beta Brief Intake</title>
+<meta name="description" content="ConstructIQ Founding Beta intake — a few quick questions so we can build your first Revenue Intelligence Brief.">
+<meta name="robots" content="noindex">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ4EMNPMSD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CZ4EMNPMSD');</script>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#162336;--blue:#2558A8;--orange:#E05A1A;--sky:#EEF1F8;--white:#FFF;--ink:#0D1B2A;--ink-mid:#3A4A60;--ink-lt:#6A7A90;--rule:#DDE3EE;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Exo 2',sans-serif;color:var(--ink);line-height:1.6;background:var(--sky);}
+nav{background:var(--blue);height:80px;display:flex;align-items:center;padding:0 32px;}
+nav a{display:inline-flex;align-items:center;}
+nav img{height:56px;}
+.wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px;}
+.card{background:var(--white);border:1px solid var(--rule);border-top:5px solid var(--orange);border-radius:10px;padding:40px 40px 44px;box-shadow:0 8px 30px rgba(13,27,42,0.06);}
+h1{font-size:1.7rem;font-weight:800;color:var(--ink);margin-bottom:10px;}
+.lead{color:var(--ink-mid);font-size:0.98rem;margin-bottom:8px;}
+.time{color:var(--ink-lt);font-size:0.85rem;margin-bottom:28px;}
+.section{font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin:34px 0 14px;padding-left:16px;position:relative;}
+.section::before{content:'';position:absolute;left:0;top:50%;width:10px;height:2px;background:var(--orange);}
+.section:first-of-type{margin-top:8px;}
+.field{margin-bottom:20px;}
+label{display:block;font-weight:700;font-size:0.9rem;color:var(--ink);margin-bottom:6px;}
+label .req{color:var(--orange);}
+.hint{font-weight:400;color:var(--ink-lt);font-size:0.82rem;display:block;margin-top:2px;}
+input[type=text],input[type=email],textarea,select{width:100%;font-family:'Exo 2',sans-serif;font-size:0.95rem;color:var(--ink);padding:11px 13px;border:1px solid var(--rule);border-radius:6px;background:#fff;margin-top:6px;}
+textarea{min-height:84px;resize:vertical;}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,90,26,0.12);}
+.btn{background:var(--orange);color:#fff;font-family:'Exo 2',sans-serif;font-size:1rem;font-weight:800;border:none;border-radius:6px;padding:15px 34px;cursor:pointer;margin-top:16px;width:100%;}
+.btn:disabled{opacity:0.6;cursor:default;}
+.foot{text-align:center;color:var(--ink-lt);font-size:0.82rem;margin-top:20px;}
+.foot a{color:var(--blue);}
+#done{display:none;text-align:center;padding:24px 8px;}
+#done .check{font-size:2.4rem;}
+#done h2{font-size:1.4rem;font-weight:800;margin:8px 0 10px;color:var(--ink);}
+#done p{color:var(--ink-mid);}
+@media(max-width:560px){.card{padding:28px 22px 32px;}nav{padding:0 20px;}}
+</style>
+</head>
+<body>
+<nav><a href="/"><img src="logo-white.png" alt="ConstructIQ"></a></nav>
+<div class="wrap">
+  <div class="card">
+    <form id="intakeForm">
+      <h1>Your Revenue Intelligence Brief&#8482; — Intake</h1>
+      <p class="lead">Thanks for being up for this. The more context you give, the sharper your Brief.</p>
+      <p class="time">Takes about 10&#8211;15 minutes.</p>
+
+      <div class="section">About Your Firm</div>
+      <div class="field"><label>Firm name &amp; website <span class="req">*</span></label><input type="text" id="firm_name" name="firm_name" required></div>
+      <div class="field"><label>Where you're based <span class="hint">HQ city / state</span></label><input type="text" id="location" name="location"></div>
+      <div class="field"><label>Roughly how big <span class="hint">Annual revenue or # of employees</span></label><input type="text" id="size" name="size"></div>
+      <div class="field"><label>What you do <span class="hint">Your primary services, disciplines, or project types</span></label><textarea id="services" name="services"></textarea></div>
+
+      <div class="section">What You're Looking For</div>
+      <div class="field"><label>Target markets <span class="hint">Cities / states / regions where you want new opportunities (note any mile radius)</span></label><textarea id="target_markets" name="target_markets"></textarea></div>
+      <div class="field"><label>Ideal project profile <span class="hint">Typical / ideal project size ($ range) and the sectors you pursue (e.g., multifamily, healthcare, industrial, hospitality, K&#8211;12, mixed-use)</span></label><textarea id="ideal_project" name="ideal_project"></textarea></div>
+      <div class="field"><label>Anything to explicitly exclude <span class="hint">Markets, sectors, or project types you don't want</span></label><textarea id="exclude" name="exclude"></textarea></div>
+
+      <div class="section">How You Win</div>
+      <div class="field"><label>What makes you competitive <span class="hint">How you typically win work / why clients choose you</span></label><textarea id="competitive" name="competitive"></textarea></div>
+      <div class="field"><label>The relationships that matter most to you <span class="hint">Developers, owners, GCs, architects, PMs&#8230;</span></label><textarea id="relationships" name="relationships"></textarea></div>
+
+      <div class="section">Your Goal</div>
+      <div class="field"><label>The #1 business-development goal or challenge you're focused on right now</label><textarea id="goal" name="goal"></textarea></div>
+      <div class="field"><label>Timing <span class="hint">How soon you're looking to act on new opportunities</span></label>
+        <select id="timing" name="timing">
+          <option value="">Select…</option>
+          <option>Immediately</option>
+          <option>1&#8211;3 months</option>
+          <option>3&#8211;6 months</option>
+          <option>Just exploring</option>
+        </select>
+      </div>
+
+      <div class="section">Delivery</div>
+      <div class="field"><label>Best email for your Brief <span class="req">*</span><span class="hint">And anyone else who should receive it</span></label><input type="email" id="delivery_email" name="delivery_email" required></div>
+
+      <button type="submit" class="btn" id="submitBtn">Submit My Intake</button>
+      <p class="foot">Your information is kept strictly confidential. Questions? <a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></p>
+    </form>
+    <div id="done">
+      <div class="check">&#10003;</div>
+      <h2>Got it — thank you.</h2>
+      <p>Your intake is in. ConstructIQ will begin researching your business and I'll get your first Revenue Intelligence Brief&#8482; into production. I'll be in touch shortly.</p>
+    </div>
+  </div>
+</div>
+<script>
+const form=document.getElementById('intakeForm');
+form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Submitting…';
+  const g=id=>(document.getElementById(id).value||'').trim();
+  const firm=g('firm_name');
+  const msg=[
+    '=== ABOUT YOUR FIRM ===',
+    'Firm & website: '+firm,
+    'Based: '+g('location'),
+    'Size: '+g('size'),
+    'What they do: '+g('services'),
+    '',
+    '=== WHAT THEY WANT ===',
+    'Target markets: '+g('target_markets'),
+    'Ideal project: '+g('ideal_project'),
+    'Exclude: '+g('exclude'),
+    '',
+    '=== HOW THEY WIN ===',
+    'Competitive: '+g('competitive'),
+    'Key relationships: '+g('relationships'),
+    '',
+    '=== GOAL ===',
+    'BD goal/challenge: '+g('goal'),
+    'Timing: '+g('timing'),
+    '',
+    '=== DELIVERY ===',
+    'Deliver to: '+g('delivery_email')
+  ].join('\n');
+  try{
+    const res=await fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({
+      _subject:'ConstructIQ | Beta Intake | '+(firm||'New Submission'),
+      email:g('delivery_email'),
+      message:msg
+    })});
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('done').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+      if(window.gtag)gtag('event','beta_intake_submitted',{});
+    }else{
+      btn.disabled=false;btn.textContent='Submit My Intake';
+      alert('There was a problem submitting. Please email your answers to hello@constructiqpb.com.');
+    }
+  }catch(err){
+    btn.disabled=false;btn.textContent='Submit My Intake';
+    alert('There was a problem submitting. Please email your answers to hello@constructiqpb.com.');
+  }
+});
+</script>
+</body>
+</html>
