@@ -804,7 +804,7 @@ section{padding:96px 48px;}
       <div class="result-card">
         <div style="font-weight:800;font-size:1rem;margin-bottom:4px;">Request More Information</div>
         <div style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:16px;">We&#8217;ll follow up within 1 business day.</div>
-        <button onclick="sendMoreInfo();" style="width:100%;padding:10px;border:1.5px solid var(--rule);border-radius:6px;background:transparent;color:var(--ink-mid);font-weight:700;cursor:pointer;font-family:'Exo 2',sans-serif;">Send My Profile</button>
+        <button onclick="sendMoreInfo(this);" style="width:100%;padding:10px;border:1.5px solid var(--rule);border-radius:6px;background:transparent;color:var(--ink-mid);font-weight:700;cursor:pointer;font-family:'Exo 2',sans-serif;">Send My Profile</button>
       </div>
       <p style="text-align:center;margin-top:20px;"><a href="#" onclick="closeQual();return false;" style="color:var(--ink-lt);font-size:0.85rem;">Close</a></p>
     </div>
@@ -897,7 +897,7 @@ function submitQual(){
   const summaryEl=document.getElementById('qualResultSummary');
   if(summaryEl)summaryEl.textContent=(qualData.firstName||'')+' '+(qualData.lastName||'')+' — '+(qualData.company||'')+' — '+(qualData.city||qualData.state||'Target market')+' — '+(qualData.size||'Any size');
 }
-function sendMoreInfo(){fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:qualData.firstName+' '+qualData.lastName,email:qualData.email,company:qualData.company||'',_subject:'ConstructIQ | Sales | More Information | '+(qualData.company||'')})}).catch(function(){});}
+function sendMoreInfo(btn){if(btn){btn.disabled=true;btn.textContent='Sending…';}fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:qualData.firstName+' '+qualData.lastName,email:qualData.email,company:qualData.company||'',_subject:'ConstructIQ | Sales | More Information | '+(qualData.company||'')})}).then(function(r){if(r.ok){if(btn){btn.textContent='✓ Profile Sent';}}else{if(btn){btn.disabled=false;btn.textContent='Send My Profile';}alert('There was a problem sending your profile. Please email hello@constructiqpb.com directly.');}}).catch(function(){if(btn){btn.disabled=false;btn.textContent='Send My Profile';}alert('There was a problem sending your profile. Please email hello@constructiqpb.com directly.');});}
 function scheduleConsult(){var set=function(name,val){var el=document.querySelector('#contactForm [name="'+name+'"]');if(el&&val)el.value=val;};set('first_name',qualData.firstName);set('last_name',qualData.lastName);set('company',qualData.company);set('email',qualData.email);set('market',[qualData.city,qualData.state].filter(Boolean).join(', '));set('project_size',qualData.size);closeQual();var c=document.getElementById('contact');if(c)c.scrollIntoView({behavior:'smooth'});}
 document.querySelectorAll('.opp-chip').forEach(chip=>{chip.addEventListener('click',()=>chip.classList.toggle('selected'));});
 document.querySelectorAll('input[name="q5_size"]').forEach(radio=>{radio.addEventListener('change',()=>{const customRow=document.getElementById('customSizeRow');if(customRow)customRow.style.display=radio.value==='Custom range'?'flex':'none';});});
