@@ -269,7 +269,7 @@ section{padding:96px 48px;}
           <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Executive Recommendations</li>
           <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Sources and Data Notes</li>
         </ul>
-        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--rule);font-size:0.9rem;color:var(--ink-mid);line-height:1.6;"><span style="color:var(--orange);font-weight:700;">&#9733;</span> Every opportunity is <b>resolved to a named decision-maker</b> &mdash; with a way to reach them.</div>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--rule);font-size:0.9rem;color:var(--ink-mid);line-height:1.6;"><span style="color:var(--orange);font-weight:700;">&#9733;</span> Every opportunity is <b>resolved to a named decision-maker</b> &mdash; with a way to reach them.<br><span style="color:var(--orange);font-weight:700;">&#9733;</span> Includes research covering <b>up to three target ZIP codes</b> you select &mdash; a focused scope built for depth and relevance. Need a broader territory? See our monthly subscription plans.</div>
       </div>
     </div>
   </div>
@@ -501,13 +501,15 @@ section{padding:96px 48px;}
         <div class="pkg-period">one-time &#183; Point-in-time sample</div>
         <span class="blueprint-badge">&#10003; Client Blueprint&#8482; Included</span>
         <ul class="pkg-features">
-          <li>One fully customized RIB&#8482; for your market</li>
+          <li>One fully customized RIB&#8482;</li>
+          <li><b>Research covering up to three target ZIP codes</b> you select</li>
           <li>5&#8211;10 opportunities, each <b>resolved to a named decision-maker</b></li>
           <li>Ownership traced to entity, principal &amp; contact</li>
           <li>ConstructIQ Intelligence Score&#8482; per opportunity</li>
           <li>Tactical entry read &amp; ready-to-send outreach copy</li>
           <li>PDF delivery &middot; 3&#8211;5 business days</li>
         </ul>
+        <p style="font-size:0.76rem;color:var(--ink-lt);line-height:1.5;margin:0 0 14px;">Need a broader territory? Additional geographic coverage is available through our monthly subscription plans.</p>
         <a href="https://square.link/u/J3CYZHHc" class="btn-ora" data-track="purchase-rib" style="display:block;text-align:center;">Request My Brief</a>
       </div>
       <div class="pkg-card featured">
@@ -570,7 +572,7 @@ section{padding:96px 48px;}
         <a href="#contact" style="display:block;text-align:center;background:transparent;color:var(--ink);padding:13px 28px;border-radius:6px;font-weight:700;border:1.5px solid var(--rule);text-decoration:none;">Contact Us</a>
       </div>
     </div>
-    <p class="reveal" style="text-align:center;font-size:0.85rem;color:var(--ink-lt);margin-top:24px;">Additional geographies may be available for an added fee. Contact: <a href="mailto:hello@constructiqpb.com" style="color:var(--blue);">hello@constructiqpb.com</a></p>
+    <p class="reveal" style="text-align:center;font-size:0.85rem;color:var(--ink-lt);margin-top:24px;">The $495 Revenue Intelligence Brief&#8482; includes research covering up to three client-selected ZIP codes. Need a broader territory? Additional geographic coverage is available through ConstructIQ&#8217;s monthly subscription plans &#8212; <a href="mailto:hello@constructiqpb.com" style="color:var(--blue);">hello@constructiqpb.com</a></p>
     <p class="reveal" style="text-align:center;font-size:0.8rem;color:var(--ink-lt);font-style:italic;margin-top:12px;">Typical delivery is 3&#8211;5 business days after your completed Client Blueprint&#8482; is received. Every Revenue Intelligence Brief&#8482; is built specifically for your business.</p>
   </div>
 </section>
@@ -801,24 +803,16 @@ section{padding:96px 48px;}
 
     <!-- Step 4 -->
     <div id="qstep-4" class="qstep">
-      <div class="q-step-title">Where are you looking for opportunities?</div>
-      <div class="q-step-sub">Be as specific or broad as you like.</div>
+      <div class="q-step-title">Which ZIP codes should we focus on?</div>
+      <div class="q-step-sub">Enter up to three target ZIP codes for your Revenue Intelligence Brief&#8482;. This focused scope sharpens the depth and relevance of your research.</div>
+      <input id="q4_zip" class="qinput" type="text" placeholder="Target ZIP codes &mdash; up to 3 (e.g. 33426, 33418, 33414)">
+      <input id="q4_city" class="qinput" type="text" placeholder="City (optional context)">
+      <input id="q4_state" class="qinput" type="text" placeholder="State (optional context)">
       <input id="q4_country" class="qinput" type="text" placeholder="Country" value="United States">
-      <input id="q4_state" class="qinput" type="text" placeholder="State">
-      <input id="q4_county" class="qinput" type="text" placeholder="County">
-      <input id="q4_city" class="qinput" type="text" placeholder="City">
-      <input id="q4_zip" class="qinput" type="text" placeholder="ZIP Code">
-      <select id="q4_radius" class="qinput">
-        <option value="">Radius</option>
-        <option>25 miles</option>
-        <option>50 miles</option>
-        <option>100 miles</option>
-        <option>Statewide</option>
-        <option>Regional</option>
-        <option>National</option>
-      </select>
-      <textarea id="q4_additional" class="qinput" rows="2" placeholder="Additional markets"></textarea>
-      <textarea id="q4_excluded" class="qinput" rows="2" placeholder="Excluded markets"></textarea>
+      <input id="q4_county" class="qinput" type="text" placeholder="County (optional context)">
+      <textarea id="q4_additional" class="qinput" rows="2" placeholder="Additional context (optional)"></textarea>
+      <textarea id="q4_excluded" class="qinput" rows="2" placeholder="Excluded markets (optional)"></textarea>
+      <div style="font-size:0.82rem;color:var(--ink-lt);line-height:1.5;margin-top:8px;">Need a broader territory? Additional geographic coverage is available through ConstructIQ&#8217;s monthly subscription plans.</div>
     </div>
 
     <!-- Step 5 -->
@@ -894,7 +888,7 @@ section{padding:96px 48px;}
       <div class="result-card featured-card">
         <span style="background:var(--orange);color:white;font-size:0.7rem;font-weight:700;padding:3px 8px;border-radius:3px;display:inline-block;margin-bottom:10px;">Recommended</span>
         <div style="font-weight:800;font-size:1rem;margin-bottom:4px;">Purchase Revenue Intelligence Brief&#8482;</div>
-        <div style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:16px;">$495 one-time. Includes your Client Blueprint&#8482;. Typical delivery: 3&#8211;5 business days.</div>
+        <div style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:16px;">$495 one-time. Includes your Client Blueprint&#8482; and research covering up to three target ZIP codes you select. Typical delivery: 3&#8211;5 business days.</div>
         <button onclick="trackEvent('qual_purchase_rib',{});window.location.href='https://square.link/u/J3CYZHHc';" class="btn-ora" style="width:100%;text-align:center;">Purchase My Revenue Intelligence Brief&#8482;</button>
       </div>
       <div class="result-card">
@@ -958,7 +952,7 @@ function collectStepData(step){
   if(step===1){qualData.firstName=document.getElementById('q1_firstName').value;qualData.lastName=document.getElementById('q1_lastName').value;qualData.company=document.getElementById('q1_company').value;qualData.website=document.getElementById('q1_website').value;qualData.email=document.getElementById('q1_email').value;}
   else if(step===2){const sel=document.querySelector('input[name="q2_type"]:checked');qualData.companyType=sel?sel.value:'';}
   else if(step===3){qualData.oppTypes=[...document.querySelectorAll('.opp-chip.selected')].map(c=>c.dataset.value);}
-  else if(step===4){qualData.country=document.getElementById('q4_country').value;qualData.state=document.getElementById('q4_state').value;qualData.city=document.getElementById('q4_city').value;qualData.zip=document.getElementById('q4_zip').value;qualData.radius=document.getElementById('q4_radius').value;qualData.additionalMarkets=document.getElementById('q4_additional').value;qualData.excludedMarkets=document.getElementById('q4_excluded').value;}
+  else if(step===4){qualData.country=document.getElementById('q4_country').value;qualData.state=document.getElementById('q4_state').value;qualData.city=document.getElementById('q4_city').value;qualData.zip=document.getElementById('q4_zip').value;qualData.radius=(document.getElementById('q4_radius')||{}).value||'';qualData.additionalMarkets=document.getElementById('q4_additional').value;qualData.excludedMarkets=document.getElementById('q4_excluded').value;}
   else if(step===5){const sel=document.querySelector('input[name="q5_size"]:checked');qualData.size=sel?sel.value:'';if(qualData.size==='Custom range'){qualData.sizeMin=document.getElementById('q5_min').value;qualData.sizeMax=document.getElementById('q5_max').value;}}
   else if(step===6){const sel=document.querySelector('input[name="q6_challenge"]:checked');qualData.challenge=sel?sel.value:'';}
   else if(step===7){const sel=document.querySelector('input[name="q7_timing"]:checked');qualData.timing=sel?sel.value:'';}

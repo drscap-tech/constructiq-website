@@ -58,7 +58,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--orange);
       <div class="field"><label>What you do <span class="hint">Your primary services, disciplines, or project types</span></label><textarea id="services" name="services"></textarea></div>
 
       <div class="section">What You're Looking For</div>
-      <div class="field"><label>Target markets <span class="hint">Cities / states / regions where you want new opportunities (note any mile radius)</span></label><textarea id="target_markets" name="target_markets"></textarea></div>
+      <div class="field"><label>Target ZIP codes <span class="hint">Enter up to three ZIP codes where you want ConstructIQ to identify new opportunities. For broader geographic coverage, select one of ConstructIQ&#8217;s monthly subscription plans.</span></label><textarea id="target_markets" name="target_markets" placeholder="e.g. 33426, 33418, 33414"></textarea></div>
       <div class="field"><label>Ideal project profile <span class="hint">Typical / ideal project size ($ range) and the sectors you pursue (e.g., multifamily, healthcare, industrial, hospitality, K&#8211;12, mixed-use)</span></label><textarea id="ideal_project" name="ideal_project"></textarea></div>
       <div class="field"><label>Anything to explicitly exclude <span class="hint">Markets, sectors, or project types you don't want</span></label><textarea id="exclude" name="exclude"></textarea></div>
 
@@ -107,7 +107,7 @@ form.addEventListener('submit',async function(e){
     'What they do: '+g('services'),
     '',
     '=== WHAT THEY WANT ===',
-    'Target markets: '+g('target_markets'),
+    'Target ZIP codes (up to 3): '+g('target_markets'),
     'Ideal project: '+g('ideal_project'),
     'Exclude: '+g('exclude'),
     '',
