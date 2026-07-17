@@ -116,6 +116,57 @@ section{padding:96px 48px;}
   .hero-logo{display:none!important;}
 }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ---- Teaser band ---- */
+  .teaser{background:var(--sky);padding:76px 24px}
+  .t-inner{max-width:1120px;margin:0 auto}
+  .t-eyebrow{color:var(--orange);font-size:0.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-align:center;margin-bottom:14px}
+  .t-title{font-size:2.2rem;font-weight:800;color:var(--ink);text-align:center;line-height:1.15;margin-bottom:14px}
+  .t-sub{max-width:640px;margin:0 auto 46px;text-align:center;color:var(--ink-mid);line-height:1.75;font-size:1.02rem}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  @media(max-width:900px){.t-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .tile{background:#fff;border:1px solid var(--rule);border-radius:12px;box-shadow:0 10px 30px rgba(13,27,42,.07);overflow:hidden;display:flex;flex-direction:column}
+  .tile-body{padding:24px 22px;flex:1;display:flex;flex-direction:column}
+  .tile-cap{border-top:1px solid var(--rule);padding:14px 22px;font-size:0.82rem;color:var(--ink-lt);line-height:1.5;background:#fff}
+  .tile-lab{font-size:0.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+  .tile h3{font-family:'Playfair Display',serif;font-size:1.24rem;color:var(--ink);line-height:1.22;margin-bottom:8px}
+  .mini-sec-rule{width:34px;height:3px;background:var(--orange);border-radius:2px;margin:6px 0 14px}
+
+  /* Tile 1 — market snapshot */
+  .stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:auto}
+  .stat b{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--navy);display:block;line-height:1}
+  .stat b i{font-style:normal;color:var(--orange);font-size:1rem}
+  .stat span{font-size:0.66rem;color:var(--ink-lt);line-height:1.35;display:block;margin-top:7px}
+
+  /* Tile 2 — ownership intelligence (anchor, blurred) */
+  .opp-spec{font-size:0.78rem;color:var(--ink-lt);margin-bottom:14px}
+  .opp-spec b{color:var(--ink-mid)}
+  .intel{position:relative;background:var(--wash);border:1px solid var(--rule);border-left:3px solid var(--orange);border-radius:8px;padding:15px 15px 16px;margin-top:auto}
+  .intel-lab{font-size:0.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+  .irow{display:flex;gap:8px;align-items:baseline;margin-bottom:11px}
+  .irow .k{font-size:0.78rem;font-weight:700;color:var(--ink);white-space:nowrap}
+  .irow .v{font-size:0.78rem;color:var(--ink-mid);filter:blur(4.5px);user-select:none;flex:1;overflow:hidden;white-space:nowrap}
+  .iread{font-size:0.76rem;color:var(--ink-mid);line-height:1.5;padding-top:11px;border-top:1px solid var(--rule);filter:blur(4.8px);user-select:none}
+  .iread b{color:var(--ink)}
+  .lock{position:absolute;top:11px;right:12px;background:var(--navy);color:#fff;font-size:0.6rem;letter-spacing:.1em;font-weight:700;padding:6px 10px;border-radius:20px;white-space:nowrap}
+
+  /* Tile 3 — confidence framework */
+  .legend{display:flex;flex-direction:column;gap:0;margin-top:6px}
+  .lrow{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--rule)}
+  .lrow:last-child{border-bottom:0}
+  .lsw{width:15px;height:15px;border-radius:4px;flex:none;margin-top:2px}
+  .lname{font-size:0.82rem;font-weight:700;color:var(--ink);width:118px;flex:none}
+  .ldef{font-size:0.72rem;color:var(--ink-lt);line-height:1.45}
+
+  /* CTA */
+  .t-cta{text-align:center;margin-top:48px}
+  .t-cta .note{color:var(--ink-mid);max-width:600px;margin:0 auto 22px;line-height:1.7;font-size:0.98rem}
+  .btn-ora{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:15px 34px;border-radius:7px;text-decoration:none;font-size:1.02rem}
+  .t-cta .fine{margin-top:14px;font-size:0.84rem;color:var(--ink-lt)}
+  .t-cta .fine a{color:var(--blue);font-weight:700;text-decoration:none}
+
+</style>
 </head>
 <body>
 
@@ -140,7 +191,7 @@ section{padding:96px 48px;}
       <p class="reveal" style="color:rgba(255,255,255,0.82);max-width:580px;margin-bottom:44px;line-height:1.8;font-size:1.15rem;">ConstructIQ&#8482; is an AI-powered Construction Intelligence Platform &#8212; functioning as your outsourced Business Development Intelligence Department. We identify, analyze, and deliver qualified opportunities aligned to your unique business strategy, before competitors know they exist.</p>
       <div class="reveal" style="display:flex;gap:16px;flex-wrap:wrap;">
         <button onclick="openQual()" class="btn-ora" data-track="hero-primary-cta">Grow My Pipeline</button>
-        <a href="#rib" class="btn-ghost" data-track="hero-secondary-cta">View Sample Revenue Intelligence Brief&#8482;</a>
+        <a href="#rib-teaser" class="btn-ghost" data-track="hero-secondary-cta">See What&#8217;s Inside a Brief&#8482;</a>
       </div>
       <div class="reveal" style="display:flex;gap:64px;margin-top:80px;flex-wrap:wrap;">
         <div><div style="font-size:2.5rem;font-weight:800;color:white;">$318M+</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;">Tracked Pipeline Value</div></div>
@@ -170,7 +221,7 @@ section{padding:96px 48px;}
       <p style="line-height:1.85;margin-bottom:28px;color:var(--ink-mid);">Every report is built around your Client Blueprint&#8482; &#8212; your unique business strategy, not a generic filter.</p>
       <button onclick="openQual()" class="btn-ora" data-track="why-cta">Grow My Pipeline</button>
     </div>
-    <div class="reveal">
+    <div class="reveal" style="align-self:center;">
       <div class="why-cards">
         <div class="why-card" style="border-left-color:var(--orange);">
           <h4>Traditional Lead Generation</h4>
@@ -199,51 +250,100 @@ section{padding:96px 48px;}
       <p style="line-height:1.85;margin-bottom:28px;color:var(--ink-mid);">The Revenue Intelligence Brief&#8482; (RIB&#8482;) is a fully customized business-development intelligence report built specifically around your Client Blueprint&#8482;. Every Brief is produced by the ConstructIQ Intelligence Engine&#8482; and reviewed before delivery.</p>
       <p style="line-height:1.85;margin-bottom:28px;color:var(--ink-mid);">This is not a data export or a filtered list. It is a structured intelligence document designed to drive business development action.</p>
       <div style="background:var(--sky);border-left:3px solid var(--orange);border-radius:6px;padding:14px 18px;margin-bottom:24px;font-size:0.88rem;color:var(--ink-mid);">Your report enters production after your completed Client Blueprint&#8482; is received. Typical delivery is 3&#8211;5 business days.</div>
-      <h4 style="font-weight:700;margin-bottom:12px;color:var(--ink);">Each Brief Includes:</h4>
-      <ul style="list-style:none;margin-bottom:20px;">
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Executive Summary</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Qualified Opportunities</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>ConstructIQ Intelligence Scores&#8482;</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Project Intelligence</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Decision Makers</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Market Commentary</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Recommended Outreach Strategy</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Outreach Emails</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Executive Recommendations</li>
-        <li style="padding:5px 0;font-size:0.88rem;color:var(--ink-mid);"><span style="color:var(--blue);font-weight:700;margin-right:8px;">&#10003;</span>Sources and Data Notes</li>
-      </ul>
-      <p style="margin-top:20px;font-size:0.82rem;font-style:italic;color:var(--ink-lt);line-height:1.65;">If your first Revenue Intelligence Brief&#8482; does not reflect the opportunity profile established in your Client Blueprint&#8482;, ConstructIQ will refine the Blueprint and produce one revised brief at no additional charge.</p>
+      <p style="margin-top:8px;font-size:0.82rem;font-style:italic;color:var(--ink-lt);line-height:1.65;">If your first Revenue Intelligence Brief&#8482; does not reflect the opportunity profile established in your Client Blueprint&#8482;, ConstructIQ will refine the Blueprint and produce one revised brief at no additional charge.</p>
       <button onclick="openQual()" class="btn-ora" data-track="rib-cta" style="margin-top:20px;">Grow My Pipeline</button>
     </div>
-    <div class="reveal">
-      <div style="background:var(--card-bg);border-radius:8px;padding:28px;color:white;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-          <div>
-            <div style="font-weight:800;font-size:1.1rem;">Revenue Intelligence Brief&#8482;</div>
-            <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:4px;">South Florida &#8212; Q3 2026</div>
-          </div>
-          <span style="background:var(--orange);color:white;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:1px;">RIB&#8482;</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;margin-bottom:20px;">
-          <div style="padding:16px;background:var(--card-bg);"><div style="font-size:1.6rem;font-weight:800;color:var(--orange);">22</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.6);">Qualified Opportunities</div></div>
-          <div style="padding:16px;background:var(--card-bg);"><div style="font-size:1.6rem;font-weight:800;">$318M</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.6);">Total Construction Value</div></div>
-          <div style="padding:16px;background:var(--card-bg);"><div style="font-size:1.6rem;font-weight:800;color:var(--orange);">7</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.6);">Recommended Pursuits</div></div>
-          <div style="padding:16px;background:var(--card-bg);"><div style="font-size:1.6rem;font-weight:800;">$41.2M</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.6);">Est. Pipeline Value</div></div>
-        </div>
-        <div style="margin-bottom:20px;">
-          <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;"><span>Workforce Housing</span><span>9 projects</span></div><div style="height:6px;background:rgba(255,255,255,0.12);border-radius:3px;"><div style="width:82%;height:100%;background:var(--blue);border-radius:3px;"></div></div></div>
-          <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;"><span>Affordable/LIHTC</span><span>6 projects</span></div><div style="height:6px;background:rgba(255,255,255,0.12);border-radius:3px;"><div style="width:60%;height:100%;background:var(--blue);border-radius:3px;"></div></div></div>
-          <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;"><span>Multifamily/Mixed-Use</span><span>5 projects</span></div><div style="height:6px;background:rgba(255,255,255,0.12);border-radius:3px;"><div style="width:50%;height:100%;background:var(--orange);border-radius:3px;"></div></div></div>
-          <div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;"><span>Municipal/Infrastructure</span><span>2 projects</span></div><div style="height:6px;background:rgba(255,255,255,0.12);border-radius:3px;"><div style="width:24%;height:100%;background:var(--blue);border-radius:3px;"></div></div></div>
-        </div>
-        <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;display:flex;flex-direction:column;gap:8px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;"><span style="color:rgba(255,255,255,0.6);">Top CIS&#8482; Score</span><span style="background:rgba(224,90,26,0.2);color:var(--orange);padding:3px 10px;border-radius:4px;font-weight:700;">94 / HIGH FIT</span></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;"><span style="color:rgba(255,255,255,0.6);">Decision Maker Access</span><span style="background:rgba(34,197,94,0.15);color:#4ade80;padding:3px 10px;border-radius:4px;font-weight:700;">&#10003; Verified</span></div>
-        </div>
+    <div class="reveal" style="align-self:center;">
+      <div style="background:var(--sky);border:1px solid var(--rule);border-radius:10px;padding:30px 32px;">
+        <h4 style="font-weight:800;margin-bottom:4px;color:var(--ink);font-size:1.15rem;">Each Brief Includes</h4>
+        <div style="width:34px;height:3px;background:var(--orange);border-radius:2px;margin:10px 0 22px;"></div>
+        <ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;">
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Executive Summary</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Qualified Opportunities</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>ConstructIQ Intelligence Scores&#8482;</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Project Intelligence</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Decision Makers</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Market Commentary</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Recommended Outreach Strategy</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Outreach Emails</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Executive Recommendations</li>
+          <li style="font-size:0.9rem;color:var(--ink-mid);display:flex;gap:9px;align-items:flex-start;"><span style="color:var(--blue);font-weight:700;">&#10003;</span>Sources and Data Notes</li>
+        </ul>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--rule);font-size:0.9rem;color:var(--ink-mid);line-height:1.6;"><span style="color:var(--orange);font-weight:700;">&#9733;</span> Every opportunity is <b>resolved to a named decision-maker</b> &mdash; with a way to reach them.</div>
       </div>
     </div>
   </div>
 </section>
+
+<section id="rib-teaser" class="teaser">
+  <div class="t-inner">
+    <div class="t-eyebrow">A Look Inside a Revenue Intelligence Brief&trade;</div>
+    <h2 class="t-title serif">We Do the Research. You Get the Intelligence.</h2>
+    <p class="t-sub">Every Brief resolves each opportunity to a named decision-maker and a way to reach them &mdash; before the deal reaches the open market. Here&rsquo;s a look at the depth.<b style="display:block;margin-top:12px;">The answers are in your Brief.</b></p>
+
+    <div class="t-grid">
+
+      <!-- Tile 1: Market Snapshot -->
+      <div class="tile">
+        <div class="tile-body">
+          <div class="tile-lab">Market Snapshot</div>
+          <h3 class="serif">A Market Where the Build Decision Comes Early</h3>
+          <div class="mini-sec-rule"></div>
+          <p style="font-size:0.82rem;color:var(--ink-mid);line-height:1.6;margin-bottom:18px;">The highest-value opportunities are owners who&rsquo;ve just acquired a lot or teardown and <b>haven&rsquo;t engaged a builder yet.</b></p>
+          <div class="stat-row">
+            <div class="stat"><b>5&ndash;10</b><span>Qualified opportunities per Brief</span></div>
+            <div class="stat"><b>100<i>%</i></b><span>Resolved to a named decision-maker</span></div>
+            <div class="stat"><b>3&ndash;5<i>d</i></b><span>Typical delivery</span></div>
+          </div>
+        </div>
+        <div class="tile-cap">Structured analysis of your exact market &mdash; not a data export.</div>
+      </div>
+
+      <!-- Tile 2: Ownership Intelligence (ANCHOR) -->
+      <div class="tile">
+        <div class="tile-body">
+          <div class="tile-lab">Ownership Intelligence</div>
+          <h3 class="serif">1200 Gordon Drive &mdash; Waterfront Lot</h3>
+          <div class="opp-spec">Vacant Gulf-front parcel &middot; <b>$22M &middot; recently closed</b></div>
+          <div class="intel">
+            <div class="lock">&#128274; RESOLVED IN YOUR BRIEF</div>
+            <div class="intel-lab">Ownership Intelligence</div>
+            <div class="irow"><span class="k">Owner entity:</span><span class="v">Gordon Drive Holdings LLC (Doc #L26000112045)</span></div>
+            <div class="irow"><span class="k">Principal:</span><span class="v">Theodore R. Vance, managing partner</span></div>
+            <div class="irow"><span class="k">Mailing:</span><span class="v">One Rockefeller Plaza, Suite 3200, New York</span></div>
+            <div class="irow"><span class="k">Contact channel:</span><span class="v">Registered agent, 720 5th Avenue S, Naples</span></div>
+            <div class="iread"><b>How to play it:</b> An out-of-state principal building his first waterfront estate values a builder who can manage the whole process remotely &mdash; approach through&hellip;</div>
+          </div>
+        </div>
+        <div class="tile-cap">We name the owner, the entity, and how to reach them. <b>Unlocked in your Brief.</b></div>
+      </div>
+
+      <!-- Tile 3: Confidence Framework -->
+      <div class="tile">
+        <div class="tile-body">
+          <div class="tile-lab">Confidence Framework</div>
+          <h3 class="serif">Every Signal, Rated</h3>
+          <div class="mini-sec-rule"></div>
+          <div class="legend">
+            <div class="lrow"><span class="lsw" style="background:#1F8A4C"></span><span class="lname">Verified</span><span class="ldef">Confirmed by a primary public record &mdash; permit, deed, or corporate registration.</span></div>
+            <div class="lrow"><span class="lsw" style="background:#2563EB"></span><span class="lname">High Confidence</span><span class="ldef">Strongly corroborated across multiple sources.</span></div>
+            <div class="lrow"><span class="lsw" style="background:#F58220"></span><span class="lname">Market Intel</span><span class="ldef">Informed strategic read on market and developer behavior.</span></div>
+            <div class="lrow"><span class="lsw" style="background:#B58A2E"></span><span class="lname">Emerging</span><span class="ldef">Early signal worth monitoring, ahead of the open market.</span></div>
+          </div>
+        </div>
+        <div class="tile-cap">You always know how solid each opportunity is.</div>
+      </div>
+
+    </div>
+
+    <div class="t-cta">
+      <p class="note">This is a fraction of one Brief. Yours resolves the real opportunities in your market &mdash; each with the owner named and a way in.</p>
+      <a href="javascript:void(0)" onclick="openQual()" class="btn-ora" data-track="teaser-request-rib">Request Your Revenue Intelligence Brief&trade; &rarr;</a>
+      <p class="fine">Want new opportunities surfaced every month, before they reach the market? <a href="#packages" data-track="teaser-growth-upsell">See the Growth plan &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
 
 <!-- CLIENT BLUEPRINT -->
 <section id="blueprint" style="background:var(--sky);">
@@ -270,7 +370,7 @@ section{padding:96px 48px;}
       </div>
       <div style="background:#EEF5FF;border-left:3px solid var(--blue);border-radius:6px;padding:14px 18px;margin-top:24px;font-size:0.85rem;color:var(--ink-mid);line-height:1.65;">Your Client Blueprint&#8482; evolves with your business. If your needs change, simply email <a href="mailto:reports@constructiqpb.com" style="color:var(--blue);">reports@constructiqpb.com</a>. Your updated criteria will be incorporated into your profile and reflected in future intelligence. No additional forms required.</div>
     </div>
-    <div class="reveal">
+    <div class="reveal" style="align-self:center;">
       <div style="background:var(--navy);border-radius:10px;padding:32px;color:white;">
         <div style="font-weight:800;font-size:1.15rem;margin-bottom:4px;">Client Blueprint&#8482;</div>
         <div style="font-size:0.85rem;color:rgba(255,255,255,0.55);margin-bottom:24px;">Trains the ConstructIQ Intelligence Engine&#8482;</div>
@@ -401,17 +501,13 @@ section{padding:96px 48px;}
         <div class="pkg-period">one-time &#183; Point-in-time sample</div>
         <span class="blueprint-badge">&#10003; Client Blueprint&#8482; Included</span>
         <ul class="pkg-features">
-          <li>One fully customized RIB&#8482;</li>
-          <li>5&#8211;10 qualified opportunities</li>
-          <li>Built from public records &amp; reported activity, as of the issue date</li>
-          <li>Ownership resolved to the decision-maker</li>
-          <li>ConstructIQ Intelligence Scores&#8482;</li>
-          <li>Project &amp; decision-maker intelligence</li>
-          <li>Recommended outreach strategy &amp; email copy</li>
-          <li>PDF delivery</li>
-          <li>Typical delivery: 3&#8211;5 business days</li>
+          <li>One fully customized RIB&#8482; for your market</li>
+          <li>5&#8211;10 opportunities, each <b>resolved to a named decision-maker</b></li>
+          <li>Ownership traced to entity, principal &amp; contact</li>
+          <li>ConstructIQ Intelligence Score&#8482; per opportunity</li>
+          <li>Tactical entry read &amp; ready-to-send outreach copy</li>
+          <li>PDF delivery &middot; 3&#8211;5 business days</li>
         </ul>
-        <p style="font-size:0.78rem;color:var(--ink-lt);line-height:1.6;margin:14px 0 16px;background:var(--wash,#f6f4ef);border-radius:6px;padding:11px 13px;">Think of a single Brief as a <b>sample of the Intelligence Engine&#8482;</b> &#8212; a point-in-time snapshot to see the quality firsthand. The real advantage is <b>Growth ($1,495/mo)</b>: continuous <b>pre-market monitoring</b> that surfaces new permit filings, fresh entity formations, and off-market opportunities <b>before they reach the open market</b> &#8212; month after month. <a href="#packages" onclick="trackEvent('rib_upsell_growth',{});" style="color:var(--blue);font-weight:700;">See Growth &#8594;</a></p>
         <a href="https://square.link/u/J3CYZHHc" class="btn-ora" data-track="purchase-rib" style="display:block;text-align:center;">Request My Brief</a>
       </div>
       <div class="pkg-card featured">
@@ -421,12 +517,12 @@ section{padding:96px 48px;}
         <div class="pkg-period">/month &#183; Monthly subscription</div>
         <span class="blueprint-badge">&#10003; Client Blueprint&#8482; Included</span>
         <ul class="pkg-features">
-          <li>Monthly Revenue Intelligence Brief&#8482;</li>
-          <li>Active Client Blueprint&#8482;</li>
-          <li>Email-based Blueprint updates</li>
-          <li>15&#8211;25 opportunities</li>
+          <li><b>Everything in a single Brief &#8212; delivered monthly</b></li>
+          <li>15&#8211;25 opportunities every month</li>
+          <li>Active Client Blueprint&#8482; with email updates</li>
           <li>Expanded market intelligence</li>
           <li>Ongoing pre-market monitoring &#8212; off-market signals before they&#8217;re reported</li>
+          <li>Cross-issue trend &amp; momentum tracking</li>
           <li>Priority processing</li>
           <li>Quarterly Blueprint review</li>
         </ul>
@@ -438,13 +534,15 @@ section{padding:96px 48px;}
         <div class="pkg-period">/month &#183; Monthly subscription</div>
         <span class="blueprint-badge">&#10003; Client Blueprint&#8482; Included</span>
         <ul class="pkg-features">
+          <li><b>Everything in Growth, plus:</b></li>
+          <li>25&#8211;50 opportunities every month</li>
           <li>Expanded geographic coverage</li>
           <li>Multiple asset classes</li>
-          <li>25&#8211;50 opportunities</li>
           <li>Enhanced decision-maker intelligence</li>
           <li>Competitive intelligence</li>
           <li>Executive strategy recommendations</li>
           <li>Opportunity alerts between reports</li>
+          <li>Dedicated analyst review</li>
           <li>CRM-ready export</li>
           <li>Priority support</li>
         </ul>
@@ -456,13 +554,17 @@ section{padding:96px 48px;}
         <div class="pkg-period">Tailored engagement</div>
         <span class="blueprint-badge">&#10003; Client Blueprint&#8482; Included</span>
         <ul class="pkg-features">
+          <li><b>Everything in Professional, plus:</b></li>
           <li>Multi-market coverage</li>
           <li>Multi-sector coverage</li>
-          <li>Custom reporting cadence</li>
           <li>Custom opportunity volume</li>
-          <li>Team access</li>
-          <li>Advanced workflow integration</li>
+          <li>Custom reporting cadence</li>
+          <li>Dedicated account team</li>
+          <li>Team access &amp; seats</li>
+          <li>Advanced workflow &amp; CRM integration</li>
           <li>Custom data sources</li>
+          <li>API / data-feed access</li>
+          <li>Quarterly executive strategy sessions</li>
           <li>Executive support</li>
         </ul>
         <a href="#contact" style="display:block;text-align:center;background:transparent;color:var(--ink);padding:13px 28px;border-radius:6px;font-weight:700;border:1.5px solid var(--rule);text-decoration:none;">Contact Us</a>
@@ -515,7 +617,7 @@ section{padding:96px 48px;}
       <h2 style="font-size:2rem;font-weight:800;color:var(--ink);margin-bottom:16px;">3D-PB Construction</h2>
       <div class="ora-rule"></div>
       <p style="line-height:1.85;margin-bottom:20px;color:var(--ink-mid);">3D-PB Construction is a specialty construction contractor operating in South Florida. Their business development team needed a better way to identify qualified opportunities &#8212; before competitors were already in conversation.</p>
-      <p style="line-height:1.85;margin-bottom:20px;color:var(--ink-mid);">ConstructIQ produced a Revenue Intelligence Brief&#8482; focused on their target markets, project types, and strategic goals. The Brief delivered 22 qualified opportunities with CIS&#8482; scores, decision-maker contacts, and tailored outreach strategy.</p>
+      <p style="line-height:1.85;margin-bottom:20px;color:var(--ink-mid);">A Revenue Intelligence Brief&#8482; for a firm like 3D-PB focuses on their target markets, project types, and strategic goals &#8212; surfacing qualified opportunities with CIS&#8482; scores, decision-maker contacts, and tailored outreach strategy. <b>The figures shown are illustrative.</b></p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <span style="background:var(--sky);border:1px solid var(--rule);border-radius:4px;padding:6px 12px;font-size:0.82rem;font-weight:600;color:var(--blue);">&#10003; Verified Contacts</span>
         <span style="background:var(--sky);border:1px solid var(--rule);border-radius:4px;padding:6px 12px;font-size:0.82rem;font-weight:600;color:var(--blue);">CIS&#8482; Scored</span>
@@ -526,9 +628,9 @@ section{padding:96px 48px;}
         <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
           <div>
             <div style="font-weight:800;font-size:1.1rem;">Revenue Intelligence Brief&#8482;</div>
-            <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:4px;">South Florida &#8212; Q3 2026</div>
+            <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:4px;">South Florida &#8212; Illustrative Example</div>
           </div>
-          <span style="background:var(--orange);color:white;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:1px;">RIB&#8482;</span>
+          <span style="background:rgba(255,255,255,0.14);color:rgba(255,255,255,0.85);font-size:0.68rem;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:1px;">ILLUSTRATIVE</span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;margin-bottom:20px;">
           <div style="padding:16px;background:var(--card-bg);"><div style="font-size:1.6rem;font-weight:800;color:var(--orange);">22</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.6);">Qualified Opportunities</div></div>
