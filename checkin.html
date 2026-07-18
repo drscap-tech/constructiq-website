@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ConstructIQ | Founding Member Check-In</title>
+<meta name="description" content="A quick note on how it's going — for ConstructIQ Founding Members.">
+<meta name="robots" content="noindex">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ4EMNPMSD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CZ4EMNPMSD');</script>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#23497F;--navy-dk:#173257;--orange:#E05A1A;--cream:#FFF6EE;--ink:#23497F;--rule:#E3D8CC;--muted:#5a6b82;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Exo 2',sans-serif;color:var(--navy);line-height:1.6;background:var(--cream);}
+nav{background:var(--navy);height:78px;display:flex;align-items:center;padding:0 32px;}
+nav img{height:52px;}
+.wrap{max-width:620px;margin:0 auto;padding:40px 20px 80px;}
+.badge{display:inline-block;background:var(--orange);color:#fff;font-size:0.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 13px;border-radius:30px;}
+h1{font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:800;color:var(--navy);line-height:1.15;margin:16px 0 8px;}
+.lead{color:var(--muted);font-size:1rem;margin-bottom:6px;}
+.time{color:var(--muted);opacity:.85;font-size:0.86rem;margin-bottom:26px;}
+.card{background:#fff;border:1px solid var(--rule);border-top:5px solid var(--orange);border-radius:12px;padding:32px 32px 36px;box-shadow:0 10px 34px rgba(35,73,127,0.10);}
+.field{margin-bottom:20px;}
+label{display:block;font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:6px;}
+label .req{color:var(--orange);}
+.hint{font-weight:400;color:var(--muted);font-size:0.82rem;display:block;margin-top:2px;}
+input[type=text],textarea,select{width:100%;font-family:'Exo 2',sans-serif;font-size:0.95rem;color:var(--navy);padding:11px 13px;border:1.5px solid var(--rule);border-radius:6px;background:#fff;margin-top:6px;}
+textarea{min-height:64px;resize:vertical;}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,90,26,0.14);}
+.btn{background:var(--orange);color:#fff;font-family:'Exo 2',sans-serif;font-size:1rem;font-weight:800;border:none;border-radius:7px;padding:15px 34px;cursor:pointer;margin-top:12px;width:100%;}
+.btn:hover{background:#c64d13;}
+.btn:disabled{opacity:.6;cursor:default;}
+.foot{text-align:center;color:var(--muted);font-size:0.82rem;margin-top:18px;}
+.foot a{color:var(--navy);font-weight:700;}
+#done{display:none;text-align:center;padding:26px 8px;}
+#done .check{font-size:2.6rem;color:var(--orange);}
+#done h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;margin:8px 0 10px;color:var(--navy);}
+#done p{color:var(--muted);}
+@media(max-width:560px){.card{padding:24px 20px 28px;}nav{padding:0 20px;}h1{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+<nav><a href="/"><img src="logo-white.png" alt="ConstructIQ"></a></nav>
+<div class="wrap">
+  <span class="badge">★ Founding Member</span>
+  <h1 id="hi">How&#8217;s it going?</h1>
+  <p class="lead">A quick note back to us keeps your intelligence sharp — and helps us make it better for you.</p>
+  <p class="time">Takes about a minute. Every couple of weeks is perfect.</p>
+
+  <div class="card">
+    <form id="checkinForm">
+      <div class="field"><label>Your name / firm <span class="req">*</span></label><input type="text" id="who" name="who" required></div>
+
+      <div class="field"><label>How&#8217;s it going overall?</label>
+        <select id="mood" name="mood">
+          <option value="">Select…</option>
+          <option>Great — winning work</option>
+          <option>Good — building momentum</option>
+          <option>Mixed — some traction</option>
+          <option>Tough — let&#8217;s talk</option>
+        </select>
+      </div>
+
+      <div class="field"><label>Opportunities from your Briefs you&#8217;ve reached out to <span class="hint">Roughly how many, and to whom if you like.</span></label><input type="text" id="reached" name="reached" placeholder="e.g. 4 — two developers, an architect, one owner"></div>
+
+      <div class="field"><label>Conversations or meetings that came from it</label><input type="text" id="convos" name="convos" placeholder="e.g. 2 calls, 1 site walk scheduled"></div>
+
+      <div class="field"><label>Anything close, won, or in the works? <span class="hint">Deals in progress or closed — and rough value if you can.</span></label><input type="text" id="deals" name="deals" placeholder="e.g. 1 proposal out ~$2.4M"></div>
+
+      <div class="field"><label>What should we sharpen or find more of?</label><textarea id="sharpen" name="sharpen" placeholder="More teardown buyers? Different ZIPs? Better contacts?"></textarea></div>
+
+      <div class="field"><label>Anything we can quote you on? <span class="hint">Optional — only if you&#8217;re happy to. No pressure.</span></label><textarea id="quote" name="quote"></textarea></div>
+
+      <button type="submit" class="btn" id="submitBtn">Send My Update</button>
+      <p class="foot">Thanks for being one of the first 10. Questions? <a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></p>
+    </form>
+    <div id="done">
+      <div class="check">&#10003;</div>
+      <h2>Got it — thank you.</h2>
+      <p>Appreciate you taking the minute. We&#8217;ll fold this into your next Brief. Keep winning.</p>
+    </div>
+  </div>
+</div>
+<script>
+// Optional: prefill name from ?who=Name so the founding member barely has to type
+(function(){
+  var p=new URLSearchParams(location.search);
+  var who=(p.get('who')||p.get('to')||'').trim();
+  if(who){who=who.replace(/[^a-zA-Z0-9 .,'&-]/g,'').slice(0,60);
+    var f=document.getElementById('who'); if(f)f.value=who;
+    var h=document.getElementById('hi'); if(h)h.textContent='How’s it going, '+who.split(/[ ,]/)[0]+'?';
+  }
+})();
+const form=document.getElementById('checkinForm');
+form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Sending…';
+  const g=id=>(document.getElementById(id).value||'').trim();
+  const who=g('who');
+  const msg=[
+    '=== FOUNDING CHECK-IN ===',
+    'Member: '+who,
+    'How it’s going: '+g('mood'),
+    'Reached out to: '+g('reached'),
+    'Conversations/meetings: '+g('convos'),
+    'Deals (won/in progress): '+g('deals'),
+    'Sharpen / find more of: '+g('sharpen'),
+    'OK to quote: '+g('quote')
+  ].join('\n');
+  try{
+    const res=await fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({
+      _subject:'ConstructIQ | FOUNDING CHECK-IN | '+(who||'Member'),
+      email:'checkin@constructiqpb.com',
+      message:msg
+    })});
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('done').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+      if(window.gtag)gtag('event','founding_checkin_submitted',{});
+    }else{
+      btn.disabled=false;btn.textContent='Send My Update';
+      alert('There was a problem sending. Please email hello@constructiqpb.com.');
+    }
+  }catch(err){
+    btn.disabled=false;btn.textContent='Send My Update';
+    alert('There was a problem sending. Please email hello@constructiqpb.com.');
+  }
+});
+</script>
+</body>
+</html>
