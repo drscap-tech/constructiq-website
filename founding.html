@@ -10,7 +10,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CZ4EMNPMSD');</script>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#23497F;--navy-dk:#173257;--orange:#BF5A2A;--orange-lt:#F6C89A;--cream:#FFF6EE;--ink:#23497F;}
+:root{--navy:#23497F;--navy-dk:#173257;--orange:#A64A22;--orange-lt:#F6C89A;--cream:#FFF6EE;--ink:#23497F;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Exo 2',sans-serif;color:var(--navy);line-height:1.6;background:var(--orange);}
 nav{background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 32px;text-align:center;}
@@ -18,25 +18,25 @@ nav img{height:52px;}
 .tagline{color:var(--orange-lt);font-size:0.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:9px;}
 .wrap{max-width:760px;margin:0 auto;padding:44px 20px 90px;}
 .badge{display:inline-block;background:var(--navy);color:#fff;font-size:0.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:7px 15px;border-radius:30px;}
-h1{font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;font-weight:800;color:var(--navy);line-height:1.1;margin:18px 0 12px;}
-.ten{font-size:1.5em;font-weight:800;line-height:1;font-variant-numeric:lining-nums;}
-.lead{color:var(--navy);font-size:1.08rem;font-weight:500;max-width:38rem;}
+h1{font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;font-weight:800;color:#fff;line-height:1.1;margin:18px 0 12px;}
+.ten{font-size:1.15em;font-weight:800;line-height:1;font-variant-numeric:lining-nums;}
+.lead{color:rgba(255,255,255,.95);font-size:1.08rem;font-weight:500;max-width:38rem;}
 .price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:26px 0 6px;}
 .price .big{font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;color:var(--navy);line-height:1;}
 .price .big span{font-size:1.1rem;font-weight:700;}
 .price .was{font-size:1.1rem;color:var(--navy);text-decoration:line-through;opacity:.6;}
 .price .off{background:var(--navy);color:#fff;font-weight:800;font-size:0.85rem;padding:5px 12px;border-radius:6px;}
-.price-note{color:var(--navy);font-weight:600;font-size:0.9rem;opacity:.85;margin-bottom:8px;}
+.price-note{color:#fff;font-weight:600;font-size:0.9rem;opacity:.9;margin-bottom:8px;}
 .benefits{list-style:none;margin:26px 0 6px;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;}
 @media(max-width:560px){.benefits{grid-template-columns:1fr;}h1{font-size:2rem;}}
-.benefits li{position:relative;padding-left:28px;font-size:0.96rem;font-weight:600;color:var(--navy);}
-.benefits li::before{content:'\2713';position:absolute;left:0;top:0;width:19px;height:19px;background:var(--navy);color:#fff;border-radius:50%;font-size:0.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.benefits li{position:relative;padding-left:28px;font-size:0.96rem;font-weight:600;color:#fff;}
+.benefits li::before{content:'\2713';position:absolute;left:0;top:0;width:19px;height:19px;background:#fff;color:var(--orange);border-radius:50%;font-size:0.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
 .commit{background:var(--navy);color:#fff;border-radius:12px;padding:22px 26px;margin:30px 0;}
 .commit h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:8px;}
 .commit p{color:rgba(255,255,255,.85);font-size:0.95rem;}
 .commit b{color:var(--orange-lt);}
-.scarce{font-weight:800;color:var(--navy);letter-spacing:.02em;margin:4px 0 0;}
-.signature{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:8px;}
+.scarce{font-weight:800;color:#fff;letter-spacing:.02em;margin:4px 0 0;}
+.signature{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:700;color:#fff;margin-top:8px;}
 #greeting{font-weight:800;}
 /* form card */
 .card{background:var(--cream);border:2px solid var(--navy);border-radius:14px;padding:34px 34px 38px;margin-top:6px;box-shadow:0 14px 40px rgba(13,27,42,0.22);}
@@ -69,11 +69,11 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
 
   <span class="badge">★ A Personal Invitation</span>
   <h1 id="headline">You&#8217;re one of my first <span class="ten">10</span></h1>
-  <p class="lead"><span id="greeting"></span>I built ConstructIQ to give serious builders curated, human-reviewed opportunities, not another AI lead list. I&#8217;m hand-picking the first 10 Founding Members and I&#8217;d like you to be one of them. Here&#8217;s the deal I&#8217;m offering you personally.</p>
+  <p class="lead"><span id="greeting"></span>I built ConstructIQ to give serious operators in the built environment curated, human-reviewed opportunities, not another AI lead list. I&#8217;m hand-picking the first 10 Founding Members and I&#8217;d like you to be one of them. Here&#8217;s the deal I&#8217;m offering you personally.</p>
 
   <div class="price">
-    <div class="big">$598<span>/mo</span></div>
-    <div class="was">$1,495/mo</div>
+    <div class="big" style="color:#fff;">$598<span>/mo</span></div>
+    <div class="was" style="color:rgba(255,255,255,.85);">$1,495/mo</div>
     <div class="off">60% OFF · FOUNDING RATE</div>
   </div>
   <p class="price-note"><b>Lock in your Founding Member Rate:</b> 60% off your recurring monthly Revenue Intelligence Brief&trade; subscription ($598/mo). No jump back to full price.</p>
