@@ -10,7 +10,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CZ4EMNPMSD');</script>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#12294A;--navy-dk:#0D1B2A;--orange:#E05A1A;--orange-lt:#F58220;--cream:#FFF6EE;--ink:#12294A;}
+:root{--navy:#23497F;--navy-dk:#173257;--orange:#E05A1A;--orange-lt:#F6C89A;--cream:#FFF6EE;--ink:#23497F;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Exo 2',sans-serif;color:var(--navy);line-height:1.6;background:var(--orange);}
 nav{background:var(--navy);height:80px;display:flex;align-items:center;padding:0 32px;}
@@ -34,6 +34,8 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;font-weight:800
 .commit p{color:rgba(255,255,255,.85);font-size:0.95rem;}
 .commit b{color:var(--orange-lt);}
 .scarce{font-weight:800;color:var(--navy);letter-spacing:.02em;margin:4px 0 0;}
+.signature{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:8px;}
+#greeting{font-weight:800;}
 /* form card */
 .card{background:var(--cream);border:2px solid var(--navy);border-radius:14px;padding:34px 34px 38px;margin-top:6px;box-shadow:0 14px 40px rgba(13,27,42,0.22);}
 .card h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);margin-bottom:6px;}
@@ -62,9 +64,9 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
 <nav><a href="/"><img src="logo-white.png" alt="ConstructIQ"></a></nav>
 <div class="wrap">
 
-  <span class="badge">★ Founding Member Invitation</span>
-  <h1>Build your legacy with the first 10.</h1>
-  <p class="lead">ConstructIQ Founding Members get our best intelligence at our best rate — in exchange for helping shape the product. Curated, human-reviewed construction opportunities, built around your business. Not another AI lead list.</p>
+  <span class="badge">★ A Personal Invitation</span>
+  <h1 id="headline">You&#8217;re one of my first 10.</h1>
+  <p class="lead"><span id="greeting"></span>I built ConstructIQ to give serious builders curated, human-reviewed opportunities &mdash; not another AI lead list. I&#8217;m hand-picking the first 10 Founding Members, and I&#8217;d like you to be one of them. Here&#8217;s the deal I&#8217;m offering you personally.</p>
 
   <div class="price">
     <div class="big">$598<span>/mo</span></div>
@@ -83,11 +85,12 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
   </ul>
 
   <div class="commit">
-    <h3>What we ask in return</h3>
-    <p>A quick <b>KPI check every two weeks</b> &mdash; about 60 seconds on leads worked, conversations started, and deals closed &mdash; plus the occasional bit of feedback and, if we&#8217;ve earned it, a testimonial. That&#8217;s how we sharpen the product and prove the results. In return, you get your own running ROI snapshot.</p>
+    <h3>All I ask in return</h3>
+    <p>Just a quick note from you <b>every couple of weeks</b> on how it&#8217;s going &mdash; what&#8217;s landing, who you&#8217;re talking to, anything we can sharpen &mdash; plus your honest take, and a kind word if we&#8217;ve earned it. It takes a minute, it makes the product better, and you&#8217;ll watch your own results add up along the way.</p>
   </div>
 
-  <p class="scarce">Limited to the first 10 Founding Members.</p>
+  <p class="scarce">Just 10 seats. This one&#8217;s yours if you want it.</p>
+  <p class="signature">&mdash; Rob Stepanian, Founder, ConstructIQ&trade;</p>
 
   <div class="card">
     <form id="foundingForm">
@@ -102,7 +105,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
       <div class="field"><label>Your 3 target ZIP codes <span class="hint">Where you most want to win new work.</span></label><input type="text" id="zips" name="zips" placeholder="e.g. 33426, 33418, 33414"></div>
       <div class="field"><label>Why you want in <span class="hint">One line on the pipeline goal you&#8217;re focused on.</span></label><textarea id="why" name="why"></textarea></div>
 
-      <label class="ack"><input type="checkbox" id="ack" required> I&#8217;m in for the Founding deal &mdash; including the quick bi-weekly KPI check-in.</label>
+      <label class="ack"><input type="checkbox" id="ack" required> I&#8217;m in &mdash; happy to send a quick note every couple of weeks on how it&#8217;s going.</label>
 
       <button type="submit" class="btn" id="submitBtn">Apply for Founding Membership</button>
       <p class="foot">Confidential. Questions? <a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></p>
@@ -115,6 +118,19 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
   </div>
 </div>
 <script>
+// Personalize from a ?to=Name link (e.g. founding.html?to=Kevin) so each invite feels 1:1
+(function(){
+  var p=new URLSearchParams(location.search);
+  var name=(p.get('to')||p.get('name')||'').trim();
+  if(name){
+    name=name.replace(/[^a-zA-Z .'-]/g,'').slice(0,40);
+    if(name){
+      document.getElementById('greeting').textContent=name+' — ';
+      document.getElementById('headline').textContent=name+', you’re one of my first 10.';
+      try{document.title='ConstructIQ | A Personal Invitation for '+name;}catch(e){}
+    }
+  }
+})();
 const form=document.getElementById('foundingForm');
 form.addEventListener('submit',async function(e){
   e.preventDefault();
