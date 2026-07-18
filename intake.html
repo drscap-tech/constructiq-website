@@ -54,6 +54,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--orange);
       <div class="section">About Your Firm</div>
       <div class="field"><label>Firm name &amp; website <span class="req">*</span></label><input type="text" id="firm_name" name="firm_name" required></div>
       <div class="field"><label>Where you're based <span class="hint">HQ city / state</span></label><input type="text" id="location" name="location"></div>
+      <div class="field"><label>Your LinkedIn profile <span class="hint">So we can flag which decision-makers are already in your network &mdash; a message to a 2nd/3rd-degree connection skips the inbox gatekeeper</span></label><input type="text" id="linkedin" name="linkedin" placeholder="linkedin.com/in/…"></div>
       <div class="field"><label>Roughly how big <span class="hint">Annual revenue or # of employees</span></label><input type="text" id="size" name="size"></div>
       <div class="field"><label>What you do <span class="hint">Your primary services, disciplines, or project types</span></label><textarea id="services" name="services"></textarea></div>
 
@@ -103,6 +104,7 @@ form.addEventListener('submit',async function(e){
     '=== ABOUT YOUR FIRM ===',
     'Firm & website: '+firm,
     'Based: '+g('location'),
+    'LinkedIn: '+g('linkedin'),
     'Size: '+g('size'),
     'What they do: '+g('services'),
     '',
