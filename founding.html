@@ -20,6 +20,7 @@ nav img{height:52px;}
 .badge{display:inline-block;background:var(--navy);color:#fff;font-size:0.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:7px 15px;border-radius:30px;}
 h1{font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;font-weight:800;color:#fff;line-height:1.1;margin:18px 0 12px;}
 .ten{font-size:1.15em;font-weight:800;line-height:1;font-variant-numeric:lining-nums;}
+.forwho{display:none;color:rgba(255,255,255,.92);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:0.8rem;margin:16px 0 -6px;}
 .lead{color:rgba(255,255,255,.95);font-size:1.08rem;font-weight:500;max-width:38rem;}
 .price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:26px 0 6px;}
 .price .big{font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;color:var(--navy);line-height:1;}
@@ -68,6 +69,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
 <div class="wrap">
 
   <span class="badge">★ A Personal Invitation</span>
+  <p id="forwho" class="forwho"></p>
   <h1 id="headline">You&#8217;re one of my first <span class="ten">10</span></h1>
   <p class="lead"><span id="greeting"></span>I built ConstructIQ to give serious operators in the built environment curated, human-reviewed opportunities, not another AI lead list. I&#8217;m hand-picking the first 10 Founding Members and I&#8217;d like you to be one of them. Here&#8217;s the deal I&#8217;m offering you personally.</p>
 
@@ -129,6 +131,8 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
   if(name){
     name=name.replace(/[^a-zA-Z .'-]/g,'').slice(0,40);
     if(name){
+      var fw=document.getElementById('forwho');
+      if(fw){fw.textContent='Prepared for '+name;fw.style.display='block';}
       try{document.title='ConstructIQ | A Personal Invitation for '+name;}catch(e){}
     }
   }
