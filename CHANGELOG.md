@@ -1,5 +1,19 @@
 # ConstructIQ — Work Log
 
+## 2026-07-29
+
+### Founding Member funnel — founding.html + /apply
+Reworked the Founding 10 conversion flow. Underlying Stripe subscription unchanged (`buy.stripe.com/6oUfZibWVf7ebtt05caEE00`).
+- **Un-gated checkout** — added a direct "Become a Founding Member" Stripe CTA in the hero, directly below the $598/mo price. The application form is now the secondary "still have questions / not ready" path; reaching Stripe no longer requires submitting the form.
+- **/apply short link (new)** — `apply/index.html` (directory form, reliably served at extensionless `/apply`) redirects to `/founding.html`, preserving the `?to=Name` personalization. Includes `rel=canonical` + `noindex`.
+- **Sticky mobile checkout bar**; scarcity line beside the CTA ("Limited to 10 Founding Members · closes Aug 31, 2026 or when all positions filled"); "Month-to-month. Cancel anytime." under the button.
+- **Copy** — pricing standardized to "$598/month locked in for as long as your subscription remains active" (removed the stale "6 months" from the meta description). Deadline moved July 31 → **August 31, 2026, or until all 10 seats filled**.
+- **Accessibility** — associated all form labels (`for`/`id`), added `tel`/`inputmode`/`autocomplete`, strengthened body-text weight.
+- **Analytics** — GA event `founding_checkout_click` (tagged by CTA location) on every Stripe click; existing `founding_application_submitted` retained.
+- **Follow-up fixes** — removed the duplicate lower CTA (kept the hero one); removed the post-submit `scrollTo(top)` so the "You're on the list" thank-you stays in view.
+- Commits: `cd5e68c` (funnel + /apply), `e364277` (CTA + scroll fixes). Deployed to constructiqpb.com; verified live on desktop + mobile.
+- **Known issue:** body copy is white on brand orange (#E05A1A ≈ 3.7:1) — headings and CTA buttons pass WCAG AA, small body text does not. Full fix needs a deeper orange or navy panels; design left unchanged per request.
+
 ## 2026-07-15
 
 ### Revenue Intelligence Brief™ (RIB) — template v2.0
