@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ConstructIQ | Founding Member Invitation</title>
-<meta name="description" content="Apply to become a ConstructIQ Founding Member — 60% off Growth for 6 months, grandfathered while active.">
+<meta name="description" content="Become a ConstructIQ Founding Member — $598/mo (60% off Growth), locked in for as long as your subscription remains active. Limited to 10.">
 <meta name="robots" content="noindex">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ4EMNPMSD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CZ4EMNPMSD');</script>
@@ -21,7 +21,7 @@ nav img{height:52px;}
 h1{font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;font-weight:800;color:#fff;line-height:1.1;margin:18px 0 12px;}
 .ten{font-size:1.15em;font-weight:800;line-height:1;font-variant-numeric:lining-nums;}
 .forwho{display:none;color:rgba(255,255,255,.92);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:0.8rem;margin:16px 0 -6px;}
-.lead{color:rgba(255,255,255,.95);font-size:1.08rem;font-weight:500;max-width:38rem;}
+.lead{color:#fff;font-size:1.16rem;font-weight:600;max-width:38rem;}
 .price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:26px 0 6px;}
 .price .big{font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;color:var(--navy);line-height:1;}
 .price .big span{font-size:1.1rem;font-weight:700;}
@@ -61,6 +61,23 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
 #done .check{font-size:2.6rem;color:var(--navy);}
 #done h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;margin:8px 0 10px;color:var(--navy);}
 #done p{color:var(--navy);opacity:.85;}
+/* --- Direct-to-checkout CTAs (added) --- */
+.cta-wrap{margin:28px 0 4px;}
+.join{display:inline-flex;flex-direction:column;align-items:center;text-align:center;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:1.18rem;padding:18px 30px;border-radius:10px;box-shadow:0 10px 26px rgba(13,27,42,.30);width:100%;max-width:520px;}
+.join:hover{background:var(--navy-dk);}
+.join .arw{font-size:1.05em;}
+.join small{display:block;font-weight:600;font-size:0.83rem;opacity:.92;letter-spacing:.02em;margin-top:4px;}
+.microtrust{color:#fff;font-weight:700;font-size:0.9rem;margin-top:11px;}
+.scarce-cta{color:#fff;font-weight:700;font-size:0.92rem;line-height:1.45;margin-top:6px;max-width:34rem;}
+.orpath{display:flex;align-items:center;gap:14px;color:#fff;font-weight:800;font-size:0.82rem;letter-spacing:.14em;text-transform:uppercase;margin:38px 0 12px;}
+.orpath::before,.orpath::after{content:"";flex:1;height:1.5px;background:rgba(255,255,255,.4);}
+/* Sticky mobile checkout bar */
+.stickybar{display:none;}
+@media(max-width:640px){
+  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:center;background:var(--navy);padding:10px 14px;box-shadow:0 -6px 20px rgba(13,27,42,.34);}
+  .stickybar a{background:var(--orange);color:#fff;text-decoration:none;font-weight:800;font-size:1.02rem;padding:13px 18px;border-radius:8px;width:100%;max-width:460px;text-align:center;}
+  body{padding-bottom:78px;}
+}
 </style>
 <link rel="icon" type="image/png" href="/favicon.png">
 </head>
@@ -78,7 +95,13 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
     <div class="was" style="color:rgba(255,255,255,.85);">$1,495/mo</div>
     <div class="off">60% OFF · FOUNDING RATE</div>
   </div>
-  <p class="price-note"><b>Lock in your Founding Member Rate:</b> 60% off your recurring monthly Revenue Intelligence Brief&trade; subscription ($598/mo). No jump back to full price.</p>
+  <p class="price-note"><b>Founding Member pricing of $598/month is locked in for as long as your subscription remains active.</b> 60% off the standard Revenue Intelligence Brief&trade; rate.</p>
+
+  <div class="cta-wrap">
+    <a class="join" href="https://buy.stripe.com/6oUfZibWVf7ebtt05caEE00" data-cta="hero">Become a Founding Member <span class="arw">&rarr;</span><small>Start your $598/mo subscription now</small></a>
+    <p class="microtrust">Month-to-month. Cancel anytime.</p>
+    <p class="scarce-cta">Limited to 10 Founding Members &middot; Invitation closes August 31, 2026, or when all positions are filled.</p>
+  </div>
 
   <ul class="benefits">
     <li>Monthly Revenue Intelligence Brief&#8482;</li>
@@ -92,24 +115,32 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
   <div class="commit">
     <h3>All I ask in return</h3>
     <p>Just a quick note from you <b>every couple of weeks</b> on how it&#8217;s going: what&#8217;s landing, who you&#8217;re talking to, anything we can sharpen. Plus your honest take and a kind word if we&#8217;ve earned it. It takes a minute, it makes the product better and you&#8217;ll watch your own results add up along the way.</p>
-    <p style="margin-top:12px;color:rgba(255,255,255,.72);font-size:0.88rem;">Your discounted rate stays in effect as long as you maintain your subscription and take part in the brief, bi-weekly feedback. Simple and fair. We grow together.</p>
+    <p style="margin-top:12px;color:rgba(255,255,255,.85);font-size:0.9rem;">Your $598/mo Founding rate is locked in for as long as your subscription remains active. The quick bi-weekly note is simply how we keep making the brief sharper. Simple and fair. We grow together.</p>
   </div>
 
-  <p class="scarce">Just 10 seats and your invitation is open through <b>July 31</b>. This one&#8217;s yours if you want it.</p>
+  <p class="scarce">Available through <b>August 31, 2026</b>, or until all 10 Founding Member positions are filled, whichever occurs first. This one&#8217;s yours if you want it.</p>
   <p class="signature">- Rob Stepanian, Founder, ConstructIQ&trade;</p>
+
+  <div class="cta-wrap">
+    <a class="join" href="https://buy.stripe.com/6oUfZibWVf7ebtt05caEE00" data-cta="decision">Become a Founding Member <span class="arw">&rarr;</span><small>Lock your seat &middot; $598/mo</small></a>
+    <p class="microtrust">Month-to-month. Cancel anytime.</p>
+    <p class="scarce-cta">Limited to 10 Founding Members &middot; Invitation closes August 31, 2026, or when all positions are filled.</p>
+  </div>
+
+  <div class="orpath">Still have questions? Not ready yet?</div>
 
   <div class="card">
     <form id="foundingForm">
-      <h2>Apply for Founding Membership</h2>
-      <p class="sub">Two minutes. If it&#8217;s a fit, we&#8217;ll send your Founding checkout link and your Client Blueprint&#8482;.</p>
+      <h2>Prefer to talk first?</h2>
+      <p class="sub">Not ready to subscribe, or have a question? Send this and I&#8217;ll follow up personally, review your targets, and build your first Revenue Intelligence Brief&#8482; from it. You can also subscribe directly using the buttons above.</p>
 
-      <div class="field"><label>Your name <span class="req">*</span></label><input type="text" id="name" name="name" required></div>
-      <div class="field"><label>Firm name &amp; website <span class="req">*</span></label><input type="text" id="firm" name="firm" required></div>
-      <div class="field"><label>Best email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
-      <div class="field"><label>Phone</label><input type="text" id="phone" name="phone"></div>
-      <div class="field"><label>Your LinkedIn profile <span class="hint">We&#8217;ll flag which decision-makers are in your direct, 2nd, or 3rd-degree network so you can skip the inbox gatekeeper.</span></label><input type="text" id="linkedin" name="linkedin" placeholder="linkedin.com/in/…"></div>
-      <div class="field"><label>Your 3 target ZIP codes <span class="hint">Where you most want to win new work.</span></label><input type="text" id="zips" name="zips" placeholder="e.g. 33426, 33418, 33414"></div>
-      <div class="field"><label>Why you want in <span class="hint">One line on the pipeline goal you&#8217;re focused on.</span></label><textarea id="why" name="why"></textarea></div>
+      <div class="field"><label for="name">Your name <span class="req">*</span></label><input type="text" id="name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="firm">Firm name &amp; website <span class="req">*</span></label><input type="text" id="firm" name="firm" required></div>
+      <div class="field"><label for="email">Best email <span class="req">*</span></label><input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
+      <div class="field"><label for="linkedin">Your LinkedIn profile <span class="hint">We&#8217;ll flag which decision-makers are in your direct, 2nd, or 3rd-degree network so you can skip the inbox gatekeeper.</span></label><input type="text" id="linkedin" name="linkedin" placeholder="linkedin.com/in/…"></div>
+      <div class="field"><label for="zips">Your 3 target ZIP codes <span class="hint">Where you most want to win new work.</span></label><input type="text" id="zips" name="zips" inputmode="numeric" placeholder="e.g. 33426, 33418, 33414"></div>
+      <div class="field"><label for="why">Why you want in <span class="hint">One line on the pipeline goal you&#8217;re focused on.</span></label><textarea id="why" name="why"></textarea></div>
 
       <label class="ack"><input type="checkbox" id="ack" required> I&#8217;m in. Happy to send a quick note every couple of weeks on how it&#8217;s going.</label>
 
@@ -122,10 +153,12 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
       <p>Thanks for stepping up. I&#8217;ll review what you sent and build your first Revenue Intelligence Brief&#8482; from it.</p>
       <p style="margin-top:14px;">Ready to lock your Founding seat now? Your rate holds at <b>$598/mo</b> for as long as you stay subscribed.</p>
       <a id="payBtn" class="btn" style="display:inline-block;text-align:center;text-decoration:none;box-sizing:border-box;" href="https://buy.stripe.com/6oUfZibWVf7ebtt05caEE00">Complete your Founding Membership &rarr; $598/mo</a>
-      <p class="foot" style="margin-top:12px;">Prefer to talk first? I&#8217;ll be in touch. Questions? <a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></p>
+      <p class="microtrust" style="color:var(--navy);margin-top:10px;">Month-to-month. Cancel anytime.</p>
+      <p class="foot" style="margin-top:8px;">Questions? <a href="mailto:hello@constructiqpb.com">hello@constructiqpb.com</a></p>
     </div>
   </div>
 </div>
+<div class="stickybar"><a href="https://buy.stripe.com/6oUfZibWVf7ebtt05caEE00" data-cta="sticky">Become a Founding Member &middot; $598/mo &rarr;</a></div>
 <script>
 // Personalize from a ?to=Name link (e.g. founding.html?to=Kevin) so each invite feels 1:1
 (function(){
@@ -181,6 +214,10 @@ form.addEventListener('submit',async function(e){
     btn.disabled=false;btn.textContent='Apply for Founding Membership';
     alert('There was a problem submitting. Please email hello@constructiqpb.com.');
   }
+});
+// GA: fire on any click heading to Stripe checkout (hero, decision, sticky, post-form)
+document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(a){
+  a.addEventListener('click',function(){ if(window.gtag){gtag('event','founding_checkout_click',{cta_location:a.getAttribute('data-cta')||'post_form'});} });
 });
 </script>
 </body>
