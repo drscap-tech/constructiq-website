@@ -121,12 +121,6 @@ input:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 
   <p class="scarce">Available through <b>August 31, 2026</b>, or until all 10 Founding Member positions are filled, whichever occurs first. This one&#8217;s yours if you want it.</p>
   <p class="signature">- Rob Stepanian, Founder, ConstructIQ&trade;</p>
 
-  <div class="cta-wrap">
-    <a class="join" href="https://buy.stripe.com/6oUfZibWVf7ebtt05caEE00" data-cta="decision">Become a Founding Member <span class="arw">&rarr;</span><small>Lock your seat &middot; $598/mo</small></a>
-    <p class="microtrust">Month-to-month. Cancel anytime.</p>
-    <p class="scarce-cta">Limited to 10 Founding Members &middot; Invitation closes August 31, 2026, or when all positions are filled.</p>
-  </div>
-
   <div class="orpath">Still have questions? Not ready yet?</div>
 
   <div class="card">
@@ -204,7 +198,6 @@ form.addEventListener('submit',async function(e){
       if(em){var pb=document.getElementById('payBtn');if(pb){pb.href='https://buy.stripe.com/6oUfZibWVf7ebtt05caEE00?prefilled_email='+encodeURIComponent(em);}}
       form.style.display='none';
       document.getElementById('done').style.display='block';
-      window.scrollTo({top:0,behavior:'smooth'});
       if(window.gtag)gtag('event','founding_application_submitted',{});
     }else{
       btn.disabled=false;btn.textContent='Apply for Founding Membership';
