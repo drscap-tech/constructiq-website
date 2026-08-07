@@ -829,8 +829,14 @@ section{padding:96px 48px;}
         <label class="qopt"><input type="radio" name="q5_size" value="Custom range"><span class="qopt-label" style="padding:14px 16px;">Custom range</span></label>
       </div>
       <div id="customSizeRow" style="display:none;gap:12px;margin-top:12px;">
-        <input id="q5_min" class="qinput" type="text" placeholder="Min $" style="margin-bottom:0;">
-        <input id="q5_max" class="qinput" type="text" placeholder="Max $" style="margin-bottom:0;">
+        <div style="flex:1;">
+          <label for="q5_min" style="font-size:0.8rem;font-weight:700;color:var(--ink);display:block;margin-bottom:4px;">Minimum project size ($) <span style="color:var(--orange);">*</span></label>
+          <input id="q5_min" class="qinput" type="text" inputmode="numeric" placeholder="e.g. 5M or 5,000,000" style="margin-bottom:0;">
+        </div>
+        <div style="flex:1;">
+          <label for="q5_max" style="font-size:0.8rem;font-weight:700;color:var(--ink);display:block;margin-bottom:4px;">Maximum project size ($) <span style="color:var(--orange);">*</span></label>
+          <input id="q5_max" class="qinput" type="text" inputmode="numeric" placeholder="e.g. 35M or 35,000,000" style="margin-bottom:0;">
+        </div>
       </div>
     </div>
 
@@ -943,12 +949,12 @@ function showStep(n){
     document.getElementById('sum_company').textContent=qualData.company||'—';
     document.getElementById('sum_type').textContent=qualData.companyType||'—';
     document.getElementById('sum_market').textContent=(qualData.city||qualData.state||'—');
-    document.getElementById('sum_size').textContent=qualData.size||'—';
+    document.getElementById('sum_size').textContent=sizeDisplay()||'—';
     document.getElementById('sum_opp').textContent=qualData.oppTypes&&qualData.oppTypes.length?qualData.oppTypes.length+' selected':'—';
   }
   currentStep=n;
 }
-function nextStep(){if(currentStep<8){collectStepData(currentStep);trackEvent('qual_step_'+(currentStep+1),{});showStep(currentStep+1);}}
+function nextStep(){if(currentStep<8){collectStepData(currentStep);if(currentStep===5&&qualData.size==='Custom range'){const lo=parseMoney(qualData.sizeMin),hi=parseMoney(qualData.sizeMax);if(!isFinite(lo)||!isFinite(hi)){alert('Please enter both a minimum and a maximum dollar amount for your custom range.');return;}if(hi<lo){alert('The maximum should be greater than or equal to the minimum.');return;}}trackEvent('qual_step_'+(currentStep+1),{});showStep(currentStep+1);}}
 function prevStep(){if(currentStep>1)showStep(currentStep-1);}
 function collectStepData(step){
   if(step===1){qualData.firstName=document.getElementById('q1_firstName').value;qualData.lastName=document.getElementById('q1_lastName').value;qualData.company=document.getElementById('q1_company').value;qualData.website=document.getElementById('q1_website').value;qualData.linkedin=document.getElementById('q1_linkedin').value;qualData.email=document.getElementById('q1_email').value;}
@@ -959,23 +965,30 @@ function collectStepData(step){
   else if(step===6){const sel=document.querySelector('input[name="q6_challenge"]:checked');qualData.challenge=sel?sel.value:'';}
   else if(step===7){const sel=document.querySelector('input[name="q7_timing"]:checked');qualData.timing=sel?sel.value:'';}
 }
+// --- Opportunity Size: parse/normalize custom range (fix: capture + emit min/max) ---
+function parseMoney(v){if(v==null)return NaN;let s=String(v).trim().toLowerCase().replace(/[$,\s]/g,'');if(!s)return NaN;let mult=1;if(s.endsWith('k')){mult=1e3;s=s.slice(0,-1);}else if(s.endsWith('m')){mult=1e6;s=s.slice(0,-1);}else if(s.endsWith('b')){mult=1e9;s=s.slice(0,-1);}const n=parseFloat(s);return isNaN(n)?NaN:n*mult;}
+function fmtMoney(n){if(!isFinite(n))return '';if(n>=1e9)return '$'+(n/1e9).toFixed(n%1e9?1:0).replace(/\.0$/,'')+'B';if(n>=1e6)return '$'+(n/1e6).toFixed(n%1e6?1:0).replace(/\.0$/,'')+'M';if(n>=1e3)return '$'+(n/1e3).toFixed(n%1e3?1:0).replace(/\.0$/,'')+'K';return '$'+Math.round(n);}
+function sizeDisplay(){if(qualData.size==='Custom range'){const lo=fmtMoney(parseMoney(qualData.sizeMin)),hi=fmtMoney(parseMoney(qualData.sizeMax));if(lo&&hi)return lo+'–'+hi;if(lo)return lo+'+';if(hi)return 'Up to '+hi;return 'Custom range';}return qualData.size||'';}
 function submitQual(){
   collectStepData(8);
   const agree=document.getElementById('q8_agree').checked;
   if(!agree){alert('Please confirm your agreement to continue.');return;}
-  const body=['CONSTRUCTIQ QUALIFICATION SUBMISSION','=====================================','Name: '+qualData.firstName+' '+qualData.lastName,'Company: '+qualData.company,'Website: '+(qualData.website||'Not provided'),'LinkedIn: '+(qualData.linkedin||'Not provided'),'Email: '+qualData.email,'','Company Type: '+(qualData.companyType||'Not specified'),'Opportunity Types: '+(qualData.oppTypes?qualData.oppTypes.join(', '):'Not specified'),'','Geography:','  State: '+(qualData.state||''),'  City: '+(qualData.city||''),'  ZIP: '+(qualData.zip||''),'  Radius: '+(qualData.radius||''),'  Additional: '+(qualData.additionalMarkets||''),'  Excluded: '+(qualData.excludedMarkets||''),'','Opportunity Size: '+(qualData.size||'Not specified'),'Primary Challenge: '+(qualData.challenge||'Not specified'),'Timing: '+(qualData.timing||'Not specified')].join('\n');
+  qualData.sizeLabel=sizeDisplay();
+  const body=['CONSTRUCTIQ QUALIFICATION SUBMISSION','=====================================','Name: '+qualData.firstName+' '+qualData.lastName,'Company: '+qualData.company,'Website: '+(qualData.website||'Not provided'),'LinkedIn: '+(qualData.linkedin||'Not provided'),'Email: '+qualData.email,'','Company Type: '+(qualData.companyType||'Not specified'),'Opportunity Types: '+(qualData.oppTypes?qualData.oppTypes.join(', '):'Not specified'),'','Geography:','  State: '+(qualData.state||''),'  City: '+(qualData.city||''),'  ZIP: '+(qualData.zip||''),'  Radius: '+(qualData.radius||''),'  Additional: '+(qualData.additionalMarkets||''),'  Excluded: '+(qualData.excludedMarkets||''),'','Opportunity Size: '+(qualData.sizeLabel||qualData.size||'Not specified')+(qualData.size==='Custom range'?' (min: '+(qualData.sizeMin||'—')+', max: '+(qualData.sizeMax||'—')+')':''),'Primary Challenge: '+(qualData.challenge||'Not specified'),'Timing: '+(qualData.timing||'Not specified')].join('\n');
   trackEvent('qualification_completed',{company:qualData.company});
+  const oppSizeLine=(qualData.sizeLabel||qualData.size||'Not specified')+(qualData.size==='Custom range'?'  (min: '+(qualData.sizeMin||'—')+', max: '+(qualData.sizeMax||'—')+')':'');
   const msg=[
     '--- CONTACT ---',
     'Name:     '+qualData.firstName+' '+qualData.lastName,
     'Email:    '+qualData.email,
     'Company:  '+qualData.company,
     'Website:  '+(qualData.website||'Not provided'),
+    'LinkedIn: '+(qualData.linkedin||'Not provided'),
     '',
     '--- PROFILE ---',
     'Company Type:       '+(qualData.companyType||'Not specified'),
     'Opportunity Types:  '+(qualData.oppTypes&&qualData.oppTypes.length?qualData.oppTypes.join(', '):'Not specified'),
-    'Opportunity Size:   '+(qualData.size||'Not specified'),
+    'Opportunity Size:   '+oppSizeLine,
     '',
     '--- GEOGRAPHY ---',
     'City:     '+(qualData.city||'—'),
@@ -989,13 +1002,13 @@ function submitQual(){
     'Primary Challenge:  '+(qualData.challenge||'Not specified'),
     'Timing:             '+(qualData.timing||'Not specified')
   ].join('\n');
-  fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'ConstructIQ | New Qualification | '+(qualData.company||'Unknown'),message:msg,name:qualData.firstName+' '+qualData.lastName,email:qualData.email})}).catch(function(){});
+  fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'ConstructIQ | New Qualification | '+(qualData.company||'Unknown'),message:msg,name:qualData.firstName+' '+qualData.lastName,email:qualData.email,linkedin:qualData.linkedin||'',opportunity_size:qualData.sizeLabel||qualData.size||'',opportunity_size_min:qualData.sizeMin||'',opportunity_size_max:qualData.sizeMax||''})}).catch(function(){});
   showStep(9);
   const summaryEl=document.getElementById('qualResultSummary');
-  if(summaryEl)summaryEl.textContent=(qualData.firstName||'')+' '+(qualData.lastName||'')+' — '+(qualData.company||'')+' — '+(qualData.city||qualData.state||'Target market')+' — '+(qualData.size||'Any size');
+  if(summaryEl)summaryEl.textContent=(qualData.firstName||'')+' '+(qualData.lastName||'')+' — '+(qualData.company||'')+' — '+(qualData.city||qualData.state||'Target market')+' — '+(sizeDisplay()||'Any size');
 }
 function sendMoreInfo(btn){if(btn){btn.disabled=true;btn.textContent='Sending…';}fetch('https://formspree.io/f/mqerzvoj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:qualData.firstName+' '+qualData.lastName,email:qualData.email,company:qualData.company||'',_subject:'ConstructIQ | Sales | More Information | '+(qualData.company||'')})}).then(function(r){if(r.ok){if(btn){btn.textContent='✓ Profile Sent';}}else{if(btn){btn.disabled=false;btn.textContent='Send My Profile';}alert('There was a problem sending your profile. Please email hello@constructiqpb.com directly.');}}).catch(function(){if(btn){btn.disabled=false;btn.textContent='Send My Profile';}alert('There was a problem sending your profile. Please email hello@constructiqpb.com directly.');});}
-function scheduleConsult(){var set=function(name,val){var el=document.querySelector('#contactForm [name="'+name+'"]');if(el&&val)el.value=val;};set('first_name',qualData.firstName);set('last_name',qualData.lastName);set('company',qualData.company);set('email',qualData.email);set('market',[qualData.city,qualData.state].filter(Boolean).join(', '));set('project_size',qualData.size);closeQual();var c=document.getElementById('contact');if(c)c.scrollIntoView({behavior:'smooth'});}
+function scheduleConsult(){var set=function(name,val){var el=document.querySelector('#contactForm [name="'+name+'"]');if(el&&val)el.value=val;};set('first_name',qualData.firstName);set('last_name',qualData.lastName);set('company',qualData.company);set('email',qualData.email);set('market',[qualData.city,qualData.state].filter(Boolean).join(', '));set('project_size',qualData.sizeLabel||sizeDisplay()||qualData.size);closeQual();var c=document.getElementById('contact');if(c)c.scrollIntoView({behavior:'smooth'});}
 document.querySelectorAll('.opp-chip').forEach(chip=>{chip.addEventListener('click',()=>chip.classList.toggle('selected'));});
 document.querySelectorAll('input[name="q5_size"]').forEach(radio=>{radio.addEventListener('change',()=>{const customRow=document.getElementById('customSizeRow');if(customRow)customRow.style.display=radio.value==='Custom range'?'flex':'none';});});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});
