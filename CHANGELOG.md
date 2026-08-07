@@ -1,5 +1,18 @@
 # ConstructIQ — Work Log
 
+## 2026-08-07
+
+### Buy Box ("Grow My Pipeline") — Opportunity Size custom-range fix (index.html)
+Fixed a data-loss defect in the qualification modal's Step 5 (Opportunity Size). Selecting **"Custom range"** revealed the Min/Max inputs and captured them into `qualData.sizeMin`/`sizeMax`, but the submitted Formspree message and payload emitted only `qualData.size` = "Custom range" — so the actual dollar figures were **dropped** (surfaced by George Samarjian's intake, which returned `Opportunity Size: Custom range` with no value).
+- **Labels** — the Min/Max fields now have persistent, clearly-labeled captions ("Minimum/Maximum project size ($)", required `*`), not just placeholders. Added `inputmode="numeric"` and guiding examples ("e.g. 5M or 5,000,000").
+- **Required before proceeding** — `nextStep()` now blocks advancing past Step 5 when "Custom range" is selected until both a valid Min and Max are entered (and Max ≥ Min), with a clear alert.
+- **Normalized display** — new `parseMoney()`/`fmtMoney()`/`sizeDisplay()` helpers convert the raw inputs into a normalized label like **`$5M–$35M`** (handles `5M`, `5,000,000`, `$5m`, `500000` → `$500K`, etc.). Used in the Step-8 review summary, the post-submit summary, and the "Schedule a consultation" prefill.
+- **Captured in the submission** — the Formspree POST now includes structured fields `opportunity_size` (normalized), `opportunity_size_min`, and `opportunity_size_max`; the email message shows `Opportunity Size: $5M–$35M (min: …, max: …)`.
+- **Bonus fix (captured-but-dropped, non-conditional):** `linkedin` was collected at Step 1 but omitted from the sent message/payload — now included. (`country` is still collected but not emitted; left as-is — not in the Odoo field map.)
+- **Scope:** only the Opportunity Size custom-range path (+ the LinkedIn line) changed. No redesign of the intake, no other steps touched. The Step 2 single-select and Step 6 single-select multi-select requests remain open product items (not part of this fix).
+- Verified end-to-end via a headless DOM harness driving the real page functions: validation blocks empty ranges; payload emits `$5M–$35M` + raw min/max + linkedin. `index.html` inline scripts syntax-check clean.
+- **Status:** committed on branch `fix/buybox-custom-range` — **not yet pushed/deployed to constructiqpb.com** (awaiting go-ahead).
+
 ## 2026-07-29
 
 ### Founding Member funnel — founding.html + /apply
